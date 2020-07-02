@@ -1,0 +1,1519 @@
+@import "bourbon"
+@import "vars"
+@import "fonts"
+@import "catalog/view/theme/iamtoko/stylesheet/mfp-zoom-in"
+
+
+body
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+	color: #120e10 
+	position: relative
+	transition: transform 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55)
+	font:
+		family: 'Montserrat Alternates', sans-serif
+html
+	overflow-x: hidden
+	
+#content
+	.row
+		margin-right: -50px
+		margin-left: -50px
+
+/*----------header------------*/
+header
+	.dropdown
+		display: inline-block
+		a.dropdown-toggle
+			padding: 5px 0
+			display: block
+			&:hover,
+			&:focus,
+			&:active
+				text-decoration: none
+	.dropdown-menu
+		left: 0
+		border-radius: 0	
+		border: none
+		> li 
+		 > a 
+		 	padding: 5px 20px
+		 	&:hover, &:focus, &:active
+		 		background-color: #fff 
+		 		color: #ff66c4	
+		.btn-link
+			text-align: left
+			line-height: 0
+			padding: 0 0 20px 20px
+			font:
+				family: 'Montserrat Alternates', sans-serif	
+ 			
+
+	.t-header
+		padding: 5px 0 4px
+		text-align: center
+		background: #120e10 
+		font: 
+			family: 'Roboto Condensed', sans-serif
+			size: 12px
+			weight: 700
+		text-transform: uppercase
+		letter-spacing: 0.1px
+		a
+			color: #fff
+			text-decoration: none
+			span 
+				position: absolute
+				top: -9px
+				left: 225px
+				color: #ff66c4
+				font-size: 21px
+			&:hover,
+			&:focus
+				color: #ff66c4
+		.bad div:not(:nth-child(1))
+			a 
+				padding-left: 15px
+			&:after
+				content: " "
+				background: #dbdee0 
+				width: 2px
+				height: 20px
+				float: left
+				margin-right: 10px
+				&:before	
+					content: " "
+					background: #dbdee0 
+					width: 2px
+					height: 20px
+					float: left
+					margin-right: 10px
+					margin-top: -10px
+	.header
+		padding: 7px 10px
+
+.logo
+	transform: rotate(-5deg)
+	margin-left: 70px
+	width: 190px
+	a
+		font:
+			//family: 'Montserrat Alternates', sans-serif
+			//weight: 600
+			//size: 60px
+			family: 'Sacramento', cursive
+			weight: 400
+			size: 50px
+		color: #120e10
+		outline: none
+		text-decoration: none 
+		&:hover,
+		&:focus
+			color: #ff66c4
+	text-align: left
+	margin-top: -25px
+	svg
+		margin-bottom: -55px
+		margin-left: -60px
+		width: 100px
+
+.hed-menu
+	font:
+		family: 'Montserrat Alternates', sans-serif		
+		weight: 600
+		size: 12px
+	text-transform: lowercase	
+	margin-top: 15px
+	margin-bottom: 60px
+	a 
+		color: #120e10
+		text-decoration: none
+		margin-right: 20px
+		&:hover,
+		&:focus
+			color: #ff66c4 
+	span 
+		margin-bottom: 20px	
+		&:hover
+			color: #ff66c4 	
+.btn-link
+	margin-top: 15px
+	padding: 5px 10px
+	margin-right: 20px
+	font
+		family: 'Montserrat Alternates', sans-serif	
+		size: 18px
+	color: #120e10
+	&:hover,
+	&:focus
+		color: #ff66c4
+		text-decoration: none
+	img:nth-child(1)	
+		display: none		
+	span
+		color: #120e10
+		font:
+			family: 'Montserrat Alternates', sans-serif	
+			size: 16px
+			weight: 600
+		text-transform: lowercase
+		&:hover,
+		&:focus
+			color: #ff66c4 
+			text-decoration: none
+	.fa 
+		font-size: 12px
+
+.header-phone
+	text-align: right
+	position: absolute
+	right: 3%
+	top: 8%
+	a 
+		color: #120e10
+		text-decoration: none
+		margin-right: 20px
+		font:
+			family: 'Montserrat Alternates', sans-serif	
+			size: 16px
+			weight: 600
+		&:hover,
+		&:focus
+			color: #ff66c4 
+
+
+.form-control
+	&:focus
+		box-shadow: none
+
+svg
+	&:hover
+		fill: #ff66c4	
+#search
+	.form-control
+		margin-top: 0
+		margin-right: auto
+		margin-left: 0
+		height: 55px
+		width: 100%
+		padding-bottom: 0
+		font:
+			family: 'Montserrat Alternates', sans-serif	
+			size: 13px
+			weight: 400	
+			style: italic
+		text-transform: lowercase
+		border: none
+			radius: 0	
+		box-shadow: none
+		line-height: 26px
+		color: #333
+		background: linear-gradient(currentColor, currentColor) 50% 100% no-repeat
+		background-size: 0 1px
+		transition: background 250ms ease 0s
+		text-decoration: none							
+		&:focus
+			border-bottom: 1px solid #120e10
+		&:hover	
+			background-size: 100% 1px
+
+	.input-group-btn
+		.btn 
+			position: absolute
+			padding: 10px
+			border: none 
+				radius: 0
+			background-color: transparent	
+	.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
+		margin-top: -17px
+		margin-left: 0px	
+div.alert.alert-success.alert-dismissible
+	position: absolute
+	top: 3%
+	left: 50%	
+	width: auto
+	border-radius: 0
+	height: 50px
+	border: 1px solid #120e10 !important
+	color: #120e10
+	background-color: #fff
+	z-index: 100000 
+	a 
+		color: #ff66c4
+		font-weight: 600
+
+/*---Cart---*/	
+#cart
+	margin-left: -10px
+	button 
+		background-color: #120e10
+		color: #fff 
+		border-radius: 0
+		margin-top: -26px
+		padding: 10px 33px 7px 25px	
+		svg
+			fill: #fff 
+			&:hover, &:focus
+				fill: #ff66c4
+	.dropdown-menu
+		padding: 15px
+		width: 460px
+	.btn-danger
+		position: relative
+		top: 20px				
+		border-radius: 10em
+		width: 20px
+		height: 20px
+		line-height: 0
+		text-align: center
+		outline: none
+		padding: 0
+		font-size: 12px
+		background-color: #ff66c4
+		border: none
+/*---------menu---------------------*/
+.stick
+	position: relative
+	top: 0
+	left: 0
+	height: 100%
+	width: 100%
+	z-index: 10001
+/*----------------- button ---------*/
+.text-menu
+	position: absolute 
+	z-index: 10001
+	top: 35px
+	left: 45px
+	color: #120e10 !important
+	font:
+		family: 'Montserrat Alternates', sans-serif	
+		size: 16px
+		weight: 600
+	outline: none	
+.button-menu
+	position: absolute
+	top: 35px
+	left: 30px
+	z-index: 10001
+	background: transparent
+	width: 100px
+	height: 100px
+	overflow: hidden
+	cursor: pointer
+	&:hover
+		cursor: pointer
+.icon-menu
+	width: 3em
+	height: 4em
+	fill: #120e10 
+ 
+/*-------------- the close button ---------*/
+.close
+	position: fixed
+	background: url('../image/icon-close.svg')
+	top: 57px
+
+.close 
+	.icon-menu, .text-menu
+		display: none
+
+/*---------------- menu -----------*/
+
+.menu
+	position: fixed
+	display: block
+	font:
+		family: 'Montserrat Alternates', sans-serif	
+		weight: 400
+		size: 16px
+	top: 0
+	left: 0
+	bottom: 0
+	z-index: 0
+	width: 400px
+	height: 100%
+	overflow-y: auto	
+	overflow-x: hidden	
+	scrollbar-color: #ff66c4 #120e10
+	scrollbar-width: thin
+	padding-left: 0
+	transform: translateX(-150%)
+	transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55)
+	transition-delay: .1s
+	background: #120e10 
+	nav 
+		ul
+			margin: 0
+			padding: 20px 0
+			list-style: none
+			li 
+				margin: 0
+				padding: 0
+				a 
+					color: #fff 
+					text-decoration: none
+					display: block
+					padding: 10px 20px
+					padding-left: 120px
+					transform: translateX(0px)
+					transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55)
+					&:hover, &:focus, &:after
+						background: rgba(255, 102, 196, .7)
+						transform: translateX(20px)
+
+
+/*-- class of show and hide the menu --*/
+body.nav_is_visible
+		transform: translateX(300px)
+body.nav_is_visible .menu 
+ 			transform: translateX(-100%)
+
+/*sub menu*/
+.main-item, .main-close
+	display: block
+	position: fixed
+	right: 23px
+	top: 75px
+	font-size: 12px
+	padding: 0 !important
+	padding-top: 1px !important
+	padding-bottom: 3px !important
+	transform: none !important
+	transition: none !important
+	outline: none !important
+	&:hover, &:focus
+		background-color: transparent !important
+		color: #ff66c4
+
+.main-item-c, .main-close-c
+	display: block
+	position: absolute
+	right: 23px
+	top: 290px
+	font-size: 12px
+	padding: 0 !important
+	padding-top: 1px !important
+	padding-bottom: 3px !important
+	transform: none !important
+	transition: none !important
+	outline: none !important
+	&:hover, &:focus
+		background-color: transparent !important
+		color: #ff66c4
+
+.main-close
+	color: #120e10 !important
+	top: 112px	
+	right: 24px
+
+.main-close-c
+	font-size: 12px
+	top: 327px	
+	right: 24px
+
+.main-item:focus ~ .sub-menu,
+.main-item:active ~ .sub-menu,
+.sub-menu:hover	
+	display: block	
+
+.main-item-c:focus ~ .sub-menu-c,
+.main-item-c:active ~ .sub-menu-c,
+.sub-menu-c:hover	
+	display: block
+
+.sub-menu
+	background: #fff
+	border-right: 1px solid #120e10 
+	width: 398px
+	font:	
+		weight: 600
+		size: 14px	
+	line-height: 0.1
+	display: none	
+	overflow-y: auto	
+	overflow-x: hidden	
+	scrollbar-color: #ff66c4 #120e10
+	scrollbar-width: thin
+	> li 
+		margin-top: -5px !important 
+		> a
+			color: #120e10 !important
+			outline: none 
+			transform: none !important
+			transition: none !important
+			&:hover, &:focus
+				background-color: transparent !important
+				color: #ff66c4 !important
+		> ul 
+			font:
+				weight: bold !important
+				size: 14px
+			> li 
+				margin-bottom: -3px	
+				> a 
+					&:hover, &:focus
+						background-color: transparent !important
+						color: #ff66c4 !important
+	.category-new, .category-sale
+		font-size: 16px
+		text-transform: uppercase
+		padding-bottom: 20px
+
+.sub-menu-c
+	border-top: 1px dotted #fff
+	border-bottom: 1px dotted #fff
+	font:	
+		weight: 400
+		size: 14px
+	line-height: 0.5
+	display: none			
+	overflow-y: auto	
+	overflow-x: hidden	
+	scrollbar-color: #ff66c4 #120e10
+	scrollbar-width: thin
+	> li 
+		> a
+			transform: none !important
+			transition: none !important
+			&:hover, &:focus
+				background-color: transparent !important
+				color: #ff66c4	
+
+.category-main
+	font-weight: 600
+
+.category-child
+	> a 
+		color: #120e10 !important
+		font-weight: 200			
+		transform: none !important
+		transition: none !important
+		outline: none
+		&:hover, &:focus
+			background-color: transparent !important
+			color: #ff66c4
+
+.main-close
+	opacity: 0
+
+.main-close-c
+	opacity: 0
+
+.main-item:focus,
+.main-item:active
+	opacity: 0
+
+.main-item:focus .main-item-c,
+.main-item:active .main-item-c 
+	opacity: 0
+
+.main-item-c:focus,
+.main-item-c:active 
+	display: block 
+	opacity: 0	
+	
+.main-item:focus~.main-close,
+.main-item:active~.main-close,
+.sub-menu:hover~.main-close
+	display: block	
+	opacity: 1
+
+
+.main-item-c:focus~.main-close-c,
+.main-item-c:active~.main-close-c,
+.sub-menu-c:hover~.main-close-c
+	display: block	
+	opacity: 1	
+
+.social-mi
+	margin-left: 120px
+	margin-top: 30px
+	list-style: none
+	div
+		a 
+			outline: none
+	svg 
+		fill: #fff
+		&:hover, &:after 
+			fill: #ff66c4
+
+.sub-menu-c
+	li
+		a 	
+			transform: none !important
+			transition: none !important
+			outline: none
+			&:hover, &:focus
+				background: transparent !important
+
+.icon-instagram
+	margin-bottom: 20px
+
+a.active 
+	color: #ff66c4 !important
+
+/*---------слайдер---------*/
+.swiper-viewport
+	border: none !important
+	box-shadow: none !important
+	border-radius: 0	
+	margin-top: -50px !important
+	margin-bottom: 0
+	width: 100% !important
+	margin-right: 0
+	margin-left: 0
+.swiper-slide img
+	display: block
+	max-width: 100%
+	height: auto
+
+
+
+/*---banner tab---*/
+.bannertab	
+	margin-top: 160px
+	position: relative	
+	.nav-tabs
+		border-bottom: none					
+		> li	
+			margin-bottom: 1em
+			margin-right: 1em
+			text-align: center			
+			&::after, &::before 
+				box-sizing: none
+			> a 
+				background-color: #ff66c4 
+				border-radius: 0 
+				color: #fff
+				border: none
+				display: table-cell
+				transition: background-color .25s ease
+				transform: none
+				border: none
+				font:
+					family: 'Montserrat Alternates', sans-serif
+					size: 1.4em
+				outline: none	
+				&:hover
+					background-color: rgba(255, 102, 196, 0.7)
+	.tab-content
+		.tab-pane
+			> img 
+				height: 100%
+	.nav-tabs > li.active > a
+		background-color: #120e10 
+		color: #fff
+		transition: background-color .25s ease
+		transform: none
+		border: none
+		&:hover
+			background-color: rgba(18, 14, 16, 0.7)
+	.button-tab
+		color: #fff
+		font-weight: 600
+		font-size: 1.5em
+		text-align: center
+		border: 2px solid #fff
+		background-color: rgba(18, 14, 16, .4)
+		text-transform: lowercase
+		transition: background-color .25s ease
+		&:hover, &:focus
+			background-color: rgba(18, 14, 16, .1)	
+			color: #fff
+		animation-duration: 1s
+		animation-delay: 2.5s	
+
+#tab-new
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)	
+	div:not(:nth-child(1)):not(.slideDown):not(.slideLeft):not(.slideRight):not(.button-new):not(.button-bounceIn)	
+		display: none
+		position: relative
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)						
+	img
+		width: 100%	
+		position: relative
+		height: auto
+		margin-bottom: 0
+	a 
+		color: #120e10 
+		text-decoration: none
+		display: block
+		overflow: hidden		
+		white-space: nowrap
+		width: 100%
+		height: auto
+		outline: none
+		font:
+			weight: 600
+			size: 1.4em	
+		text-transform: uppercase
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)	
+	.slideDown
+		position: absolute
+		top: 30%
+		left: 32.5%
+		right: 50%
+		font:
+			family: 'Roboto Condensed', sans-serif
+			size: 98px
+		color: #fff
+		animation-duration: 1s
+	.slideLeft, .slideRight 
+		position: absolute
+		top: 45%									
+		font:
+			family: 'Roboto Condensed', sans-serif
+			size: 2.05em
+		color: #ff66c4
+		text-transform: lowercase		
+	.slideRight	
+		left: 23.4%
+		animation-duration: 2s
+		animation-delay: .5s
+	.slideLeft
+		right: 23.4%
+		animation-duration: 2s
+		animation-delay: .5s
+	.button-new
+		position: absolute
+		top: 66%
+		left: 30%
+		padding: .4em 1em
+			
+#tab-sale	
+	div:not(:nth-child(2)):not(.slideRight):not(.slideLeft):not(.button-sale):not(.bounceIn)
+		display: none	 
+		position: relative
+		width: 100%
+	div	
+		&:nth-child(2)
+			position: relative			
+			width: 100%					
+	a 
+		color: #120e10 
+		text-decoration: none
+		display: block
+		width: 100%
+		outline: none
+		font:
+			weight: 600
+			size: 1.5em	
+		text-transform: lowercase
+		letter-spacing: .1em
+		.slideRight, .slideLeft
+			font:
+				family: 'Roboto Condensed', sans-serif
+				size: 4.5em
+			text-transform: uppercase
+			-webkit-text-stroke: 1px #ff66c4
+			color: transparent		
+			position: absolute
+			width: 100%
+			animation-duration: 2s
+		.top1
+			top: -3%
+		.top2
+			top: 7%	
+		.top3
+			top: 17%
+		.bottom3
+			top: 84%	
+		.bottom2
+			top: 74%
+		.bottom1
+			top: 64%
+		h4
+			position: absolute
+			display: block
+			text-transform: uppercase
+			top: 39%
+			left: 23%	
+			color: #fff	
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1)		
+			font:
+				family: 'Roboto Condensed', sans-serif
+				size: 3.1em
+				weight: 800		
+		.button-sale
+			position: absolute
+			top: 52%		
+			left: 39%
+			padding: 0 40px 4px 40px
+			animation-delay: 1.3s
+		span 
+			color: #ff66c4
+
+#tab-best
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+	div:not(:nth-child(3)):not(.slideDown):not(.bounceIn):not(.button-best):not(.slideUp):not(.flipInY)
+		display: none
+		position: relative
+	img
+		width: 100%
+		margin-right: 0
+		margin-left: auto
+	a 
+		color: #120e10 
+		text-decoration: none
+		outline: none
+		font:
+			weight: 600
+			size: 1.4em	
+		text-transform: lowercase
+		letter-spacing: .1em
+	.slideDown
+		position: absolute
+		top: 20%
+		left: 24%
+		background-color: #fff
+		padding: 0 .2em
+		font:
+			family: 'Roboto Condensed', sans-serif			
+			weight: 800
+			size: 3.3em	
+		text-transform: uppercase	
+		animation-duration: .8s
+		span 
+			color: #ff66c4
+	.buyer
+		position: absolute
+		top: 50%
+		left: 22.5%
+		background-color: #fff
+		padding: 0 .1em
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 600
+			size: 3em	
+		text-transform: uppercase
+		letter-spacing: .04em	
+		animation-duration: 1s
+		animation-delay: .5s	
+	.heart
+		position: absolute
+		top: 33.1%
+		left: 43%
+		font-size: 4em
+		color: #fff
+		background-color: #ff66c4
+		padding: .1em .4em 0 .4em
+		animation-duration: 1.1s
+		animation-delay: 1.5s	
+	.button-best
+		position: absolute
+		top: 78%		
+		left: 33%
+		right: 50%
+		width: 400px
+		padding-bottom: 4px
+
+#tab-colection
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+	position: relative
+	div:not(:nth-child(4)):not(.bounceIn):not(.slideRight):not(.slideLeft)
+		display: none	 
+	img 
+		width: 100%
+	a 
+		color: #fff
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, .3)
+		text-decoration: none
+		outline: none
+		font: 
+			family: 'Roboto Condensed', sans-serif
+			weight: 900
+		text-transform: uppercase
+	.col-top
+		position: absolute
+		top: 10%
+		font-size: 6em	
+	.col-top3
+		left: 50%
+		animation-duration: 1s
+		animation-delay: 1.5s
+	.col-top2
+		left: 40% 
+		animation-duration: 1s
+		animation-delay: 1s		
+	.col-top1
+		left: 35% 
+		animation-duration: 1s
+		animation-delay: .5s		
+	.col-top4
+		left: 55% 
+		animation-duration: 1s
+		animation-delay: 2s	
+	.col-top5
+		position: absolute
+		top: 30%
+		left: 14%
+		font-size: 5em
+		animation-duration: 2s
+		animation-delay: 2s		
+	.col-top6
+		position: absolute
+		top: 42%
+		left: 8.3%
+		font-size: 4.5em	
+		animation-duration: 2s
+		animation-delay: 3s
+		span 
+			color: #ff66c4
+			font-size: 1.06em	
+	.col-top7
+		position: absolute
+		top: 53%
+		left: 28%
+		font-size: 90px	
+		animation-duration: 2s
+		animation-delay: 4s							
+	.button-col
+		position: absolute
+		top: 83%
+		left: 28%
+		padding: 0 .5em .25em .5em
+		text-transform: lowercase
+		font-family: 'Montserrat Alternates', sans-serif
+		font-size: 2.4em
+		animation-duration: .5s
+		animation-delay: 6s
+
+#tab-bigsize
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+	div:not(:nth-child(5)):not(.bounceIn):not(.slideRight):not(.slideLeft)
+		display: none	 
+		position: relative
+		width: 100%	
+	a 
+		color: #fff
+		text-decoration: none
+		display: block
+		width: 100%
+		outline: none
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 600
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3)
+	.slideRight, .slideLeft
+		position: absolute
+		top: 30%
+		font-size: 5.1em
+	.slideRight
+		left: 17%
+		animation-duration: 2s
+	.slideLeft
+		right: 17%
+		color: #ff66c4
+		animation-duration: 2s	
+	.bounceIn
+		position: absolute
+		top: 43%
+		left: 37.5%
+		font-size: 7em
+		animation-duration: 1s
+		animation-delay: 2s
+	.button-col
+		top: 70%
+		left: 28%
+		padding: 0 .8em .2em 0.8em
+		font-size: 2.2em
+		font-family: 'Montserrat Alternates', sans-serif	
+		animation-duration: .5s
+		animation-delay: 3s
+
+#tab-blog	
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+	position: relative	
+	div:not(:nth-child(6)):not(.bounceIn):not(.slideRight):not(.slideLeft):not(.flipInY):not(.button)
+		display: none
+	.img-news
+		position: absolute
+		top: 0
+		animation-duration: 2s
+	.img-article
+		position: absolute
+		top: 33.3%
+		animation-duration: 2s
+	.img-advice
+		position: absolute
+		top: 66.7%
+		animation-duration: 2s	
+	a 
+		color: #120e10 
+		text-decoration: none
+		display: block
+		width: 
+		outline: none		
+	.flipInY
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 800
+			size: 1.8em
+		position: absolute
+	.news
+		top: 10%
+		left: 5%
+		animation-duration: 1.2s
+		animation-delay: 2s
+	.text-news
+		position: absolute
+		width: 15%
+		top: 15%
+		left: 5%
+		animation-duration: 1s
+		animation-delay: 3s
+	.button-news
+		position: absolute
+		top: 23%
+		left: 10%
+		font-size: 1.3em
+		font-weight: 600
+		animation-duration: 1s
+		animation-delay: 4s
+		a 
+			&:hover
+				color: #ff66c4 
+	.article
+		top: 40%
+		left: 5%
+		animation-duration: 1.2s
+		animation-delay: 5s
+	.text-article
+		position: absolute
+		width: 15%
+		top: 45%
+		left: 5%	
+		animation-duration: 1s
+		animation-delay: 6s
+	.button-article
+		position: absolute
+		top: 53%
+		left: 10%
+		font-size: 1.3em
+		font-weight: 600
+		animation-duration: 1s
+		animation-delay: 7s
+		a 
+			&:hover
+				color: #ff66c4	
+	.advice
+		top: 70%
+		left: 5%
+		animation-duration: 1.2s
+		animation-delay: 8s
+	.text-advice
+		position: absolute
+		width: 15%
+		top: 75%
+		left: 5%
+		animation-duration: 1s
+		animation-delay: 9s	
+	.button-advice
+		position: absolute
+		top: 83%
+		left: 10%
+		font-size: 1.3em
+		font-weight: 600
+		animation-duration: 1s
+		animation-delay: 10s
+		a 
+			&:hover
+				color: #ff66c4
+	.button-blog
+		position: absolute
+		top: 81%
+		left: 38%
+		color: #120e10
+		background-color: rgba(255, 255, 255, .7)
+		border: 2px solid #120e10
+		padding: .01em 1.5em .02em 1.5em
+		font-size: 1.4em
+		font-family: 'Montserrat Alternates', sans-serif	
+		animation-duration: .5s
+		animation-delay: 11s
+		&:hover
+			background-color: rgba(255, 255, 255, .5)
+/*---------delivery---------*/
+.deliver
+	width: 65em
+	height: 12em	
+	position: relative
+	top: 2.8em
+	h2
+		visibility: hidden		
+	.col-md-4
+		padding-bottom: 1.4em
+		&:nth-child(1)
+			svg 
+				margin-top: -.9em
+				margin-left: -2.2em
+	a 
+		color: #120e10
+		font:
+			weight: 600
+			size: 19px
+		text-decoration: none	
+		outline: none
+		&:hover, &:focus
+			color: #ff66c4			
+	svg
+		margin: 0 20px 0 10px
+		padding: 0
+		float: left
+		width: 6em
+	.icon-hom-text
+		word-wrap: break-word
+		margin-top: 5%
+	.dropdown
+		display: inline
+		a.dropdown-toggle
+			padding: .1em 0
+			display: block
+			&:hover,
+			&:focus,
+			&:active
+				text-decoration: none
+				outline: none
+	.dropdown-menu
+		width: 28em
+		top: 600%
+		border-radius: 0	
+		border: none
+		ul 
+			list-style-type: none			
+			> li 
+			 	padding: 20px 20px 10px 0	
+		
+/*---------все продукты---------*/
+
+.product-layout
+	position: relative	
+	padding: 0
+	&:hover .option 
+		display: block
+	&:hover .toclick
+		display: block	
+	&:hover button:nth-child(1)
+		display: block	
+	&:hover .hover-img
+		background-color: rgba(0, 0, 0, .3)				
+	> .product-thumb
+		margin-right: 15px
+		padding: 0
+		text-align: center
+		margin-bottom: 20px				
+		.image
+			padding: 0 !important
+			position: relative					
+		.hover-img
+			width: 100%
+			height: 120px
+			position: absolute
+			bottom: 1.3%		
+	.options
+		position: absolute
+		top: 63%
+		left: 5%
+		right: 5%	
+		z-index: 1000																	
+	.option
+		display: none
+		.checkboxing
+			display: inline-block							
+			color: rgba(255, 255, 255, .7)
+			border: 2px solid rgba(255, 255, 255, .7)
+			padding: 5px 9px 0 9px
+			margin-right: 5px
+			font:
+				family: 'Tavolga', sans-serif
+				size: 1.1em
+				weight: normal
+		input[type=checkbox] 
+			position: absolute
+			z-index: -1
+			opacity: 0		
+	.caption
+		position: relative						
+		p 
+			display: none
+			&.price
+				display: block
+				text-align: left
+				margin-top: -10px
+				font:
+					weight: 600
+					size: 16px
+					family: 'Roboto Condensed', sans-serif
+			.price-tax
+				display: none	
+			.price-old
+				font-size: 14px
+				font-weight: 400
+				text-decoration: line-through 					
+		.rating
+			display: none	
+	h4
+		text-align: left
+		a 
+			color: #000
+			display: block
+			height: auto
+			width: 89%
+			overflow: hidden
+			text-decoration: none
+			outline: none
+			font:
+				weight: 500
+				size: 12px																																	
+	.button-group	
+		margin-bottom: 40px
+		> *
+			&:nth-child(3)
+				display: none
+			&:nth-child(1)
+				position: absolute
+				z-index: 1000
+				top: 73%
+				margin-left: 23% 
+			&:nth-child(2)
+				position: absolute
+				right: 20px
+				top: 86%
+	button 
+		&:nth-child(1)
+			display: none	
+			text-align: center
+			border: none
+			background-color: #120e10 
+			color: #fff
+			padding: 8px 45px
+			font:
+				weight: 400
+				size: 16px			
+			transition: background-color .25s ease
+			outline: none
+			&:hover, &:active, &:focus
+				background-color: lighten(#120e10, 10%) 
+			.fa			
+				display: none
+		&:nth-child(2)
+			border: none
+			background-color: transparent
+			outline: none
+			&:hover, &:active
+				color: #ff66c4									
+.toclick
+	color: #000
+	text-decoration: none
+	display: none
+	position: absolute
+	top: 35%
+	text-align: center
+	background-color: rgba(255, 255, 255, .5)
+	padding: 5px 20px
+	margin-left: 12%
+	margin-right: auto
+	&:focus, &:hover
+		text-decoration: none
+		color: #000
+		background-color: rgba(255, 255, 255, .2)	
+.product-layout
+	.modal-content
+		button:nth-child(1)
+			background-color: transparent
+			display: block
+			color: #000
+			font-size: 20px
+			left: 67%
+			top: 1%
+		.modal-body
+			top: 20%
+		textarea 
+			margin-top: 20px
+
+/*---------витрина на главной---------*/	
+.latesthom
+	display: block
+	top: 120px
+	h3
+		display: block
+		text-align: center
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 800
+			size: 40px
+	.latesthom-button 
+		display: block
+		text-align: center
+		margin-bottom: 30px	
+		text-decoration: none
+		outline: none
+		color: #120e10 
+		font-size: 20px
+		text-decoration: underline
+		&:hover, &:focus
+			color: #ff66c4				
+	.product-layout
+		&:hover .toclick
+			display: none !important
+		> .product-thumb 	
+			.hover-img
+				bottom: 0			
+	.button-group	
+		margin-bottom: 40px
+		> *
+			&:nth-child(1)
+				top: 82%
+				margin-left: 28% 		
+			&:nth-child(2)
+				top: 94%
+	.options
+		top: 72%
+	.toclick
+		display: none				
+/*---------Скролл вверх---------*/		
+.scrollup
+	position: fixed
+	color: #fff
+	background-color: rgba(255, 102, 196, 1)
+	padding: 4px 10px
+	bottom: 0
+	right: 20px
+	font-size: 20px
+	text-align: center
+	transition: background-color .25s
+	transition: background-color .25s, opacity .5s, visibility .5s
+	cursor: pointer
+	z-index: 10000
+	&:hover
+		background-color: rgba(255, 102, 196, .8)
+
+/*---------Подписка---------*/		
+.pav-newsletter
+	display: block	
+	margin-top: 120px
+	text-align: center
+	.inner	
+		border-top: 1px solid #dbdee0
+		border-bottom: 1px solid #dbdee0
+	.h3-newsletter
+		display: block !important
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 600
+		line-height: 3 !important
+	.text-newsletter
+		font-size: 14px
+		color: #94929e 
+		letter-spacing: 1.5px
+		line-height: 1.3
+		position: relative
+		
+	.form-control
+		margin-top: 0
+		height: 55px
+		width: 300px
+		margin-left: 42%
+		margin-bottom: 40px
+		padding-bottom: -3em
+		font:
+			family: 'Montserrat Alternates', sans-serif	
+			size: 13px
+			weight: 400	
+			style: italic
+		text-transform: lowercase
+		border: none
+			radius: 0	
+		box-shadow: none
+		border-bottom: 2px solid #120e10
+		line-height: 26px
+		color: #333
+		background: linear-gradient(currentColor, currentColor) 50% 100% no-repeat
+		background-size: 0 1px
+		transition: background 250ms ease 0s
+		text-decoration: none							
+		&:focus
+			border-bottom: 1px solid #120e10
+		&:hover	
+			background-size: 100% 1px
+	.btn 
+		display: none
+/*---------Coolback---------*/
+.modal-content
+	background-color: #fff
+	max-width: 360px
+	margin: auto
+	padding: 15px 40px
+	margin-top: 50%	
+	border-radius: 0
+	.alert	
+		border-radius: 0
+	img 
+		width: 100%	
+	.close
+		left: 75%
+		top: 5%
+	.success
+		position: absolute
+		z-index: 1
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: #fff
+		text-align: center
+		text-transform: uppercase
+		padding: 55% 10% 10%
+		font:
+			family: 'Roboto Condensed', sans-serif
+			size: 18px
+		display: none	
+	h3 
+		margin:
+			top: 15px
+			bottom: 15px
+		font:
+			weight: 600
+			family: 'Roboto Condensed', sans-serif	
+		letter-spacing: .3px	
+		text-transform: uppercase
+		text-align: center
+	p 
+		text-align: center
+		margin-bottom: 15px
+		span 
+			font-weight: 600
+	.btn 
+		margin-left: 30%
+		left: 0
+		right: 0
+		bottom: 0
+		border-radius: 0
+		transition: background-color, border-color .25s ease
+		background-color: rgba(255, 102, 196, 1)
+		border-color: rgba(255, 102, 196, 1)
+		&:hover, &:focus
+			background-color: rgba(255, 102, 196, .8)
+			border-color: rgba(255, 102, 196, .8)
+	
+/*---------Form---------*/	
+.form-control
+	border-radius: 0
+
+/*---------Footer---------*/	
+.main-footer
+	margin-top: 50px
+	.section1-footer
+		background-color: #120e10 
+		height:
+		.social-footer
+			list-style: none
+			display: inline-block
+			margin-left: 30px
+			li 
+				float: left
+				margin: 5px 40px -35px 0
+				a 
+					outline: none
+					text-decoration: none
+				svg 
+					fill: #fff
+					width: 20px
+					&:hover, &:focus
+						fill: #ff66c4
+	.registration-footer
+		color: #fff
+		display: inline-block
+		margin-left: 28%
+		margin-top: 1%
+		letter-spacing: 1.8px
+		font:
+			family: 'Roboto Condensed', sans-serif
+			size: 16px
+		p 
+			float: left	
+		a 
+			text-decoration: none
+			outline: none
+			color: rgba(255, 102, 196, 1)
+			transition: color .25s
+			margin-left: 20px
+			&:hover, &:focus 
+				color: rgba(255, 102, 196, .6)
+	.section2-footer
+		background-color: #dbdee0
+		position: relative
+		.menu-footer
+			list-style: none
+			display: inline-block
+			margin: 20px 0 -5px 30px
+			li 
+				float: left
+				margin-right: 100px
+				a 
+					text-decoration: none
+					outline: none
+					color: #120e10 
+					font:
+						weight: 600
+						size: 16px
+					&:hover, &:focus
+						color: #ff66c4	
+	.information-footer
+		margin-left: 55px
+		h5
+			font:
+				family: 'Roboto Condensed', sans-serif 
+				weight: 800
+				size: 14px
+			letter-spacing: 1px	
+			text-transform: uppercase
+		a 
+			text-decoration: none
+			outline: none
+			color: #120e10 
+			line-height: 1.7
+			&:hover, &:focus
+				color: #ff66c4	
+		.footer-phone
+			font-weight: 600
+	.viber-footer, .telegram-footer
+		margin-top: 15px
+		margin-right: 30px
+		float: left
+
+	.logo-footer
+		transform: rotate(-5deg)
+		margin-left: 70px
+		width: 190px
+		text-align: center		
+		a 
+			font:
+				family: 'Sacramento', cursive
+				weight: 400
+				size: 120px
+			color: #94929e 
+			outline: none
+			text-decoration: none 
+			&:hover,
+			&:focus
+				color: #ff66c4
+		text-align: left
+		margin-top: 50px
+		padding: 0
+		svg
+			position: absolute		
+			top: 80% 
+			width: 100px 
+	.reserv-footer
+		position: absolute
+		top: 120%
+		right: 20px
+
+						
+//
+
+
+@import "media"

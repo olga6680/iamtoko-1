@@ -1,0 +1,68 @@
+<div class="container bannertab hidden-sm hidden-xs">
+   <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab-new" data-toggle="tab">{{ text_new_bannertab }}</a></li>
+    <li><a href="#tab-sale" data-toggle="tab">{{ text_sale_bannertab }}</a></li>
+    <li><a href="#tab-best" data-toggle="tab">{{ text_best_bannertab }}</a></li>
+    <li><a href="#tab-colection" data-toggle="tab">{{ text_colection_bannertab }}</a></li>
+    <li><a href="#tab-bigsize" data-toggle="tab">{{ text_bigsize_bannertab }}</a></li>
+    <li><a href="#tab-blog" data-toggle="tab">{{ text_blog_bannertab }}</a></li>
+  </ul> 
+  <div class="tab-content">
+    <!--Новинки-->
+    <div class="tab-pane active" id="tab-new">
+      {% for banner in banners %}                            
+        <div>
+          <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" width="100%" height="100%" />
+          {% if banner.link %}<a href="{{ banner.link }}" alt="{{ banner.title }}">{{ banner.description }}</a>{% endif %} 
+        </div>   
+      {% endfor %}
+    </div>
+    <!--sale-->     
+    <div class="tab-pane" id="tab-sale">
+      {% for banner in banners %}                            
+        <div>{% if banner.link %}
+          <a href="{{ banner.link }}" alt="{{ banner.title }}">
+            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" width="100%" height="100%" />
+            {{ banner.description }}
+          </a>{% endif %} 
+        </div>   
+      {% endfor %}
+    </div>     
+<!--best-->
+    <div class="tab-pane" id="tab-best">
+      {% for banner in banners %}                            
+        <div>
+          <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" width="100%" height="100%" />
+          {% if banner.link %}<a href="{{ banner.link }}" alt="{{ banner.title }}">{{ banner.description }}</a>{% endif %} 
+        </div>   
+      {% endfor %}
+    </div>    
+<!--colection-->
+    <div class="tab-pane" id="tab-colection">
+      {% for banner in banners %}                            
+        <div>
+          <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" width="100%" height="100%" />
+          {% if banner.link %}<a href="{{ banner.link }}" alt="{{ banner.title }}">{{ banner.description }}</a>{% endif %} 
+        </div>   
+      {% endfor %}
+    </div>        
+<!--bigsize-->
+    <div class="tab-pane" id="tab-bigsize">
+      {% for banner in banners %}                            
+        <div>
+          <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+          {% if banner.link %}<a href="{{ banner.link }}" alt="{{ banner.title }}">{{ banner.description }}</a>{% endif %} 
+        </div>   
+      {% endfor %}
+    </div>      
+<!--blog-->
+    <div class="tab-pane" id="tab-blog">
+      {% for banner in banners %}                            
+        <div>
+          <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+          {% if banner.link %}<a href="{{ banner.link }}" alt="{{ banner.title }}">{{ banner.description }}</a>{% endif %} 
+        </div>   
+      {% endfor %}
+    </div>    
+  </div>     
+</div>

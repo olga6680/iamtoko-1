@@ -1,0 +1,39 @@
+чёрный #120e10 
+розовый #ff66c4 rgba(255, 102, 196)
+т.серый #94929e 
+серый #dbdee0
+для линий розовый #be8fa8 
+ля иконок меню розовый #f7d0e5
+------------------------------
+
+family: 'Montserrat Alternates', sans-serif	
+family: 'Roboto Condensed', sans-serif
+family: 'Sacramento', cursive
+font-family: 'Tavolga';  @import "http://fonts.fontstorage.com/import/tavolgafree.css";
+font-family: 'Bebas Neue'; @import "http://fonts.fontstorage.com/import/bebasneue.css";
+
+    font-family: 'Hitch Hike'
+    src: local('Hitch Hike'), local('HitchHike'), url('Hitchhike.woff2') format('woff2'), url('Hitchhike.woff') format('woff'), url('Hitchhike.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+
+--------------------
+статьи фото 1080х690
+продукт фото 1200х1800
+баннер с табом 1920х1200
+---------------------
+
+Снять для опции размер обязательно
+
+в бд: oc_product_option set required = '0' 
+--------------------------
+
+
+8E0qaaFvSIChlc9J
+-----------------
+
+8jSYH5DDUnWKydT git
+59262555+olga6680@users.noreply.github.com
+------------------
+
+Tel7418574 tokostyle19@gmail.com

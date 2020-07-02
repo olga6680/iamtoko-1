@@ -1,0 +1,311 @@
+  <!-- button --->
+  <div class="button-menu">
+    <svg class="icon icon-menu" viewBox="0 0 30 30" width="30" height="30">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-menuplus"></use>
+    </svg>    
+    <div class="text-menu hidden-xs hidden-sm">{{ text_catalog_menu }}</div>
+  </div>
+  <!-- navbar menu -->
+  <div class="menu">
+    <nav>
+      <ul data-hover="hover-on-menu">
+        <li>
+          <a href='#' data-class='home_is_visible' data-hover="hover-on-link">{{ text_home }}</a>
+        </li>      
+        <li>
+          <a href="{{ all_product }}" data-hover="hover-on-link">{{ text_all_clothes }}</a>
+          <a class="main-item" href="javascript:void(0);" tabindex="1" id="main-item">▼</a>
+          <a class="main-close" href="javascript:void(0);" tabindex="1" id="main-close">▲</a>
+          {% if categories %}
+          <ul class="sub-menu">
+            <li class="category-new"><a href='{{ new }}' data-hover="hover-on-link">{{ text_new }}</a></li>
+            <li class="category-sale"><a href='{{ sale }}' data-hover="hover-on-link">{{ text_sale }}</a></li>
+            {% for category in categories %}
+            {% if category.children %}
+            <li class="category-main">
+              <a href="{{ category.href }}" class="see-all">{{ category.name }}</a>
+              {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+              <ul class="scroll-category">
+                {% for child in children %}
+                <li class="category-child"><a href="{{ child.href }}">{{ child.name }}</a></li>
+                {% endfor %}
+              </ul>
+              {% endfor %}
+            </li>
+            {% else %}
+            <li class="category-main"><a href="{{ category.href }}">{{ category.name }}</a></li>
+           {% endif %}
+           {% endfor %} 
+          </ul>
+          {% endif %}
+        </li>
+        <li>
+          <a href='{{ about_us_toko }}'  data-hover="hover-on-link">{{ text_about_us_toko }}</a>
+        </li>
+        <li>
+          <a href='{{ delivery_toko }}' data-hover="hover-on-link">{{ text_delivery_toko }}</a>
+        </li>      
+        <li>
+          <a href='otzyvy-o-tovarax' data-hover="hover-on-link">{{ text_reviews_toko }}</a>
+        </li>      
+        <li>
+          <a href='{{ blog_toko }}'  data-hover="hover-on-link">{{ text_blog_toko }}</a>
+        </li>
+        <li>
+          <a href='{{ contact }}'  data-hover="hover-on-link" target="_blank">{{ text_contact_toko }}</a>
+          <a class="main-item-c" href="javascript:void(0);" tabindex="1" id="item-c">▼</a>
+          <a class="main-close-c" href="javascript:void(0);" tabindex="1" >▲</a>
+          <ul class="sub-menu-c contact-mi">
+            <li><a href="tel:{{ telephone_href }}" title="Позвонить" data-hover="hover-on-link" rel="nofollow" >{{ telephone }}</a></li>
+            <li><a href="tel:{{ telephone_href2 }}" title="Позвонить" data-hover="hover-on-link" rel="nofollow" >{{ telephone2 }}</a></li>
+            <li><a href="mailto:{{ email }}" title="email" data-hover="hover-on-link" rel="nofollow" target="_blank">{{ email }}</a></li>         
+            <li class="social-mi">
+              <div>
+                <a href="viber://chat?number={{ viber }}" data-hover="hover-on-link" title="viber" rel="nofollow" target="_blank">
+                    <svg class="icon icon-viber" viewBox="0 0 30 30" width="30" height="30">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-viber"></use>
+                    </svg>
+                </a> 
+              </div>
+              <div>
+                <a href="tg://resolve?domain={{ telegram }}" data-hover="hover-on-link" title="viber" rel="nofollow" target="_blank">
+                  <svg class="icon icon-telegram" viewBox="0 0 30 30" width="30" height="30">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-telegram"></use>
+                  </svg>
+                </a>
+              </div>
+            </li>
+          </ul>        
+        </li>
+      </ul>
+      <div class="social-mi">
+        <div>
+          <a href="{{ instagram }}" data-hover="hover-on-link" rel="nofollow" target="_blank">
+              <svg class="icon icon-instagram" viewBox="0 0 30 30" width="30" height="30">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-instagram"></use>
+              </svg>
+          </a> 
+        </div>
+        <div>
+          <a href="{{ facebook }}">
+            <svg class="icon icon-faseboock" viewBox="0 0 30 30" width="30" height="30" data-hover="hover-on-link" rel="nofollow" target="_blank">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-faseboock"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+<script type="text/javascript"><!--
+$(function(){
+  /*--------- show and hide the menu  ---*/
+  $('.button-menu').on("click", function(){
+    if($('body').hasClass('nav_is_visible') == true){
+     $('body').removeClass('nav_is_visible');
+     $('#latesthom').removeClass('nav_is_visible');
+     $('.button-menu').removeClass('close');
+        }
+    else{
+     $('body').addClass('nav_is_visible');
+     $('#latesthom').addClass('nav_is_visible');
+     $('.button-menu').addClass('close');
+       }
+   });  
+});
+/*--------- скрытие птички при открытии суб меню  ---*/ 
+var bg = document.getElementById('item-c');
+document.getElementById('main-item').addEventListener("mousedown", function(){bg.style.opacity = "0";this.addEventListener("mousedown", function(){bg.style.opacity = "0";});
+});
+
+var bg = document.getElementById('item-c');
+document.getElementById('main-close').addEventListener("mousedown", function(){bg.style.opacity = "1";this.addEventListener("mousedown", function(){bg.style.opacity = "1";});
+});
+
+/*--------- активный пункт меню  ---*/ 
+
+jQuery(document).ready(function($) {
+var url=document.location.href;
+$.each($(".menu a"),function(){
+if(this.href==url){$(this).addClass('active');};
+});
+})(jQuery);
+
+/*------------fix menu------------*/
+
+
+
+--></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+{% if categories %}
+<div class="container-fluid">
+  <nav id="menu" class="navbar menu top-menu">    
+    <div class="navbar-header"><span id="category" class="visible-xs">{{ text_category }}</span>
+      <button type="button" class="btn btn-navbar navbar-toggle icon-menu"><i class="fa fa-bars"></i></button>
+    </div>
+    <div class="menu-mi">
+        <Иконка закрытия меню>
+        <div class="icon-close"><svg class="icon" viewBox="0 0 25 25" width="25" height="25">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-close"></use>
+            </svg> 
+        </div>
+        <!-Menu->
+        <ul class="menu-side">
+          <li>
+            <a href="">{{ text_all_clothes }}</a>
+            <svg class="icon-down" viewBox="0 0 15 15" width="15" height="15">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-down"></use>
+            </svg>
+            <ul class="sub-menu">
+              {% for category in categories %}
+              {% if category.children %}
+              <li class="category-main">
+                <a href="{{ category.href }}" class="see-all">{{ category.name }}</a>
+                {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                <ul class="scroll-category">
+                  {% for child in children %}
+                  <li class="category-child"><a href="{{ child.href }}">{{ child.name }}</a></li>
+                  {% endfor %}
+                </ul>
+                {% endfor %}
+              </li>
+              {% else %}
+              <li class="category-main"><a href="{{ category.href }}">{{ category.name }}</a></li>
+             {% endif %}
+             {% endfor %} 
+            </ul>
+          </li>
+          <li>
+            <a href="{{ delivery_toko }}">{{ text_contact }}</a>
+            <svg class="icon-down" viewBox="0 0 15 15" width="15" height="15">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-down"></use>
+            </svg>
+            <ul class="sub-menu">
+              <li class="category-main"><a href="">123456</a></li>
+              <li class="category-main"><a href="">34850</a></li>
+              <li class="category-main"><a href="">ksfhkh@gmail.com</a></li>
+              <li class="category-main"><a href="">social</a></li>
+            </ul>
+          </li>
+          <li><a href="{{ delivery_toko }}">{{ text_delivery_toko }}</a></li>
+          <li><a href="{{ reviews_toko }}">{{ text_reviews_toko }}</a></li>
+          <li><a href="{{ about_us_toko }}">{{ text_about_us_toko }}</a></li>
+          <li><a href="{{ blog_toko }}">{{ text_blog_toko }}</a></li>
+        </ul>
+        <div class="social-mi">
+          <div>
+            <svg class="icon icon-logo icon-down" viewBox="0 0 30 30" width="30" height="30">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-instagram"></use>
+            </svg>
+          </div>          
+          <div>
+            <svg class="icon icon-logo icon-down" viewBox="0 0 30 30" width="30" height="30">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-faseboock"></use>
+            </svg>
+          </div>
+        </div>
+    </div>
+    <!-Иконка меню->
+    <div class="menu-side hidden-xs">
+      <svg class="icon-menu" viewBox="0 0 35 35" width="35" height="35">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-menu"></use>
+      </svg>                          
+      <span>{{ text_catalog_menu }}</span>
+    </div>
+  </nav>
+</div>
+{% endif %} -->
+
+
+<!--<script type="text/javascript">
+/* Открытие меню */
+
+var main = function() { //главная функция
+
+    $('.icon-menu').click(function() { /* выбираем класс icon-menu и
+               добавляем метод click с функцией, вызываемой при клике */
+
+        $('.menu-mi').animate({ //выбираем класс menu и метод animate
+
+            left: '0px' /* теперь при клике по иконке, меню, скрытое за
+               левой границей на 285px, изменит свое положение на 0px и станет видимым */
+
+        }, 200); //скорость движения меню в мс
+        
+        $('body').animate({ //выбираем тег body и метод animate
+
+            left: '285px' /* чтобы всё содержимое также сдвигалось вправо
+               при открытии меню, установим ему положение 285px */
+
+        }, 200); //скорость движения меню в мс
+    });
+
+
+/* Закрытие меню */
+
+    $('.icon-close').click(function() { //выбираем класс icon-close и метод click
+
+        $('.menu-mi').animate({ //выбираем класс menu и метод animate
+
+            left: '-285px' /* при клике на крестик меню вернется назад в свое
+               положение и скроется */
+
+        }, 200); //скорость движения меню в мс
+        
+    $('body').animate({ //выбираем тег body и метод animate
+
+            left: '0px' //а содержимое страницы снова вернется в положение 0px
+
+        }, 200); //скорость движения меню в мс
+    });
+};
+
+$(document).ready(main); /* как только страница полностью загрузится, будет
+               вызвана функция main, отвечающая за работу меню */-->
+
+  
+<!--</script>
+        {% for category in categories %}
+        {% if category.children %}
+        <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner"> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+              <ul class="list-unstyled">
+                {% for child in children %}
+                <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+                {% endfor %}
+              </ul>
+              {% endfor %}</div>
+            <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a> </div>
+        </li>
+        {% else %}
+        <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+        {% endif %}
+        {% endfor %}-->

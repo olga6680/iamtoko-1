@@ -1,0 +1,419 @@
+<div class="tab-pane" id="tab-p-review">
+  <div class="row">
+    <div class="col-md-{{ p_review['form']['field_rating'] ? '4' : '6' }}">
+      <div class="form-group input-group input-group-sm">
+	    <label class="input-group-addon" for="input-sort">{{ p_review['text_sort'] }}</label>
+	    <select id="input-sort" class="form-control">
+		  {% for sorts in p_review['filter']['sorts'] %}
+          <option value="{{ sorts['href'] }}">{{ sorts['text'] }}</option>
+          {% endfor %}
+	    </select>
+      </div>
+    </div>
+    {% if p_review['form']['field_rating'] %}
+    <div class="col-md-4">
+      <div class="form-group input-group input-group-sm">
+	    <label class="input-group-addon" for="input-filter-rating">{{ p_review['text_filter_rating'] }}</label>
+	    <select id="input-filter-rating" class="form-control">
+		  {% for ratings in p_review['filter']['ratings'] %}
+	      <option value="{{ ratings['href'] }}">{{ ratings['text'] }}</option>
+		  {% endfor %}
+	    </select>
+      </div>
+    </div>
+    {% endif %}
+    <div class="col-md-{{ p_review['form']['field_rating'] ? '4' : '6' }}">
+      <div class="form-group input-group input-group-sm">
+        <label class="input-group-addon" for="input-limit">{{ p_review['text_limit'] }}</label>
+        <select id="input-limit" class="form-control">
+		  {% for limits in p_review['filter']['limits'] %}
+          <option value="{{ limits['href'] }}">{{ limits['text'] }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div id="p-review">
+    {% if p_review['p_reviews']['p_reviews'] %}     
+	{% for review in p_review['p_reviews']['p_reviews'] %}
+	<table class="table table-striped table-bordered">
+	  <tr>
+		{% if review['avatar'] %}
+		<td class="text-center column-avatar">
+		  <p><img src="{{ review['avatar'] }}" alt="{{ review['name'] }}" class="img-responsive" /></p>
+		</td>
+		{% endif %}
+		<td>
+		  {% if review['title'] %}
+		  <h2>{{ review['title'] }}</h2>
+		  {% endif %}
+		  <p>
+			{% if review['rating'] %}
+			<span class="rating">
+			  {% for i in 1..5 %}
+			  {% if review['rating'] < i %}
+			  <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+			  {% else %}
+			  <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+			  {% endif %}
+			  {% endfor %}
+			</span>
+			{% endif %}
+			{% if review['name'] %}
+			<i>{{ review['name'] }}</i>
+			{% endif %}
+			{% if review['city'] %}
+			<i>{{ review['city'] }}</i>
+			{% endif %}
+			{% if review['date_added'] %}
+			<i>{{ review['date_added'] }}</i>
+			{% endif %}
+		  </p>
+		  {% if review['text'] %}
+		  <p><strong>{{ p_review['entry_text'] }}</strong><br/>{{ review['text'] }}</p>
+		  {% endif %}
+		  {% if review['good'] %}
+		  <p><strong>{{ p_review['entry_good'] }}</strong><br/>{{ review['good'] }}</p>
+		  {% endif %}
+		  {% if review['bad'] %}
+		  <p><strong>{{ p_review['entry_bad'] }}</strong><br/>{{ review['bad'] }}</p>
+		  {% endif %}
+		  {% if review['image'] %}
+		  <p><strong>{{ p_review['entry_image'] }}</strong></p>
+		  <p class="p-thumbnail p-thumbnail{{ review['p_review_id'] }}">{% for value in review['image'] %}<a data-thumbnail="{{ review['p_review_id'] }}" href="{{ value['thumb'] }}"><img src="{{ value['thumbnail'] }}" class="img-thumbnail"></a>{% endfor %}</p>
+		  {% endif %}
+		  {% if review['comment'] %}
+		  <blockquote><strong>{{ p_review['entry_comment'] }}</strong><br/>{{ review['comment'] }}</blockquote>
+		  {% endif %}
+		  {% if review['readmore'] %}
+		  <p class="text-left"><a class="btn btn-primary btn-sm" href="{{ review['href'] }}">{{ p_review['button_readmore'] }}</a>
+		  {% endif %}
+		</td>
+	  </tr>
+	</table>	
+	{% endfor %}
+	<div class="text-right">{{ p_review['p_reviews']['pagination'] }}</div>
+	{% if p_review['form']['field_image'] %}
+	<script type="text/javascript"><!--
+		$('.p-thumbnail a').on('click', function() {
+			$('.p-thumbnail' + $(this).data('thumbnail')).magnificPopup({
+				type:'image',
+				delegate: 'a',
+				gallery: {
+					enabled:true
+				}
+			});
+		});
+	--></script>
+	{% endif %}
+	{% else %}
+	<p>{{ p_review['text_no_p_review'] }}</p>
+	{% endif %}
+  </div>
+  <div id="p-review-form">
+    {% if p_review['form']['form'] %}
+    <h2>{{ p_review['text_write'] }}</h2>
+    {% else %}
+    <div class="buttons clearfix">
+      <div class="pull-right">
+        <button type="button" id="button-form-toggle" class="btn btn-primary">{{ p_review['text_write'] }} <i class="fa fa-chevron-down"></i></button>
+      </div>
+    </div>
+    {% endif %}
+    <form {% if not p_review['form']['form'] %}style="display: none;" {% endif %}class="form-horizontal" enctype="multipart/form-data" method="post">
+      {% if p_review['form']['guest'] %}
+      {% if p_review['form']['field_title'] %}
+      <div class="form-group{% if p_review['form']['field_title'] == 2 %} required{% endif %}">
+        <div class="col-sm-12">
+		  <label class="control-label" for="input-title">{{ p_review['entry_title'] }}</label>
+		  <input type="text" name="title" value="" id="input-title" class="form-control" />
+		</div>
+	  </div>
+      {% endif %}
+	  {% if p_review['form']['field_city'] %}
+	  <div class="form-group{% if p_review['form']['field_city'] == 2 %} required{% endif %}">
+		<div class="col-sm-12">
+		  <label class="control-label" for="input-city">{{ p_review['entry_city'] }}</label>
+		  <input type="text" name="city" value="" id="input-city" class="form-control" />
+		</div>
+	  </div>
+	  {% endif %}
+	  {% if p_review['form']['field_email'] %}
+	  <div class="form-group{% if p_review['form']['field_email'] == 2 %} required{% endif %}">
+		<div class="col-sm-12">
+		  <label class="control-label" for="input-email">{{ p_review['entry_email'] }}</label>
+		  <input type="text" name="email" value="{{ p_review['form']['email'] }}" id="input-email" class="form-control" />
+		</div>
+	  </div>
+	  {% endif %}
+	  {% if p_review['form']['field_name'] %}
+	  <div class="form-group{% if p_review['form']['field_name'] == 2 %} required{% endif %}">
+		<div class="col-sm-12">
+		  <label class="control-label" for="input-name">{{ p_review['entry_name'] }}</label>
+		  <input type="text" name="name" value="{{ p_review['form']['name'] }}" id="input-name" class="form-control" />
+		</div>
+	  </div>
+	  {% endif %}
+	  {% if p_review['form']['field_text'] %}
+	  <div class="form-group{% if p_review['form']['field_text'] == 2 %} required{% endif %}">
+		<div class="col-sm-12">
+		  <label class="control-label" for="input-text">{{ p_review['entry_text'] }}</label>
+		  <textarea name="text" rows="5" id="input-text" class="form-control"></textarea>
+		</div>
+	  </div>
+	  {% endif %}
+	  {% if p_review['form']['field_good'] %}
+	  <div class="form-group{% if p_review['form']['field_good'] == 2 %} required{% endif %}">
+		<div class="col-sm-12">
+		  <label class="control-label" for="input-good">{{ p_review['entry_good'] }}</label>
+		  <textarea name="good" rows="5" id="input-good" class="form-control"></textarea>
+		</div>
+	  </div>
+	  {% endif %}
+	  {% if p_review['form']['field_bad'] %}
+	  <div class="form-group{% if p_review['form']['field_bad'] == 2 %} required{% endif %}">
+		<div class="col-sm-12">
+		  <label class="control-label" for="input-bad">{{ p_review['entry_bad'] }}</label>
+		  <textarea name="bad" rows="5" id="input-bad" class="form-control"></textarea>
+		</div>
+	  </div>
+	  {% endif %}
+	  {% if p_review['form']['field_rating'] %}
+	  <div class="form-group{% if p_review['form']['field_rating'] == 2 %} required{% endif %}">
+		<div class="col-lg-2 col-md-2">
+		  <label class="control-label">{{ p_review['entry_rating'] }}</label>
+		</div>
+		<div class="col-lg-10 col-md-10">
+		  <div class="rating">
+			{% for i in 1..5 %}<span data-rating-value="{{ i }}" onclick="setRating('{{ i }}')" class="fa fa-stack"><i class="fa fa-star-{{ i }} fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endfor %}
+			<input id="input-rating" type="hidden" name="rating" value="0" />		  
+		  </div>
+		</div>
+	  </div>
+	  {% endif %}
+	  {% if p_review['form']['field_avatar'] > 1 %}	
+	  <div class="form-group{% if p_review['form']['field_avatar'] == 3 %} required{% endif %}">
+		<div class="col-md-2">
+		  <label class="control-label">{{ p_review['entry_avatar'] }}</label>
+		</div>
+		<div class="col-md-10">
+		  <div><label class="btn btn-primary btn-sm" for="input-avatar"><input id="input-avatar" type="file" name="avatar" style="display:none" accept="image/jpeg,image/png"><i class="fa fa-upload"></i> <span class="hidden-xs hidden-sm hidden-md">{{ p_review['button_upload'] }}</span></label> <button type="button" data-toggle="tooltip" title="{{ p_review['button_clear'] }}" class="btn btn-danger btn-sm" id="button-clear"><i class="fa fa-trash"></i></button> <span class="label label-info" id="label-avatar"></span></div>
+		  <div><small>{{ p_review['form']['max_avatar'] }}</small></div>
+		</div>
+	  </div>
+	  {% endif %}
+	  {% if p_review['form']['field_image'] > 1 %}	
+	  <div class="form-group{% if p_review['form']['field_image'] == 3 %} required{% endif %}">
+		<div class="col-md-2">
+		  <label class="control-label">{{ p_review['entry_image'] }}</label>
+	   </div>
+		<div class="col-md-10">
+		  <div class="image-list"></div>
+		  <div><button type="button" class="btn btn-primary btn-sm" id="button-add-image"><i class="fa fa-plus"></i> {{ p_review['button_add'] }}</button></div>
+		  <div><small>{{ p_review['form']['max_image'] }}</small></div>
+		</div>
+	  </div>
+	  {% endif %}
+	  {{ p_review['form']['captcha'] }}
+	  <div class="buttons clearfix">
+		<div class="pull-right">
+		  <button type="button" id="button-p-review" data-loading-text="{{ p_review['text_loading'] }}" class="btn btn-primary">{{ p_review['button_submit'] }}</button>
+		</div>
+	  </div>
+	  {% else %}
+	  {{ p_review['text_login'] }}
+	  {% endif %}
+    </form>
+  </div>
+</div>
+<script type="text/javascript"><!--
+// Filter
+$('#input-sort, #input-filter-rating, #input-limit').on('change', function() {
+	$('#p-review').load('index.php?route=extension/module/p_review/p_review&product_id={{ product_id }}' + $('#input-sort').val() + {% if p_review['form']['field_rating'] %}$('#input-filter-rating').val() + {% endif %}$('#input-limit').val());
+});
+--></script>
+<script type="text/javascript"><!--
+// Open form
+$(document).ready(function () {
+	$('#p-review-total + button').on('click', function() {
+		$('a[href=\'#tab-p-review\']').trigger('click');
+		{% if not p_review['form']['form'] %}
+		$('#p-review-form form').slideDown();
+		$('#button-form-toggle i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+		{% endif %}	
+		setTimeout(function () {
+			$('html, body').animate({ scrollTop: $('#p-review-form').offset().top }, 'slow');
+		}, 100);
+	});
+});
+//--></script>
+<script type="text/javascript"><!--
+{% if p_review['form']['field_avatar'] > 1 %}
+$('#input-avatar').on('change', function() {
+	$('#label-avatar').html(this.files[0].name); 
+	$('#button-clear').show();
+});
+$('#button-clear').on('click', function() {
+	$('#input-avatar').val('');
+	$('#button-clear').hide();
+	$('#label-avatar').empty();
+});
+{% endif %}
+{% if p_review['form']['field_image'] > 1 %}
+
+var row = 0;
+
+$('#button-add-image').on('click', function() {
+	if ($('#p-review-form form .image-list .image-row').length < '{{ p_review['form']['image_limit'] }}') {
+		html = '<div class="image-row image-row' + row + '"><label class="btn btn-primary btn-sm" for="input-image' + row + '"><input id="input-image' + row + '" type="file" name="image[]" onchange="$(\'#label-image' + row + '\').html(this.files[0].name);" accept="image/jpeg,image/png"><i class="fa fa-upload"></i> <span class="hidden-xs hidden-sm hidden-md">{{ p_review['button_upload'] }}</span></label> <button type="button" data-toggle="tooltip" rel="tooltip" title="{{ p_review['button_remove'] }}" onclick="$(this).tooltip(\'destroy\'); $(\'.image-row' + row + '\').remove(); $(\'#button-add-image\').removeAttr(\'disabled\');" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button> <span class="label label-info" id="label-image' + row + '"></span></div>';
+			
+		$('#p-review-form form .image-list').append(html);
+		$('[rel=tooltip]').tooltip();
+		
+		row++;
+	}
+	
+	if ($('#p-review-form form .image-list .image-row').length == '{{ p_review['image_limit'] }}') {
+		$('#button-add-image').attr('disabled', 'disabled');
+	}
+});
+{% endif %}
+{% if not p_review['form']['form'] %}
+$('#button-form-toggle').on('click', function() {
+	if ($('#button-form-toggle i').hasClass('fa-chevron-down')) {
+		$('#button-form-toggle i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+	} else {
+		$('#button-form-toggle i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+	}
+	$('#p-review-form form').slideToggle();
+});
+{% endif %}
+{% if p_review['form']['field_rating'] %}
+// Rating
+function setRating(rating) {
+	$('#p-review-form form .rating input[name=\'rating\']').val(rating);
+}
+
+$('#p-review-form form .rating span').mouseover(function() {
+	
+	var rating = $(this).data('rating-value');
+	
+	for (var i = 1; i <= 5; i++) {
+		if (rating >= i) {
+			$('#p-review-form form .rating .fa-star-' + i).addClass('fa-star');
+		} else {
+			$('#p-review-form form .rating .fa-star-' + i).removeClass('fa-star');
+		}
+	}
+});
+
+$('#p-review-form form .rating').mouseout(function() {
+	
+	var rating = $('#p-review-form form .rating input[name=\'rating\']').val();
+	
+	for (var i = 1; i <= 5; i++) {
+		if (rating >= i) {
+			$('#p-review-form form .rating .fa-star-' + i).addClass('fa-star');
+		} else {
+			$('#p-review-form form .rating .fa-star-' + i).removeClass('fa-star');
+		}
+	}
+});
+{% endif %}
+$(document).ready(function() {
+	{% if p_review['form']['editor'] %}
+	var wbbOpt = {
+		buttons: 'bold,italic,underline,strike,fontcolor,fontsize,|,bullist,numlist,|,video,link,smilebox',
+		lang: '{{ p_review['wysibb_language'] }}',
+		smileList: [
+			{% if p_review['form']['smiles'] %}
+			{% for smile in p_review['form']['smiles'] %}
+			{title: '', img: '<img src="{{ smile['url'] }}" class="smile">', bbcode:":{{ smile['name'] }}:"},
+			{% endfor %}
+			{% endif %}
+		]
+	}
+	
+	$("#p-review-form form textarea").wysibb(wbbOpt);
+	{% endif %}
+});
+
+$('#p-review').on('click', '.pagination a', function(e) {
+	var sort = $('#input-sort').val();
+	e.preventDefault();
+	$('#p-review').load(this.href + '&sort=' + sort);
+});
+
+$('#button-p-review').on('click', function() {
+	{% if p_review['form']['editor'] %}
+	{% if p_review['form']['field_text'] %}
+	$("#input-text").sync();
+	{% endif %}
+	{% if p_review['form']['field_good'] %}
+	$("#input-good").sync();
+	{% endif %}
+	{% if p_review['form']['field_bad'] %}
+	$("#input-bad").sync();
+	{% endif %}
+	{% endif %}
+	$.ajax({
+		url: 'index.php?route=extension/module/p_review/write&product_id={{ product_id }}',
+		type: 'post',
+		dataType: 'json',
+		data: new FormData($('#p-review-form form').get(0)),
+		cache: false,
+		contentType: false,
+		processData: false,
+		beforeSend: function() {
+			$('#button-p-review').button('loading');
+		},
+		complete: function() {
+			$('#button-p-review').button('reset');
+		},
+		success: function(json) {
+			$('.alert-success, .alert-danger').remove();
+
+			if (json['error']) {
+				$('#p-review-form form').before('<div class="alert alert-danger p-review-alert"><i class="fa fa-check-circle"></i> ' + json['error'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+				
+				setTimeout(function () {
+					$('.p-review-alert').fadeOut();
+				}, 3000);
+			}
+
+			if (json['success']) {
+				$('#p-review-form form').before('<div class="alert alert-success p-review-alert"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+				
+				setTimeout(function () {
+					$('.p-review-alert').fadeOut();
+				}, 3000);
+				{% if not p_review['form']['moderation'] %}
+				$('#p-review').load('index.php?route=extension/module/p_review/p_review&product_id={{ product_id }}' + $('#input-sort').val() + $('#input-filter-rating').val() + $('#input-limit').val());
+				$('#p-review-total').load('index.php?route=extension/module/p_review/total&product_id={{ product_id }}');
+				p_review_total = $('input[name=\'p_review_total\']').val() * 1;
+				$('#tab-p-review-total').html(p_review_total + 1);
+				{% endif %}
+				// Clear form
+				$('#p-review-form form').get(0).reset();
+				{% if p_review['form']['field_rating'] %}
+				$('#p-review-form form .rating span i').removeClass('fa-star');
+				$('#p-review-form form input[name=\'rating\']').val('');
+				{% endif %}
+				{% if (p_review['form']['field_avatar'] > 1) or (p_review['form']['field_image'] > 1) %}
+				$('#p-review-form form .label-info').empty();
+				{% endif %}
+				{% if p_review['form']['field_avatar'] > 1 %}
+				$('#button-clear').hide();
+				{% endif %}
+				{% if p_review['form']['field_image'] > 1 %}
+				$("#p-review-form form .image-row").remove();
+				$('#button-add-image').removeAttr('disabled');
+				{% endif %}
+				{% if p_review['form']['editor'] %}
+				$('#p-review-form form .wysibb-text-editor').empty();
+				{% endif %}
+			}
+		}
+	});
+});
+//--></script>
