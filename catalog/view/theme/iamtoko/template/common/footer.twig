@@ -21,8 +21,8 @@
       </div>
       <div class="col-md-6">
         <div class="registration-footer">
-          <p>Скидка 10% зарегистрированным покупателям: </p>
-          <a href="index.php?route=account/register">Зарегистрироваться</a>
+          <p>{{ text_sale_registration }}</p>
+          <a href="index.php?route=account/register">{{ text_footer_registration }}</a>
         </div>
       </div>
     </div>
@@ -62,9 +62,6 @@
           <div class="col-md-3 col-sm-4 col-xs-6">
             <h5>{{ text_service }}</h5>
             <ul class="list-unstyled">
-              {% if callback_active == 1 %}
-              <li><a href="#modalFeedbackHeader" id="button_feedback" data-toggle="modal"><i class="fa fa-volume-control-phone"></i> <span class="hidden-xs hidden-sm hidden-md">{{ callback_title }}</span></a></li>
-              {% endif %}
               <li><a href="tel:{{ telephone_href }}" title="Позвонить" data-hover="hover-on-link" rel="nofollow" target="_blank">{{ telephone }}</a></li>
               <li><a href="tel:{{ telephone_href2 }}" title="Позвонить" data-hover="hover-on-link" rel="nofollow" target="_blank">{{ telephone2 }}</a></li>
               <li><a href="mailto:{{ email }}" title="email" data-hover="hover-on-link" rel="nofollow" target="_blank">{{ email }}</a></li>
@@ -103,6 +100,10 @@
     </div>
   </div>
 </footer>
+<!-- Кнопка перезвоним -->
+<div class="container-fluid">
+<a href="#modalCallbackFooterFooter" class="btn btn-link button-coll-side hidden-xs" id="button_callbackfooter" data-toggle="modal">{{ text_button_call_side }}<i class="fa fa-phone hidden-xs"></i></a>
+</div>
 
 <div class="relative">
   <div class="scrollup">
@@ -110,28 +111,6 @@
     <i class="fa fa-chevron-up"></i>
   </div>
 </div>
-{% if callback_active == 1 %}
-<div class="modal fade" id="modalFeedbackHeader" tabindex="-1" role="dialog" aria-labelledby="modalFeedbackHeaderLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>  
-        <h3>{{ callback_title }}</h3>
-        <p>{{ text_callback }}</p>      
-        <form class="form-horizontal" id="form-feedback-header">
-          <div class="form-group">
-              <input type="text" name="name" value="{{ name_callback }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" /> <br>
-              <input type="text" name="phone" value="{{ phone_callback }}"placeholder="{{ entry_phone }}"  id="input-phone" class="form-control" required />
-          </div>
-        </form>
-        <button type="button" id="button_send_feedback_header" data-loading-text="{{ text_loading }}"  class="btn btn-primary">{{ text_send }}</button>
-      </div>
-    </div>
-  </div>
-</div>
-{% endif %}
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
 {% endfor %}
