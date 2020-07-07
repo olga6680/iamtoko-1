@@ -18,13 +18,12 @@ $('.product-layout > .product-thumb').each(function (e) {
         phone_callback = $('#phone_callback').val(),
         entry_name = $('#entry_name').val(),
         entry_phone = $('#entry_phone').val(),
-        entry_enquiry = $('#entry_enquiry').val(),
         text_send = $('#text_send').val(),
         text_loading = $('#text_loading').val(),
         img_url   = $(this).find('.img-responsive').attr('src'),
         item_name = $(this).find('h4 a').text(),
-        item_price = $(this).find('.price').text(),
-        admin = $('#modalFeedbackHeader [name=admin_email]').val();
+        item_price = $(this).find('.price').text();
+
 
 $(this).after('\
   <div id="modalFeedbackHeader-' + e + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalFeedbackHeaderLabel" aria-hidden="true">\
@@ -44,7 +43,6 @@ $(this).after('\
                   <input type="text" name="name" value="' + name_callback + '" placeholder="' + entry_name + '" id="input-name" class="form-control" /> <br>\
                   <input type="text" name="phone" value="' + phone_callback + '" placeholder="' + entry_phone + '"  id="input-phone" class="form-control" required />\
                   <input type="hidden" name="product" value="' + item_name + '" id="input-product" class="form-control" />\
-                  <textarea name="enquiry" rows="5" id="input-enquiry" placeholder="' + entry_enquiry + '" class="form-control"></textarea>\
                 </div>\
               </form>\
               <button type="button" id="button_send_feedback_header" data-loading-text="' + text_loading + '"  class="btn btn-primary">' + text_send + '</button>\
@@ -83,14 +81,12 @@ $('#button_send_feedback_header').on('click', function () {
         $('input[name=\'phone\']').val('');
         $('input[name=\'email\']').val('');
         $('input[name=\'product\']').val('');
-        $('textarea[name=\'enquiry\']').val('');
       }
     }
   });
 });
 
 });
-
 
 $(function() {
   // при нажатии на кнопку scrollup
@@ -104,13 +100,13 @@ $(function() {
 // при прокрутке окна (window)
 $(window).scroll(function() {
   // если пользователь прокрутил страницу более чем на 200px
-  if ($(this).scrollTop()>200) {
+  if ($(this).scrollTop()>400) {
     // то сделать кнопку scrollup видимой
-    $('.scrollup').fadeIn();
+    $('.scrollup, .button-coll-side').fadeIn();
   }
   // иначе скрыть кнопку scrollup
   else {
-    $('.scrollup').fadeOut();
+    $('.scrollup, .button-coll-side').fadeOut();
   }
 });
 
