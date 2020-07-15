@@ -42,6 +42,7 @@
 <link href="{{ link.href }}" rel="{{ link.rel }}" />
 <script src="catalog/view/theme/iamtoko/libs/equalheights/equalheights.js" type="text/javascript"></script>
 <script src="catalog/view/theme/iamtoko/js/theme.js" type="text/javascript"></script>
+<script src="catalog/view/theme/iamtoko/js/jquery.placeholder.min.js" type="text/javascript"></script>
 <script src="catalog/view/theme/iamtoko/js/waypoints.min.js"></script>
 <script src="catalog/view/theme/iamtoko/js/animate-css.js"></script>
 
@@ -94,7 +95,7 @@
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 menu-right">
             {{ language }}
-            <ul class="list-inline hed-menu">                
+            <ul class="list-inline hed-menu">               
                 <li class="dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown">
                     <i>
                         <svg class="icon" viewBox="0 0 25 25" width="25" height="25">
@@ -104,6 +105,7 @@
                     <span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span> <span class="caret"></span></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     {% if logged %}
+                    <li class="login-name">{{ LastName }} {{ FirstName }}</li>
                     <li><a href="{{ account }}">{{ text_account }}</a></li>
                     <li><a href="{{ order }}">{{ text_order }}</a></li>
                     <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
@@ -174,6 +176,5 @@
   <input type="hidden" value="{{ text_send }}" id="text_send" /> 
   <input type="hidden" value="{{ text_loading }}" id="text_loading" />     
 </header>
-
 
   

@@ -13,6 +13,7 @@ $_['text_special']      = 'Акции';
 $_['text_account']      = 'Личный Кабинет';
 $_['text_order']        = 'История заказов';
 $_['text_wishlist']     = 'Закладки';
-$_['text_newsletter']   = 'Рассылка';
+$_['text_newsletter']     = 'Рассылка';
+
 $_['text_powered']      = 'Работает на <a href="https://opencart.ru">OpenCart</a><br /> %s &copy; %s';
 

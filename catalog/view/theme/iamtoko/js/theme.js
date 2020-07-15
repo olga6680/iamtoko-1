@@ -7,7 +7,6 @@ $(".bounceIn").animated("bounceIn");
 $(".flipInY").animated("flipInY");
 $(".slideUp").animated("bounceInUp");
 
-
 //Купить в один клик
 $('.product-layout > .product-thumb').each(function (e) { 
 
@@ -81,6 +80,9 @@ $('#button_send_feedback_header').on('click', function () {
         $('input[name=\'phone\']').val('');
         $('input[name=\'email\']').val('');
         $('input[name=\'product\']').val('');
+        window.setTimeout(function(){
+          location.reload()
+          },3000);
       }
     }
   });
@@ -108,6 +110,8 @@ $(window).scroll(function() {
   else {
     $('.scrollup, .button-coll-side').fadeOut();
   }
+
+
 });
 
 

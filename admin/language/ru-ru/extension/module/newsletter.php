@@ -1,7 +1,7 @@
 <?php
 // Heading
 $_['page_title']     		= 'Форма подписки';
-$_['heading_title']    						   = '<a href="https://opencart3x.ru" target="_blank" title="Разработчик Opencart3x.ru" style="color:#233746"><i class="fa fa-circle-o"></i></a> '. $_['page_title'];
+$_['heading_title']    						   = '<a href="https://feofan.club" target="_blank" title="feofan.club" style="color:#233746"><i class="fa fa-circle-o"></i></a> '. $_['page_title'];
 // Text
 $_['text_module']       		= 'Модули';
 $_['text_success']      		= 'Настройки успешно сохранены';

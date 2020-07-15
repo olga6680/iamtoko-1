@@ -114,6 +114,9 @@ $(function(){
      $('.button-menu').addClass('close');
        }
    });  
+
+
+   
 });
 /*--------- скрытие птички при открытии суб меню  ---*/ 
 var bg = document.getElementById('item-c');
@@ -131,7 +134,7 @@ var url=document.location.href;
 $.each($(".menu a"),function(){
 if(this.href==url){$(this).addClass('active');};
 });
-})(jQuery);
+});
 
 /*------------fix menu------------*/
 

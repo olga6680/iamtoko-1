@@ -40,10 +40,11 @@ gulp.task('sprite', function() {
 	.pipe(gulp.dest('catalog/view/theme/iamtoko/image'));
 	});
 
+
 // Наблюдение за файлами
 gulp.task('watch', function() {
 	gulp.watch('catalog/view/theme/iamtoko/stylesheet/stylesheet.sass', gulp.parallel('sass'));
-	gulp.watch('catalog/view/theme/iamtoko/template/**/*.tpl', browserSync.reload);
+	gulp.watch('catalog/view/theme/iamtoko/template/**/*.twig', browserSync.reload);
 	gulp.watch('catalog/view/theme/iamtoko/js/**/*.js', browserSync.reload);
 	gulp.watch('catalog/view/theme/iamtoko/libs/**/*', browserSync.reload);
 });
