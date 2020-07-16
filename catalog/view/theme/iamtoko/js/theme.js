@@ -7,6 +7,21 @@ $(".bounceIn").animated("bounceIn");
 $(".flipInY").animated("flipInY");
 $(".slideUp").animated("bounceInUp");
 
+//Sale popup
+$('.button-sale-popup').magnificPopup({
+  mainClass: 'mfp-zoom-in',
+  removalDelay: 500
+});
+
+$('.button-salepopup').on('click', function() {
+  $('.sale-popup').fadeOut();
+  $.magnificPopup.close();
+});
+
+$('.button-sale-popup').on('click', function() {
+  $('.sale-popup').fadeIn();
+});
+
 //Купить в один клик
 $('.product-layout > .product-thumb').each(function (e) { 
 
