@@ -1444,7 +1444,7 @@ a.active
 	padding: 0
 	padding-left: 20px
 	bottom: 35%
-	z-index: 10000
+	z-index: 1000
 	color: #ffffff
 	background-color: #ff66c4
 	font-size: 20px
@@ -1475,6 +1475,61 @@ a.active
 		-webkit-transform: rotate(0deg)
 	to 
 		-webkit-transform: rotate(-30deg)		
+/*---------Кнопка подарок Скидка---------*/	
+.sale-popup
+	max-width: 320px
+	position: relative
+	margin: auto
+	img 
+		width: 320px
+		display: block
+		position: relative
+	.left-salepopup
+		position: absolute
+		top: 10%
+		left: 35%
+		width: 25%
+		text-transform: uppercase
+		font: 
+			family: 'Roboto Condensed', sans-serif
+			weight: 400	
+			size: 20px
+	.bottom-salepopup
+		position: absolute
+		top: 30%
+		width: 60%
+		left: 35%
+		font:
+			family: 'Hitch Hike', sans-serif
+			size: 30px
+	.button-salepopup
+		position: absolute
+		top: 70%
+		left: 33.5%
+		a 
+			color: #ffffff
+			background-color: rgba(0, 0, 0, 1)
+			border-color: rgba(0, 0, 0, 1)
+			transition: background-color, border-color .25s ease
+			padding: 10px
+			text-transform: lowercase	
+			text-decoration: none
+			outline: none
+			&:hover, &:focus
+				background-color:	rgba(0, 0, 0, .8)	
+				border-color:	rgba(0, 0, 0, .9)	
+
+
+.button-sale-popup
+	bottom: 25%
+	transform: rotate(0)
+	padding: 0	
+	.fa
+		margin: 0
+		padding: 5px 6px
+		svg
+			fill: #ffffff
+			width: 28px
 /*---------Footer---------*/	
 .main-footer
 	margin-top: 50px
