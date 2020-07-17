@@ -104,10 +104,20 @@
     </div>
   </div>
 </footer>
-{{ quicksignup }}
 <!-- Кнопка перезвоним -->
 <div class="container-fluid">
 <a href="#modalCallbackFooterFooter" class="btn btn-link button-coll-side hidden-xs" id="button_callbackfooter" data-toggle="modal">{{ text_button_call_side }}<i class="fa fa-phone hidden-xs"></i></a>
+</div>
+
+<!-- Кнопка salepopup -->
+<div class="container-fluid">
+  <a href="#salepopup" class="button-coll-side button-sale-popup">
+    <i class="fa">
+      <svg class="icon icon-logo" viewBox="0 0 30 30" width="30" height="30">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-present"></use>
+      </svg>
+    </i>
+  </a>
 </div>
 
 <div class="relative">
@@ -117,10 +127,14 @@
   </div>
 </div>
 
-<!--Форма регистрации попап -->
-
-
-
+<!--Скидка попап-->
+<div class="hidden">
+  <div id="salepopup" class="sale-popup">
+    <img src="image/catalog/banners/skidka-zaregistrirovannym-pokupatelyam-iamtoko.png" alt="Скидка 10% зарегистрированным покупателям">
+    <div class="left-salepopup">{{ text_left_sale }}</div>
+    <div class="bottom-salepopup">{{ text_bottom_sale }}</div>
+    <div class="button-salepopup"><a href="javascript:void(0);" class="login-popup" data-toggle="modal" data-target="#loginModel">{{ text_footer_registration }}</a></div>
+  </div>
 </div>
 
 {% for script in scripts %}
