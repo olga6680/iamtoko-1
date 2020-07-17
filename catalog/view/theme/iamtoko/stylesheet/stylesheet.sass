@@ -1045,7 +1045,7 @@ a.active
 	width: 65em
 	height: 12em	
 	position: relative
-	top: 2.8em
+	margin-top: 220px
 	h2
 		visibility: hidden		
 	.col-md-4
@@ -1278,6 +1278,103 @@ a.active
 		top: 72%
 	.toclick
 		display: none				
+/*---------Отзывы на главной---------*/
+.review-main
+	margin-top: 190px
+	position: relative
+	.item, .pm-review-thumb
+		border: none
+		min-height: 500px
+		background-color: rgba(219, 222, 224, .1)
+		width: 100%
+		margin-left: 0 !important
+	.text-review-main
+		position: relative
+		min-height: 500px
+		h4
+			margin-top: 30%
+			font:
+				family: 'Roboto Condensed', sans-serif
+				weight: 600
+				size: 5em
+	.owl-controls .owl-page	
+		display: block	
+		margin: 6px 0
+	.owl-pagination
+		position: absolute
+		left: -15px
+		top: 0
+	.button-group
+		a
+			display: block
+			color: #000
+			border: none
+			border-radius: 0
+			background: transparent
+			position: absolute
+			transform: rotate(-90deg)
+			bottom: 10%
+			right: -3%
+			font-weight: 600
+			padding: 0
+			&:hover, &:focus
+				color: #ff66c4	
+	.owl-controls .owl-buttons .owl-next,
+	.owl-controls .owl-buttons .owl-prev
+		top: 4%
+		.fa
+			font-size: 20px
+			color: #94929e
+	.owl-controls .owl-buttons .owl-prev
+		margin-left: 90%
+		padding: 13px 10px 6px 5px
+		background-color: #fff
+	.owl-controls .owl-buttons .owl-next	
+		margin-right: 0
+		padding: 13px 5px 6px 8px
+		background-color: #fff
+	.owl-carousel .owl-buttons div
+		opacity: 1
+	.avatar
+		border-radius: 100px
+	.caption
+		margin-top: 60px
+		p 
+			font-size: 13px
+			opacity: .8
+		a 
+			display: block
+			color: #000
+			border: none
+			border-radius: 0
+			background: transparent
+			position: absolute
+			font-weight: 600
+			padding: 0
+			font-size: 16px
+			&:hover, &:focus
+				color: #ff66c4 !important	
+		strong
+			font:
+				family: 'Roboto Condensed', sans-serif
+				size: 16px
+			text-transform: lowercase
+			letter-spacing: .05em
+			color: #282829
+	.pm-review-thumb .rating .fa-star + .fa-star-o
+		color: #000 !important
+	.pm-review-thumb .rating .fa-star
+		color: #ff66c4 !important
+	.fa-stack-2x
+		font-size: 1.5em	
+	.product-image
+		margin-top: 30%
+	h4 
+		a 
+			color: #404041
+			font-size: 14px
+			font-weight: 600
+			text-transform: lowercase		
 /*---------Скролл вверх---------*/		
 .scrollup
 	display: none
@@ -1523,7 +1620,8 @@ a.active
 .button-sale-popup
 	bottom: 25%
 	transform: rotate(0)
-	padding: 0	
+	padding: 0
+	height: 44px	
 	.fa
 		margin: 0
 		padding: 5px 6px
