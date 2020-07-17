@@ -1,77 +1,94 @@
-<h3>{{ heading_title }}</h3>
-<div class="row pm-review-carousel">
-<div id="pm-review-carousel{{ module }}" class="owl-carousel">
-  {% for p_review in p_reviews %}
-  <div class="item">
-    <div class="pm-review-thumb">
-	  {% if p_review['product_image'] %}<div class="image"><a href="{{ p_review['product_href'] }}"><img src="{{ p_review['product_image'] }}" alt="{{ p_review['product'] }}" title="{{ p_review['product'] }}" class="img-responsive" /></a></div>{% endif %}
-	  <h4><a href="{{ p_review['product_href'] }}">{{ p_review['product'] }}</a></h4>
-	  {% if p_review['avatar'] %}
-      <p class="image"><img src="{{ p_review['avatar'] }}" alt="" class="img-responsive" /></p>
-      {% endif %}
-	  <div class="caption">
-	    {% if p_review['title'] %}
-        <h4>{{ p_review['title'] }}</h4>
-	    {% endif %}
-        {% if p_review['good'] %}
-	    <p><strong>{{ entry_good }}</strong><br/>{{ p_review['good'] }}</p>
-	    {% endif %}
-	    {% if p_review['bad'] %}
-	    <p><strong>{{ entry_bad }}</strong><br/>{{ p_review['bad'] }}</p>
-	    {% endif %}
-	    {% if p_review['text'] %}
-	    <p><strong>{{ entry_text }}</strong><br/>{{ p_review['text'] }}</p>
-	    {% endif %}
-        {% if p_review['rating'] %}
-        <p class="rating">
-          {% for i in 1..5 %}
-          {% if p_review['rating'] < i %}
-          <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-          {% else %}
-          <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-          {% endif %}
-          {% endfor %}
-        </p>
-	    {% endif %}
-        {% if p_review['name'] or p_review['city'] or p_review['date_added'] %}
-        <p>
-          {% if p_review['name'] %}
-		  <i>{{ p_review['name'] }}</i>
-		  {% endif %}
-		  {% if p_review['city'] %}
-		  <i>{{ p_review['city'] }}</i>
-		  {% endif %}
-		  {% if p_review['date_added'] %}
-		  <i>{{ p_review['date_added'] }}</i>
-		  {% endif %}
-        </p>
-	    {% endif %}
-        {% if p_review['image'] %}
-	    <p><strong>{{ entry_image }}</strong></p>
-	    <p class="pm-thumbnail pm-thumbnail{{ module }}{{ p_review['p_review_id'] }}">{% for value in p_review.image %}<a data-thumbnail="{{ module }}{{ p_review['p_review_id'] }}" href="{{ value['thumb'] }}"><img src="{{ value['thumbnail'] }}" class="img-thumbnail"></a>{% endfor %}</p>
-	    {% endif %}
-	    {% if readmore %}
-	    <a href="{{ p_review['href'] }}" class="btn btn-primary btn-sm">{{ button_readmore }}</a>
-	    {% endif %}
-	  </div>
-    </div>
-  </div>
-  {% endfor %}
+<div class="container review-main">
+	<div class="row">
+		<h3 class="hidden-md hidden-sm hidden-lg">{{ heading_title }}</h3>
+		<div class="col-md-5 col-sm-5 hidden-xs text-review-main">
+			<h4>{{ text_review_main_h4 }}</h4>
+			<p>{{ text_review_main_p }}</p>
+			{% if show_all %}
+			<div class="button-group">
+				<a class="btn btn-primary" href="{{ show_all_url }}">{{ button_show_all }}</a>
+			</div>
+			{% endif %}
+		</div>
+		<div class="col-md-7 col-sm-7 col-xs-12">
+			<div class="row pm-review-carousel">
+				<div id="pm-review-carousel{{ module }}" class="owl-carousel">
+					{% for p_review in p_reviews %}
+					<div class="item">
+						
+						<div class="pm-review-thumb">
+							<div class="col-md-4 col-sm-4 col-xs-12">
+								{% if p_review['product_image'] %}
+								<div class="image product-image">
+									<a href="{{ p_review['product_href'] }}"><img src="{{ p_review['product_image'] }}" alt="{{ p_review['product'] }}" title="{{ p_review['product'] }}" class="img-responsive" /></a>
+								</div>
+								{% endif %}
+								<h4><a href="{{ p_review['product_href'] }}">{{ p_review['product'] }}</a></h4>
+							</div>
+
+							<div class="col-md-8 col-sm-8 col-xs-12">
+								{% if p_review['avatar'] %}
+								<p class="image"><img src="{{ p_review['avatar'] }}" alt="" class="img-responsive avatar" /></p>
+								{% endif %}
+								<div class="caption">
+									{% if p_review['title'] %}
+										<h4>{{ p_review['title'] }}</h4>
+									{% endif %}
+									{% if p_review['text'] %}
+									<p><strong>{{ entry_text }}</strong><br/>{{ p_review['text'] }}</p>
+									{% endif %}
+									{% if p_review['good'] %}
+									<p><strong>{{ entry_good }}</strong><br/>{{ p_review['good'] }}</p>
+									{% endif %}
+									{% if p_review['bad'] %}
+									<p><strong>{{ entry_bad }}</strong><br/>{{ p_review['bad'] }}</p>
+									{% endif %}
+
+										{% if p_review['rating'] %}
+										<p class="rating">
+											{% for i in 1..5 %}
+											{% if p_review['rating'] < i %}
+											<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+											{% else %}
+											<span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+											{% endif %}
+											{% endfor %}
+										</p>
+									{% endif %}
+										{% if p_review['name'] or p_review['city'] or p_review['date_added'] %}
+										<p>
+											{% if p_review['name'] %}
+									<i>{{ p_review['name'] }}</i>
+									{% endif %}
+									{% if p_review['city'] %}
+									<i>{{ p_review['city'] }}</i>
+									{% endif %}
+									{% if p_review['date_added'] %}
+									<i>{{ p_review['date_added'] }}</i>
+									{% endif %}
+										</p>
+									{% endif %}
+										{% if p_review['image'] %}
+									<p><strong>{{ entry_image }}</strong></p>
+									<p class="pm-thumbnail pm-thumbnail{{ module }}{{ p_review['p_review_id'] }}">{% for value in p_review.image %}<a data-thumbnail="{{ module }}{{ p_review['p_review_id'] }}" href="{{ value['thumb'] }}"><img src="{{ value['thumbnail'] }}" class="img-thumbnail"></a>{% endfor %}</p>
+									{% endif %}
+									{% if readmore %}
+									<a href="{{ p_review['href'] }}" class="btn btn-primary btn-sm">{{ button_readmore }}</a>
+									{% endif %}
+								</div>
+							</div>
+
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>		
+		</div>	
+	</div>
 </div>
-</div>
-{% if show_all %}
-<div class="row">
-  <div class="col-md-12">
-    <div class="button-group pull-right">
-      <a class="btn btn-primary" href="{{ show_all_url }}">{{ button_show_all }}</a>
-    </div>
-  </div>
-</div>
-{% endif %}
 <script type="text/javascript"><!--
 $('#pm-review-carousel{{ module }}').owlCarousel({
 	items: {{ carousel_item }},
-	autoPlay: 3000,
 	navigation: true,
 	navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
 	pagination: true
