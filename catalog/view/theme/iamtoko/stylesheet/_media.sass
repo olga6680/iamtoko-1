@@ -50,6 +50,40 @@
 				.social-footer
 					li 
 						margin-top: 13% 
+		#ocfilter
+			left: 0		
+			border: 1px solid #929191	
+			z-index: 10000
+		.ocf-offcanvas
+			position: fixed 
+			top: 0 
+			background-color: #fff 
+			bottom: 0 
+			z-index: 1000
+			height: 100% 
+			left: 100% 
+			width: 20% 
+			padding: 0 
+			transition: left 250ms ease 
+		.ocf-offcanvas.active
+			left: 85% 
+		.ocfilter-mobile-handle
+			position: absolute 
+			left: -30%
+			z-index: 10000
+			top: 165px 
+			.btn
+				border-radius: 0 					
+		.ocf-offcanvas-body
+			overflow-x: hidden 
+			overflow-y: auto 
+			position: absolute 
+			top: 0 
+			bottom: 0 
+			right: 0 
+			width: 100%
+
+		 						
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 1050px)			
@@ -153,7 +187,10 @@
 				.social-footer
 					li 
 						margin-top: 5% 
-
+		.ocfilter-mobile-handle
+			left: -31.5%
+		.ocf-offcanvas
+			left: 99%
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
 	html, body
@@ -243,7 +280,12 @@
 				.social-footer
 					li 
 						margin-top: 5% 
-
+		.ocfilter-mobile-handle
+			left: -37%
+		.ocf-offcanvas.active
+			left: 81%	
+		.ocf-offcanvas
+			left: 99.5%	
 /**/
 @media only screen and (max-width : 1030px)			
 	html, body
@@ -353,7 +395,7 @@
 								margin-top: -20px
  	#cart 
  		margin-left: 495px
- 		margin-top: 60px
+ 		margin-top: 59px
  		button 
  			display: block
  			position: absolute
@@ -369,12 +411,20 @@
  		.btn-danger
  			top: 60px
  			right: -10px	
-
+		.ocfilter-mobile-handle
+			left: -41%
+		.ocf-offcanvas.active
+			left: 80%
+		.ocf-offcanvas
+			left: 100%
 	.modal-content
 		.close
 			left: 70%
 	.btn .btn-link .button-coll-side .button-sale-popup
 		bottom: 0 !important
+ 
+
+
 /**/
 @media only screen and (max-width : 670px) 			
 	html, body
@@ -429,7 +479,17 @@
 			.logo-footer
 				margin-left: 35%	
 			.reserv-footer
-				left: 30%
+				left: 30%		
+		.ocfilter-mobile
+			.ocfilter-option-popover
+				margin-left: 51% 
+		.ocfilter-mobile-handle
+			left: -41%
+		.ocf-offcanvas.active
+			left: 79%
+		.ocf-offcanvas
+			width: 23%
+			left:
 						
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 420px)
@@ -557,6 +617,12 @@
 					margin-left: 70%		
 			.reserv-footer
 				left: 30%
+		.ocfilter-mobile-handle
+			left: -37%
+		.ocf-offcanvas.active
+			left: 62%
+		.ocf-offcanvas
+			width: 40%
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 375px)
 	html, body
@@ -625,7 +691,15 @@
 				left: 10%	
 			.information-footer		
 				.list-unstyled
-					margin-left: -14px				
+					margin-left: -14px	
+
+		.ocfilter-mobile-handle
+			left: -41%
+		.ocf-offcanvas.active
+			left: 60.5%
+		.ocf-offcanvas
+			width: 
+			left:								
 /**/
 @media only screen and (max-width : 360px)
 	html, body
