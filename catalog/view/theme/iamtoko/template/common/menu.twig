@@ -12,12 +12,13 @@
         <li>
           <a href='#' data-class='home_is_visible' data-hover="hover-on-link">{{ text_home }}</a>
         </li>      
-        <li>
+        <li class="catalog-toko">
+        <div class="relative-catalog">
           <a href="{{ all_product }}" data-hover="hover-on-link">{{ text_all_clothes }}</a>
-          <a class="main-item" href="javascript:void(0);" tabindex="1" id="main-item">▼</a>
-          <a class="main-close" href="javascript:void(0);" tabindex="1" id="main-close">▲</a>
+          <a class="clos-sort btn-menu-menu" href="#sub-menu" class="btn btn-default" data-toggle="collapse"></a>
+        </div>
           {% if categories %}
-          <ul class="sub-menu">
+          <ul class="sub-menu" id="sub-menu">
             <li class="category-new"><a href='{{ new }}' data-hover="hover-on-link">{{ text_new }}</a></li>
             <li class="category-sale"><a href='{{ sale }}' data-hover="hover-on-link">{{ text_sale }}</a></li>
             {% for category in categories %}
@@ -51,11 +52,12 @@
         <li>
           <a href='{{ blog_toko }}'  data-hover="hover-on-link">{{ text_blog_toko }}</a>
         </li>
-        <li>
-          <a href='{{ contact }}'  data-hover="hover-on-link" target="_blank">{{ text_contact_toko }}</a>
-          <a class="main-item-c" href="javascript:void(0);" tabindex="1" id="item-c">▼</a>
-          <a class="main-close-c" href="javascript:void(0);" tabindex="1" >▲</a>
-          <ul class="sub-menu-c contact-mi">
+        <li class="contact-toko">
+          <div class="relative-contact">
+            <a href='{{ contact }}'  data-hover="hover-on-link" target="_blank">{{ text_contact_toko }}</a>
+            <a class="clos-sort btn-contact-menu" href="#sub-contact" class="btn btn-default" data-toggle="collapse"></a>
+          </div>
+          <ul class="sub-menu-c contact-mi" id="sub-contact">
             <li><a href="tel:{{ telephone_href }}" title="Позвонить" data-hover="hover-on-link" rel="nofollow" >{{ telephone }}</a></li>
             <li><a href="tel:{{ telephone_href2 }}" title="Позвонить" data-hover="hover-on-link" rel="nofollow" >{{ telephone2 }}</a></li>
             <li><a href="mailto:{{ email }}" title="email" data-hover="hover-on-link" rel="nofollow" target="_blank">{{ email }}</a></li>         
@@ -114,18 +116,16 @@ $(function(){
      $('.button-menu').addClass('close');
        }
    });  
-
-
    
 });
-/*--------- скрытие птички при открытии суб меню  ---*/ 
+/*--------- скрытие птички при открытии суб меню  
 var bg = document.getElementById('item-c');
 document.getElementById('main-item').addEventListener("mousedown", function(){bg.style.opacity = "0";this.addEventListener("mousedown", function(){bg.style.opacity = "0";});
 });
 
 var bg = document.getElementById('item-c');
 document.getElementById('main-close').addEventListener("mousedown", function(){bg.style.opacity = "1";this.addEventListener("mousedown", function(){bg.style.opacity = "1";});
-});
+});---*/ 
 
 /*--------- активный пункт меню  ---*/ 
 

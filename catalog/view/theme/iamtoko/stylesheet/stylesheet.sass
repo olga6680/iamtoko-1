@@ -375,59 +375,28 @@ body.nav_is_visible
 body.nav_is_visible .menu 
  			transform: translateX(-100%)
 
-/*sub menu*/
-.main-item, .main-close
-	display: block
-	position: fixed
-	right: 23px
-	top: 75px
-	font-size: 12px
-	padding: 0 !important
-	padding-top: 1px !important
-	padding-bottom: 3px !important
-	transform: none !important
-	transition: none !important
-	outline: none !important
-	&:hover, &:focus
-		background-color: transparent !important
-		color: #ff66c4
-
-.main-item-c, .main-close-c
-	display: block
+/*sub menu*/	
+.menu
+	.collapsed:after
+		background-color: transparent
+		right: 16px	
+.btn-menu-menu, .btn-contact-menu
 	position: absolute
-	right: 23px
-	top: 290px
-	font-size: 12px
-	padding: 0 !important
-	padding-top: 1px !important
-	padding-bottom: 3px !important
+	right: 30px
+	top: 30%
 	transform: none !important
 	transition: none !important
+	color: #fff
 	outline: none !important
 	&:hover, &:focus
 		background-color: transparent !important
-		color: #ff66c4
+		color: #fff !important
+.btn-menu-menu
 
-.main-close
-	color: #120e10 !important
-	top: 112px	
-	right: 24px
-
-.main-close-c
-	font-size: 12px
-	top: 327px	
-	right: 24px
-
-.main-item:focus ~ .sub-menu,
-.main-item:active ~ .sub-menu,
-.sub-menu:hover	
-	display: block	
-
-.main-item-c:focus ~ .sub-menu-c,
-.main-item-c:active ~ .sub-menu-c,
-.sub-menu-c:hover	
-	display: block
-
+.relative-catalog
+	position: relative 
+.relative-contact	
+	position: relative
 .sub-menu
 	background: #fff
 	border-right: 1px solid #120e10 
@@ -435,8 +404,7 @@ body.nav_is_visible .menu
 	font:	
 		weight: 600
 		size: 14px	
-	line-height: 0.1
-	display: none	
+	line-height: 0.1	
 	overflow-y: auto	
 	overflow-x: hidden	
 	scrollbar-color: #ff66c4 #120e10
@@ -465,17 +433,16 @@ body.nav_is_visible .menu
 		font-size: 16px
 		text-transform: uppercase
 		padding-bottom: 20px
-
+.submenu-c .collapse
+	height: 0 !important
 .sub-menu-c
 	border-top: 1px dotted #fff
 	border-bottom: 1px dotted #fff
 	font:	
 		weight: 400
 		size: 14px
-	line-height: 0.5
-	display: none			
-	overflow-y: auto	
-	overflow-x: hidden	
+	line-height: 0.5		
+	overflow: hidden	
 	scrollbar-color: #ff66c4 #120e10
 	scrollbar-width: thin
 	> li 
@@ -499,38 +466,7 @@ body.nav_is_visible .menu
 		&:hover, &:focus
 			background-color: transparent !important
 			color: #ff66c4
-
-.main-close
-	opacity: 0
-
-.main-close-c
-	opacity: 0
-
-.main-item:focus,
-.main-item:active
-	opacity: 0
-
-.main-item:focus .main-item-c,
-.main-item:active .main-item-c 
-	opacity: 0
-
-.main-item-c:focus,
-.main-item-c:active 
-	display: block 
-	opacity: 0	
 	
-.main-item:focus~.main-close,
-.main-item:active~.main-close,
-.sub-menu:hover~.main-close
-	display: block	
-	opacity: 1
-
-
-.main-item-c:focus~.main-close-c,
-.main-item-c:active~.main-close-c,
-.sub-menu-c:hover~.main-close-c
-	display: block	
-	opacity: 1	
 
 .social-mi
 	margin-left: 120px
@@ -1221,7 +1157,7 @@ a.active
 	position: absolute
 	top: 35%
 	text-align: center
-	background-color: rgba(255, 255, 255, .5)
+	background-color: rgba(255, 255, 255, .3)
 	padding: 5px 20px
 	margin-left: 12%
 	margin-right: auto
@@ -1921,8 +1857,6 @@ a.active
 
 
 /*---------КАТЕГОРИИ---------*/
-.breadcrumb
-	display: none
 #content
 	.category-content-thumb
 		position: relative
@@ -1931,11 +1865,91 @@ a.active
 		font:
 			family: 'Roboto Condensed', sans-serif
 			weight: 600
+			size: 26px
 		margin-top: 0
 		margin-bottom: 20px
 		text-align: center
 		text-transform: lowercase
-		letter-spacing: 1.3px
+		letter-spacing: 1.1px
+	hr 
+		display: none
+	p 
+		margin-bottom: 40px		
+	#list-view, #grid-view, #compare-total, .input-limit
+		display: none	
+	.input-group-addon
+		border-radius: 0
+		border: none
+		background-color: transparent
+		font-weight: 600
+		text-transform: lowercase
+		letter-spacing: .7px
+		font-size: 14px
+	.input-group .form-control
+		width: 95%
+		text-transform: lowercase
+		letter-spacing: .3px
+	.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn
+		border-radius: 0
+	.form-control
+		box-shadow: none
+	.input-group-sm > .form-control, .input-group-sm
+		position: relative
+		select 
+			display: block
+			background-color: 
+			appearance: none
+			outline: 0
+    	outline-offset: 0	
+			box-shadow: none
+			&:hover, &:focus, &:active
+				background-color: #f5f5f5
+				border-color: #bebcc5
+			option 
+				background-color: #fff
+				&hover, &:focus
+					background-color: #ff66c4
+		.button-select-mi
+			position: absolute
+			z-index: 1000
+			top: 8%
+			right: 5.5%
+			svg 
+				width: 18px
+				fill: #94929e
+
+.out-pan
+	width: 160px
+	position: relative	
+	height: 20px
+	span
+		position: absolute
+		font-weight: 600
+		text-transform: lowercase
+		letter-spacing: 1px
+.clos-sort
+	color: inherit
+	font-size: 20px
+	font-weight: 600
+	&:hover, &:focus
+		color: inherit		
+.container-sort
+	margin-bottom: 10px							
+.collapsed:before,
+.collapsed:after
+	display: block
+	position: absolute
+	content: '+'
+	right: 0
+	padding: 0 5px
+	top: -.2em
+.clos-sort:before
+	position: absolute
+	content: '-'
+	right: 0
+	top: -30%
+	padding: 0 5px
+
 /*---------Фильтр---------*/
 #ocfilter
 	position: absolute
@@ -2003,6 +2017,7 @@ a.active
 .ocfilter-mobile
 	.ocfilter-option-popover
 		margin-left: 40%
+
 
 
 
