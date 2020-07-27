@@ -1,4 +1,16 @@
-$(function () {
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+$(function () {  
+
+$(document).ready(function() {
+  getCookie('newsletter_already_added') == undefined
+  initNewsletter();    	    
+});  
+
 //анимация
 $(".slideDown").animated("bounceInDown");
 $(".slideRight").animated("bounceInLeft");
@@ -7,21 +19,79 @@ $(".bounceIn").animated("bounceIn");
 $(".flipInY").animated("flipInY");
 $(".slideUp").animated("bounceInUp");
 
-//Sale popup
-$('.button-sale-popup').magnificPopup({
+//Sale popup и Email popup
+$('.button-sale-popup, .button-news-popup').magnificPopup({
   mainClass: 'mfp-zoom-in',
   removalDelay: 500
 });
 
 $('.button-salepopup').on('click', function() {
-  $('.sale-popup').fadeOut();
+  $('.sale-popup, .news-popup').fadeOut();
   $.magnificPopup.close();
 });
 
-$('.button-sale-popup').on('click', function() {
-  $('.sale-popup').fadeIn();
+$('.button-newspopup').on('click', function() {
+  $('.sale-popup, .news-popup').fadeOut();
+  $('.form-news-popup').fadeIn();
 });
 
+$('.newsletter_box input[name=\'email\']').bind('keydown', function(e) {
+  if (e.keyCode == 13) {
+    $('#button-subscribe').trigger('click');
+  }
+});
+
+$('#button-subscribe').on('click', function () {
+  var success_message = $('#success_message').val()
+  $.ajax({
+    url: 'index.php?route=product/category/subscribe',
+    type: 'post',
+    dataType: 'json',
+    data: 'email=' + encodeURIComponent($('input[id=\'email\']').val()),
+    beforeSend: function () {
+      $('#button-subscribe').button('loading');
+    },
+    complete: function () {
+      $('#button-subscribe').button('reset');
+    },
+    success: function (json) {
+      $('.text-success, .text-danger').remove();
+      if (json['error']) {
+        $('#respond').after('<div class="text-success text-danger" style="margin:20px 0;"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+        setTimeout(function() {
+          $('.text-danger').fadeOut('fast');
+        }, 2000);
+      }
+      if (json['success']) {
+        $('#respond').after('<div class="text-success" style="margin:20px 0;"><i class="fa fa-check-circle"></i> ' + success_message + '</div>');
+        $.cookie( 'newsletter_already_added' , 1 , { expires: 14 , path: '/' });
+        setTimeout(function() {
+          $.magnificPopup.close();
+        }, 1900);	
+        $('input[id=\'email\']').val('');
+        setTimeout(function() {
+          $('.text-success').fadeOut('fast');
+        }, 2000);
+      }
+    }
+  });
+});
+
+
+$('.button-sale-popup, .button-news-popup').on('click', function() {
+  $('.sale-popup, .news-popup').fadeIn();
+});
+
+//4 фото в категориях
+$('.category-content-thumb > .product-layout > .product-thumb').each(function (e) { 
+
+  e +=1;
+
+$(this).parent().attr({
+  'class' : 'product-layout product-grid col-lg-3 col-md-4 col-sm-6 col-xs-12 data-bal="element-bal"'
+
+});  
+});  
 //Купить в один клик
 $('.product-layout > .product-thumb').each(function (e) { 
 
@@ -37,7 +107,7 @@ $('.product-layout > .product-thumb').each(function (e) {
         img_url   = $(this).find('.img-responsive').attr('src'),
         item_name = $(this).find('h4 a').text(),
         item_price = $(this).find('.price').text();
-
+      
 
 $(this).after('\
   <div id="modalFeedbackHeader-' + e + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalFeedbackHeaderLabel" aria-hidden="true">\
@@ -126,7 +196,25 @@ $(window).scroll(function() {
     $('.scrollup, .button-coll-side').fadeOut();
   }
 
+/*--------- скрытие птички при открытии суб меню 
+var bg = document.getElementById('main-item');
+document.getElementById('sub-menu').addEventListener("mousedown", function(){bg.style.display = "none";this.addEventListener("mousedown", function(){bg.style.display = "block";});
+});---*/ 
+
+/*---
+var bg = document.getElementById('item-c');
+document.getElementById('main-close').addEventListener("mousedown", function(){bg.style.opacity = "0";this.addEventListener("mousedown", function(){bg.style.opacity = "1";});
+});---*/ 
 
 });
+
+
+
+
+
+
+
+
+
 
 

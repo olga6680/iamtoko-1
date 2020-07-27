@@ -18,8 +18,8 @@ html
 	
 #content
 	.row
-		margin-right: -50px
-		margin-left: -50px
+		margin-right: 0
+		margin-left: 0
 
 /*----------header------------*/
 header
@@ -97,7 +97,7 @@ header
 					margin-top: -10px
 	.header
 		padding: 7px 10px
-
+		padding-bottom: 0
 .logo
 	transform: rotate(-5deg)
 	margin-left: 70px
@@ -982,6 +982,9 @@ a.active
 	height: 12em	
 	position: relative
 	margin-top: 220px
+	.row
+		margin-right: -45px !important
+		margin-left: -45px !important
 	h2
 		visibility: hidden		
 	.col-md-4
@@ -989,7 +992,7 @@ a.active
 		&:nth-child(1)
 			svg 
 				margin-top: -.9em
-				margin-left: -2.2em
+				margin-left: -2.6em
 	a 
 		color: #120e10
 		font:
@@ -1046,7 +1049,7 @@ a.active
 	&:hover .hover-img
 		background-color: rgba(0, 0, 0, .3)				
 	> .product-thumb
-		margin-right: 15px
+		margin-right: 10px
 		padding: 0
 		text-align: center
 		margin-bottom: 20px				
@@ -1397,9 +1400,10 @@ a.active
 
 /*---------Newsletter Subscribe---------*/	
 .newsletter-mi
-	margin-top: 150px
+	margin-top: 0
 	line-height: .001
 	hr 
+		display: block !important
 		margin-bottom: 20px
 	h2 
 		font:
@@ -1425,8 +1429,9 @@ a.active
 	justify-content: center
 	text-align: center
 	position: relative
-	.input-group
-		width: 300px
+	.input-group-home
+		width: 300px !important
+		margin-top: 0 !important
 		input 
 			position: relative
 	.input-group-addon:last-child
@@ -1515,7 +1520,7 @@ a.active
 	to 
 		-webkit-transform: rotate(-30deg)		
 /*---------Кнопка подарок Скидка---------*/	
-.sale-popup
+.sale-popup, .news-popup
 	max-width: 320px
 	position: relative
 	margin: auto
@@ -1523,7 +1528,7 @@ a.active
 		width: 320px
 		display: block
 		position: relative
-	.left-salepopup
+	.left-salepopup, .left-newspopup
 		position: absolute
 		top: 10%
 		left: 35%
@@ -1533,7 +1538,12 @@ a.active
 			family: 'Roboto Condensed', sans-serif
 			weight: 400	
 			size: 20px
-	.bottom-salepopup
+	.left-newspopup
+		font-size: 16px
+		left: 5%
+		width: 35%
+		text-transform: lowercase		
+	.bottom-salepopup, .bottom-newspopup
 		position: absolute
 		top: 30%
 		width: 60%
@@ -1541,7 +1551,12 @@ a.active
 		font:
 			family: 'Hitch Hike', sans-serif
 			size: 30px
-	.button-salepopup
+	.bottom-newspopup
+		font-size: 19px
+		left: 5%
+		width: 90% 	
+		top: 32%	
+	.button-salepopup, .button-newspopup
 		position: absolute
 		top: 70%
 		left: 33.5%
@@ -1557,7 +1572,10 @@ a.active
 			&:hover, &:focus
 				background-color:	rgba(0, 0, 0, .8)	
 				border-color:	rgba(0, 0, 0, .9)	
-
+	.button-newspopup
+		top: 45%
+		a
+			padding: 8%
 
 .button-sale-popup
 	bottom: 25%
@@ -1857,25 +1875,54 @@ a.active
 
 
 /*---------КАТЕГОРИИ---------*/
-#content
-	.category-content-thumb
-		position: relative
+#product-category
+	.swiper-viewport
+		margin: 0
+	.swiper-viewport .swiper-container 
+		margin-top: 60px
+		width: 100%
+		height: auto
+	.ban-top-cat
+		display: block
+		margin-left: -5% !important
+		width: 110%
+		height: auto
+		margin: 0
+		background-color: #ff66c4
+		font-size: 12px !important
+		padding: 15px 0
+		color: #fff
+		a 
+			color: #ffffff
+			outline: none
+			text-decoration: underline
+			&:hover
+				text-decoration: none !important
+.breadcrumb
 	padding: 0
+	margin: 0
+	background-color: transparent	
+	border-radius: 0	
+	li
+		a 
+			font-family: 'Montserrat Alternates', sans-serif
+#content
 	h1 
 		font:
 			family: 'Roboto Condensed', sans-serif
 			weight: 600
 			size: 26px
-		margin-top: 0
-		margin-bottom: 20px
-		text-align: center
 		text-transform: lowercase
 		letter-spacing: 1.1px
+	.category-content-thumb
+		position: relative
+	padding: 0
 	hr 
 		display: none
 	p 
-		margin-bottom: 40px		
-	#list-view, #grid-view, #compare-total, .input-limit
+		margin-bottom: 40px	
+				
+	#list-view, #grid-view, #compare-total, .input-limit, #input-limit
 		display: none	
 	.input-group-addon
 		border-radius: 0
@@ -1895,33 +1942,77 @@ a.active
 		box-shadow: none
 	.input-group-sm > .form-control, .input-group-sm
 		position: relative
-		select 
-			display: block
-			background-color: 
-			appearance: none
-			outline: 0
-    	outline-offset: 0	
-			box-shadow: none
-			&:hover, &:focus, &:active
-				background-color: #f5f5f5
-				border-color: #bebcc5
-			option 
-				background-color: #fff
-				&hover, &:focus
-					background-color: #ff66c4
-		.button-select-mi
-			position: absolute
-			z-index: 1000
-			top: 8%
-			right: 5.5%
-			svg 
-				width: 18px
-				fill: #94929e
 
+
+.container-sort	
+	.sub-sort
+		margin-top: 30px
+	label 
+		font-size: 12px !important
+		display: inline-flex 
+		align-items: center 
+		user-select: none
+.radio-cat
+	&:nth-child(2), &:nth-child(3),
+	&:nth-child(8), &:nth-child(9),
+	&:nth-child(10), &:nth-child(11)
+		display: none !important
+
+ /* для элемента label связанного с .custom-radio */
+.custom-radio 
+	z-index: -1
+	opacity: 0
+.radio-cat
+	/* создание в label псевдоэлемента  before со следующими стилями */
+	label
+		margin-left: -30px
+		&:before 
+			content: ''
+			display: inline-block
+			width: 1.5em
+			height: 1.5em
+			flex-shrink: 0
+			flex-grow: 0
+			border: 1px solid #adb5bd
+			border-radius: 50%
+			margin-right: 0.5em
+			background-repeat: no-repeat
+			background-position: center center
+			background-size: 50% 50%	
+ /* стили при наведении курсора на радио */
+.custom-radio:not(:disabled):not(:checked) + label:hover::before 
+    border-color: #ffd1ed
+/* стили для активной радиокнопки (при нажатии на неё) */
+.custom-radio:not(:disabled):active + label::before 
+  background-color: #ffd1ed
+  border-color: #ffd1ed
+  /* стили для радиокнопки, находящейся в состоянии checked */
+.custom-radio:checked + label::before 
+	border-color: #ff66c4
+	background-color: #ff66c4
+.custom-radio:checked + label::after 	
+	content: ''
+	display: inline-block
+	position: absolute
+	left: 19px
+	width: .5em
+	height: .5em
+	flex-shrink: 0
+	flex-grow: 0
+	border: 1px solid #fff
+	background-color: #fff
+	border-radius: 50%
+	margin-right: 0.5em
+	background-repeat: no-repeat
+	background-position: center center
+	background-size: 50% 50%	
+
+/*---------Панель открытия/закрытия в фильтрах---------*/
 .out-pan
-	width: 160px
+	width: 150px
 	position: relative	
 	height: 20px
+	bottom: -30px
 	span
 		position: absolute
 		font-weight: 600
@@ -1932,9 +2023,8 @@ a.active
 	font-size: 20px
 	font-weight: 600
 	&:hover, &:focus
-		color: inherit		
-.container-sort
-	margin-bottom: 10px							
+		color: inherit	
+		
 .collapsed:before,
 .collapsed:after
 	display: block
@@ -1949,10 +2039,8 @@ a.active
 	right: 0
 	top: -30%
 	padding: 0 5px
-
 /*---------Фильтр---------*/
 #ocfilter
-	position: absolute
 	top: 0
 	left: -20%
 	border-radius: 0
@@ -2018,8 +2106,16 @@ a.active
 	.ocfilter-option-popover
 		margin-left: 40%
 
-
-
+/*---------Форма подписки попап---------*/
+.form-news-popup
+	height: 120px	
+	background: #fff
+	max-width: 320px
+	position: relative
+	margin: auto
+	.input-group
+		width: 60%
+		margin-top: 20%
 
 //
 
