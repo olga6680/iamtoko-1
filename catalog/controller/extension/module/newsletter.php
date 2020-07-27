@@ -47,9 +47,9 @@ class ControllerExtensionModuleNewsletter extends Controller {
 
 		
 		$data['module'] = $module++;
-			
-		return $this->load->view('extension/module/newsletter', $data);
-		
+
+		$this->response->setOutput($this->load->view('extension/module/newsletter', $data));
+
 	}
 	
 	
@@ -77,9 +77,8 @@ class ControllerExtensionModuleNewsletter extends Controller {
 		}
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
+
 	}
-	
-	
 	
 	public function unsubscribe() {
 	
