@@ -131,7 +131,7 @@
                 <a href="tel:{{ telephone_href }}" title="Позвонить">{{ telephone }}</a><br/>
                 <a href="tel:{{ telephone_href2 }}" title="Позвонить">{{ telephone2 }}</a>
             </div>
-            <div class="visible-xs phone-xs dropdown">
+            <div class="visible-xs visible-sm phone-xs dropdown">
                 <a href="{{ contact }}" title="{{ text_contact }}" class="dropdown-toggle" data-toggle="dropdown">
                     <i>
                         <svg class="icon {{ wl_class }}" viewBox="0 0 27 27" width="27" height="27">
@@ -140,7 +140,7 @@
                     </i>
                 </a>
                 <span class="hidden-xs hidden-sm hidden-md">{{ telephone }}</span>
-                <ul class="dropdown-menu dropdown-menu-center">
+                <ul class="dropdown-menu dropdown-menu-center drop-phone-xs">
                     <li><a href="#modalCallbackFooterFooter" id="button_callbackfooter" data-toggle="modal"><i class="fa fa-volume-control-phone"></i> <span>{{ text_button_callback }}</span></a></li>
                     <li><a href="tel:{{ telephone_href }}" title="Позвонить">{{ telephone }}</a></li>
                     <li><a href="tel:{{ telephone_href2 }}" title="Позвонить">{{ telephone2 }}</a></li>
@@ -175,7 +175,8 @@
   <input type="hidden" value="{{ entry_phone }}" id="entry_phone" />
   <input type="hidden" value="{{ entry_enquiry }}" id="entry_enquiry" />
   <input type="hidden" value="{{ text_send }}" id="text_send" /> 
-  <input type="hidden" value="{{ text_loading }}" id="text_loading" />     
+  <input type="hidden" value="{{ text_loading }}" id="text_loading" />  
+  <input type="hidden" value="{{ success_message }}" id="success_message" />    
 </header>
 
   
