@@ -2,6 +2,7 @@
 @import "vars"
 @import "fonts"
 @import "catalog/view/theme/iamtoko/stylesheet/mfp-zoom-in"
+@import url(https://fonts.googleapis.com/css?family=Rubik+One&subset=latin,cyrillic)
 
 
 body
@@ -1582,7 +1583,7 @@ a.active
 	transform: rotate(0)
 	padding: 0
 	height: 44px
-	right: 1%	
+	right: 1%		
 	.fa
 		margin: 0
 		padding: 5px 6px
@@ -1876,6 +1877,9 @@ a.active
 
 /*---------КАТЕГОРИИ---------*/
 #product-category
+	.row
+		.list-group
+			margin-top: 80px 
 	.swiper-viewport
 		margin: 0
 	.swiper-viewport .swiper-container 
@@ -1888,7 +1892,7 @@ a.active
 		width: 110%
 		height: auto
 		margin: 0
-		background-color: #ff66c4
+		background-color: #f294c8
 		font-size: 12px !important
 		padding: 15px 0
 		color: #fff
@@ -2005,7 +2009,64 @@ a.active
 	margin-right: 0.5em
 	background-repeat: no-repeat
 	background-position: center center
-	background-size: 50% 50%	
+	background-size: 50% 50%
+
+/* баннер в категории */	
+.banner-pro 
+	text-align: center
+	color: #fff
+	font-size: 1em
+	letter-spacing: .7px
+	font-weight: 600
+	section 
+	.banner-pro-section
+		position: relative
+		height: 37.6em
+		background: #f294c8
+		padding: 3em
+		padding-top: 1em
+		width: 97%
+		border-radius: 2em
+		.shipping-smile
+			margin-top: 3em
+
+		h2
+			padding-top: 2em
+			font-size: 1em
+		h3
+			font:
+				family: 'Roboto Condensed', sans-serif
+				size: 1.1em	
+				weight: 600
+			text-transform: uppercase
+		.sale-info
+			padding-top: .5em
+			p 
+				font-family: 'Roboto Condensed', sans-seri	
+			span	
+				color: #e1ff38	
+			a 
+				font-size: .9em
+				display: block
+				margin-top: -30px
+				text-transform: lowercase
+				text-decoration: underline
+				color: #ffffff
+				&:hover
+					text-decoration: none
+		.deliver-info
+			padding-top: 1.5em
+
+			h3
+				span 
+					color: #e1ff38
+			p 
+				font-size: .8em	
+		aside 
+			font-family: 'Roboto Condensed', sans-seri	
+			a 
+				font-size: 1.2em
+				color: #e1ff38	
 
 /*---------Панель открытия/закрытия в фильтрах---------*/
 .out-pan

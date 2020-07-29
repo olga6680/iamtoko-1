@@ -19,6 +19,9 @@ $(".bounceIn").animated("bounceIn");
 $(".flipInY").animated("flipInY");
 $(".slideUp").animated("bounceInUp");
 
+
+$('#content .category-content-thumb .product-layout:nth-child(8)').after($('#product-category .banner-pro'));
+
 //Sale popup и Email popup
 $('.button-sale-popup, .button-news-popup').magnificPopup({
   mainClass: 'mfp-zoom-in',
@@ -76,7 +79,6 @@ $('#button-subscribe').on('click', function () {
     }
   });
 });
-
 
 $('.button-sale-popup, .button-news-popup').on('click', function() {
   $('.sale-popup, .news-popup').fadeIn();
@@ -140,6 +142,7 @@ $(this).find('.button-group').append('<a class="toclick" id="button_feedback" da
 });
 
 $('.product-thumb h4').css('height', '').equalHeights();
+
 
 
 $('#button_send_feedback_header').on('click', function () {
