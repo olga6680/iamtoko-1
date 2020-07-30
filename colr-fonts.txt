@@ -1,5 +1,6 @@
-чёрный #120e10 
-розовый #ff66c4 rgba(255, 102, 196)
+чёрный #120e10 rgba(18, 14, 16)
+розовый яркий #ff66c4 rgba(255, 102, 196)
+розовый #f294c8 rgba(242, 148, 200)
 т.серый #94929e rgba(148, 146, 158)
 серый #dbdee0 rgba(219, 222, 224)
 для линий розовый #be8fa8 
@@ -37,3 +38,11 @@ font-family: 'Bebas Neue'; @import "http://fonts.fontstorage.com/import/bebasneu
 ------------------
 
 Tel7418574 tokostyle19@gmail.com
+
+
+------------------
+кнопка в категориях для подписки
+
+<h3 class="ban-top-cat" align="center">Все новинки со СКИДКОЙ 20% первые 3 дня на сайте.&nbsp;<a href="#newspopup" class="button-news-popup">Подробности</a></h3>
+
+-------------------

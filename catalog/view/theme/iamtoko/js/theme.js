@@ -4,12 +4,9 @@ function getCookie(name) {
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
-$(function () {  
 
-$(document).ready(function() {
-  getCookie('newsletter_already_added') == undefined
-  initNewsletter();    	    
-});  
+
+$(function () {  
 
 //анимация
 $(".slideDown").animated("bounceInDown");
@@ -84,6 +81,10 @@ $('.button-sale-popup, .button-news-popup').on('click', function() {
   $('.sale-popup, .news-popup').fadeIn();
 });
 
+$('.clos-sort, .btn-menu-menu, .btn-contact-menu').click(function() {
+  $(this).toggleClass('clos-sort-plus');
+      })
+
 //4 фото в категориях
 $('.category-content-thumb > .product-layout > .product-thumb').each(function (e) { 
 
@@ -141,29 +142,25 @@ $(this).after('\
 $(this).find('.button-group').append('<a class="toclick" id="button_feedback" data-toggle="modal" href=" #modalFeedbackHeader-' + e + '"><i class="fa fa-send-o"></i> <span class="hidden-xs hidden-sm hidden-md"> ' + one_click + '</span></a>');
 });
 
-$('.product-thumb h4').css('height', '').equalHeights();
-
-
-
-$('#button_send_feedback_header').on('click', function () {
+$('.pp-content #button_send_feedback_header').on('click', function () {
   $.ajax({
     url: 'index.php?route=common/header/write',
     type: 'post',
     dataType: 'json',
-    data: $("#form-feedback-header").serialize(),
+    data: $(".pp-content #form-feedback-header").serialize(),
     beforeSend: function () {
-      $('#button_send_feedback_header').button('loading');
+      $('.pp-content #button_send_feedback_header').button('loading');
     },
     complete: function () {
-      $('#button_send_feedback_header').button('reset');
+      $('.pp-content #button_send_feedback_header').button('reset');
     },
     success: function (json) {
       $('.alert-success, .alert-danger').remove();
       if (json['error']) {
-        $('#form-feedback-header').after('<div class="alert alert-danger" style="margin:20px 0;"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+        $('.pp-content #form-feedback-header').after('<div class="alert alert-danger" style="margin:20px 0;"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
       }
       if (json['success']) {
-        $('#form-feedback-header').after('<div class="alert alert-success" style="margin:20px 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+        $('.pp-content #form-feedback-header').after('<div class="alert alert-success" style="margin:20px 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
         $('input[name=\'name\']').val('');
         $('input[name=\'phone\']').val('');
         $('input[name=\'email\']').val('');
@@ -175,6 +172,8 @@ $('#button_send_feedback_header').on('click', function () {
     }
   });
 });
+
+$('.product-thumb h4').css('height', '').equalHeights();
 
 });
 

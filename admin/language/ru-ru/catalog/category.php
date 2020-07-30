@@ -25,12 +25,16 @@ $_['entry_store']            = 'Магазины';
 $_['entry_keyword']          = 'SEO URL';
 $_['entry_parent']           = 'Родительская категория';
 $_['entry_filter']           = 'Фильтры';
+
+
+
 $_['entry_image']            = 'Изображение категории';
 $_['entry_top']              = 'Главное меню';
 $_['entry_column']           = 'Столбцы';
 $_['entry_sort_order']       = 'Порядок сортировки';
 $_['entry_status']           = 'Статус';
 $_['entry_layout']           = 'Макет';
+
 
 // Help
 $_['help_filter']            = '(Автозаполнение)';

@@ -1,6 +1,7 @@
 <div class="list-group-item ocfilter-option" id="option-{{ option.option_id }}">
   <div class="ocf-option-name">
     {{ option.name }}
+    <a class="clos-sort" href="#sub-filter-{{ option.option_id }}" class="btn btn-default" data-toggle="collapse"></a>
 
 		{% if option.type == 'slide' or option.type == 'slide_dual' %}
     <span id="left-value-{{ option.option_id }}">{{ option.slide_value_min_get }}</span>
@@ -37,7 +38,7 @@
       </div>
     </div>
     {% else %}
-    {% include 'default/template/extension/module/ocfilter/value_list.twig' %}
+    <div id="sub-filter-{{ option.option_id }}" class="sub-filter collapse">{% include 'default/template/extension/module/ocfilter/value_list.twig' %}</div>
     {% endif %}
 
     {% endif %}

@@ -1,5 +1,10 @@
 {{ header }}
-<div id="product-category" class="container-fluid">  
+<div id="product-category" class="container-fluid">
+  <row>
+    <div class="col-md-12">
+      <h3 class="ban-top-cat" align="center">{{ text_letter_category }}&nbsp;&nbsp;<a href="#newspopup" class="button-news-popup">{{ text_button_letter }}</a></h3>
+    </div>
+  </row>  
   <div class="container">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
@@ -8,9 +13,6 @@
   </ul>
   </div>
   {{ content_top }}
-  {% if description %}
-  <div class="col-sm-12">{{ description }}</div>
-  {% endif %}</div>
   <div class="row">  {{ column_left }}
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
@@ -19,34 +21,7 @@
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }}">   
-      {% if categories %}
-      <h3>{{ text_refine }}</h3>
-      {% if categories|length <= 5 %}
-      <div class="row">
-      
-        <div class="col-sm-3">
-          <ul>
-            {% for category in categories %}
-            <li><a href="{{ category.href }}">{{ category.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-      {% else %}
-      <div class="row">
-      {% for category in categories|batch((categories|length / 4)|round(1, 'ceil')) %}
-        <div class="col-sm-3">
-          <ul>
-            {% for child in category %}
-            <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% endfor %}</div>
-      <br />
-      {% endif %}
-      {% endif %}
+    <div id="content" class="{{ class }}">  
       {% if products %}
       <div class="row">
         <div class="col-md-4"><h1>{{ heading_title }}</h1></div>
@@ -183,6 +158,9 @@
         <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
       </div>
       {% endif %}
+            {% if description %}
+      <div class="col-sm-12">{{ description }}</div>
+      {% endif %} 
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>

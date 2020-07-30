@@ -1,0 +1,35 @@
+<div class="list-group menu-side">
+  {% for category in categories %}
+  {% if category.category_id == category_id %} 
+  <a class="list-group-item menu-side-item active">{{ category.name }}</a> 
+  {% if category.children %}
+  {% for child in category.children %}
+  {% if child.category_id == child_id %}
+  <a href="{{ child.href }}" class="list-group-item menu-side-item active">{{ child.name }}</a> 
+  {% else %} 
+  <a href="{{ child.href }}" class="list-group-item menu-side-item">{{ child.name }}</a>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+</div>
+
+<div class="button-sub-menu-left">
+  <span>{{ text_menu_left }}</span>
+  <a class="clos-sort sub-menu-left" href="#sub-menu-left" class="btn btn-default" data-toggle="collapse"></a>
+</div>
+<div id="sub-menu-left" class="list-group menu-side collapse">
+  {% for category in categories %}
+  {% if category.category_id == category_id %} 
+  {% if category.children %}
+  {% for child in category.children %}
+  {% if child.category_id == child_id %} 
+  <a href="{{ child.href }}" class="list-group-item menu-side-item">&nbsp;&nbsp;&nbsp;- {{ child.name }}</a>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  {% else %} <a href="{{ category.href }}" class="list-group-item menu-side-item">{{ category.name }}</a>
+  {% endif %}
+  {% endfor %}
+</div>
