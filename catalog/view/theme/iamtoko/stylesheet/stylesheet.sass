@@ -1902,6 +1902,15 @@ a.active
 
 
 /*---------КАТЕГОРИИ---------*/	
+.breadcrumb
+	padding: 0
+	margin: 0
+	background-color: transparent	
+	border-radius: 0	
+	li
+		a 
+			font-family: 'Montserrat Alternates', sans-serif
+
 #product-category
 	/*---------Баннер вверху---------*/		
 	.swiper-viewport
@@ -2005,49 +2014,42 @@ a.active
 		padding-top: 2px
 		padding-bottom: 2px
 		color: #fff !important
-.breadcrumb
-	padding: 0
-	margin: 0
-	background-color: transparent	
-	border-radius: 0	
-	li
-		a 
-			font-family: 'Montserrat Alternates', sans-serif
-#content
-	h1 
-		font:
-			family: 'Roboto Condensed', sans-serif
-			weight: 600
-			size: 26px
-		text-transform: lowercase
-		letter-spacing: 1.1px
-	padding-right: 15px
-	padding-left: 15px
-	hr 
-		display: none
-	p 
-		margin-bottom: 40px	
-				
-	#list-view, #grid-view, #compare-total, .input-limit, #input-limit
-		display: none	
-	.input-group-addon
-		border-radius: 0
-		border: none
-		background-color: transparent
-		font-weight: 600
-		text-transform: lowercase
-		letter-spacing: .7px
-		font-size: 14px
-	.input-group .form-control
-		width: 95%
-		text-transform: lowercase
-		letter-spacing: .3px
-	.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn
-		border-radius: 0
-	.form-control
-		box-shadow: none
-	.input-group-sm > .form-control, .input-group-sm
-		position: relative
+	#content
+		h1 
+			font:
+				family: 'Roboto Condensed', sans-serif
+				weight: 600
+				size: 26px
+			text-transform: lowercase
+			letter-spacing: 1.1px
+		padding-right: 15px
+		padding-left: 15px
+		hr 
+			display: none
+		p 
+			margin-bottom: 40px	
+		.review-main
+			margin-top: 0			
+		#list-view, #grid-view, #compare-total, .input-limit, #input-limit
+			display: none	
+		.input-group-addon
+			border-radius: 0
+			border: none
+			background-color: transparent
+			font-weight: 600
+			text-transform: lowercase
+			letter-spacing: .7px
+			font-size: 14px
+		.input-group .form-control
+			width: 95%
+			text-transform: lowercase
+			letter-spacing: .3px
+		.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn
+			border-radius: 0
+		.form-control
+			box-shadow: none
+		.input-group-sm > .form-control, .input-group-sm
+			position: relative
  /* сортировка */
 .container-sort	
 	.sub-sort
@@ -2293,6 +2295,40 @@ a.active
 		width: 60%
 		margin-top: 20%
 
+/*---------Pagination---------*/		
+[data-bal="bal-results"]
+	display: none
+.pagination>li>a, .pagination>li>span
+	color: #000
+	border: none
+	font-weight: 600
+	&:hover, &:active, &:focus
+		color: #000
+		background-color: transparent !important
+		border-color: transparent !important
+		text-decoration: underline !important
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover	
+	background-color: transparent
+	color: #ff66c4
+.bal-div
+	position: relative	
+.bal-box-next
+	position: absolute
+	top: 25px
+	right: 0
+	span 
+		font-size: 12px
+	a 
+		text-transform: lowercase
+		padding: 5px 20px
+		background-color: rgba(0, 0, 0, 1)
+		border-color: rgba(0, 0, 0, 1)
+		color: #fff	
+		margin-right: 40px
+		transition: background-color border-color .25s
+		&:hover, &:focus
+			background-color: rgba(0, 0, 0, .85)
+			border-color: rgba(0, 0, 0, 1)
 //
 
 
