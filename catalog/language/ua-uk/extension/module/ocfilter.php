@@ -1,5 +1,5 @@
 <?php
-$_['heading_title']                   = 'Параметри';
+$_['heading_title']                   = 'Фільтри';
 
 // Text
 $_['text_total_1']                    = '%d товар:';
