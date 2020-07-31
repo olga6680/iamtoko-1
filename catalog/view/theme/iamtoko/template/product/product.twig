@@ -17,18 +17,36 @@
       <div class="row"> {% if column_left or column_right %}
         {% set class = 'col-sm-6' %}
         {% else %}
-        {% set class = 'col-sm-8' %}
+        {% set class = 'col-sm-6' %}
         {% endif %}
         <div class="{{ class }}"> {% if thumb or images %}
-          <ul class="thumbnails">
+          <ul class="thumbnails product-page-image">
             {% if thumb %}
-            <li><a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
+            <li>
+              <ul class="thumbnails-popup">
+              	<li><a class="thumbnail" title="{{ heading_title }}"><img src="{{ thumb }}" class="img-fluid" id="zoom_01" data-zoom-image="{{ popup }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a><li>
+              </ul>  
+            </li>
             {% endif %}
-            {% if images %}
-            {% for image in images %}
-            <li class="image-additional"><a class="thumbnail" href="{{ image.popup }}" title="{{ heading_title }}"> <img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
-            {% endfor %}
-            {% endif %}
+            <li class="image-additional">
+
+              <div class="swiper-viewport">
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    {% if images %}
+                    {% for image in images %}
+                    <div class="swiper-slide"><a class="thumbnail" href="{{ image.popup }}" data-resize = "{{ image.resize }}" title="{{ heading_title }}"> <img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></div>
+                    {% endfor %}
+                    {% endif %}
+                   
+                  </div>
+                </div>
+                <div class="swiper-pager">
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+				        </div>
+              </div>  
+            </li>
           </ul>
           {% endif %}
           <ul class="nav nav-tabs">
@@ -537,14 +555,67 @@ $('#button-review').on('click', function() {
 	});
 });
 
-$(document).ready(function() {
-	$('.thumbnails').magnificPopup({
-		type:'image',
-		delegate: 'a',
-		gallery: {
-			enabled: true
-		}
-	});
+$('.swiper-container').swiper({
+  mode: 'horizontal',
+  centeredSlides: true,
+  slidesPerView: 3,
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev',
+  spaceBetween: 30,
+  loop: true
 });
+
+$(document).ready(function() {
+  $('.swiper-containerXXX').magnificPopup({
+    type:'image',
+    delegate: 'a',
+    gallery: {
+      enabled: true
+    }
+  });
+});
+
 //--></script> 
+
+
+<script src="catalog/view/javascript/jquery.elevatezoom.min.js" type="text/javascript"></script>
+<script type="text/javascript"><!--
+  $(document).ready(function(){
+    $("#zoom_01").elevateZoom({
+      cursor:"crosshair",
+      responsive: true,
+      zoomWindowFadeIn:555,
+      zoomWindowFadeOut:833,
+      lensFadeIn:555,
+      lensFadeOut:555,
+      zoomWindowWidth:600,
+      zoomWindowHeight:600
+    });
+  
+    $('.thumbnails .image-additional .swiper-viewport .swiper-container .swiper-wrapper .swiper-slide a').on('click', function(e) {
+    e.preventDefault();
+    $('.thumbnails li a.thumbnail:first img').attr('src', $(this).data('resize') );
+    $('.thumbnails li a.thumbnail:first img').data('zoom-image', $(this).attr('href') );
+    $(window).resize();
+    $('.thumbnails .image-additional .swiper-viewport .swiper-container .swiper-wrapper .swiper-slide a').removeClass('active-slide');
+    $(this).addClass('active-slide');
+    });
+  
+  });
+  
+  $(window).on("resize",function(){
+    if ($(this).width() < 900) {
+      $("#zoom_01").elevateZoom({cursor:"crosshair", zoomType:"inner", zoomWindowFadeIn:500, zoomWindowFadeOut:750, lensFadeIn:500, lensFadeOut:500, zoomWindowWidth:600, zoomWindowHeight:600});
+    } else {
+      $("#zoom_01").elevateZoom({cursor:"crosshair",zoomType:"window",zoomWindowFadeIn:500,zoomWindowFadeOut:750,lensFadeIn:500,lensFadeOut:500, zoomWindowWidth:600, zoomWindowHeight:600});
+    }
+  });
+//--></script> 
+
+<script type="text/javascript"><!--
+
+//--></script> 
+
 {{ footer }} 
