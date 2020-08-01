@@ -5,6 +5,11 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
+$(document).ready(function(){
+  if (document.location.pathname == '/') {
+     $('.banner-pro').addClass("banner-pro-vis");   
+  }
+});
 
 $(function () {  
 
