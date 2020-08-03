@@ -4,11 +4,11 @@ $_['heading_title'] = 'Всі товари';
 
 $_['title_advantage_sending'] = 'Відправлення в день замовлення';
 $_['title_advantage_delivery'] = 'Безкоштовна доставка';
-$_['title_advantage_payment'] = 'Наложений платіж';
+$_['title_advantage_payment'] = 'Післяплата';
 
 $_['text_advantage_sending'] = 'При оплаті замовлення до 13.00 відправка в цей же день';
 $_['text_advantage_delivery'] = 'Безкоштовна доставка по Україні при замовленні від 3 од. :)';
-$_['text_advantage_payment'] = 'Оплата наложеним з передоплатою від 100 грн.';
+$_['text_advantage_payment'] = 'Оплата післяплатою з передоплатою від 100 грн.';
 
 $_['button_advantage'] = 'Подробнее';
 
