@@ -1,0 +1,32 @@
+<div id="bannerhom{{ module }}" class="bannerhom">
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12 new-sale-new">
+      <a class="new-sale hidden-xs hidden-sm" href="index.php?route=information/information&information_id=15" class="text_new_bannerhom">
+        <video width="920" height="auto" autoplay="" loop="" muted="" playsline="" preload="" poster="../video/video-creenshot.png" data-loader="av">
+          <source src="../video/video-test.webm" type='video/webm'>
+        </video>
+        <div class="video__mask"></div>    
+        <section class="bannerhom-title bounceIn">
+          <h2>{{ text_new_bannerhom }}</h2>
+          <div>{{ button_new_bannerhom }}</div>
+        </section>
+      </a>                   
+        {% for banner in banners %}
+        <a class="new-sale hidden-lg hidden-md" href="index.php?route=information/information&information_id=15">
+          <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+          <div class="img__mask"></div>  
+          {{ banner.description }}
+        </a>
+        {% endfor %}                                                       
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12 new-sale-sale">          
+      {% for banner in banners %}
+      <a class="new-sale" href="index.php?route=information/information&information_id=16">       
+        <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+        <div class="img__mask"></div>  
+        {{ banner.description }} 
+      </a>  
+      {% endfor %}                                     
+    </div>
+  </div>
+</div>

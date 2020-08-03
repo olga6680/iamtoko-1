@@ -537,185 +537,130 @@ a.active
 	max-width: 100%
 	height: auto
 
+/*---banner hom---*/	
+.bannerhom
+	position: relative	
+	.video__mask
+		position: absolute
+		top: 0
+		left: 1.5%
+		right: 0.2%
+		bottom: 0.5%
+		transition: background .5s ease .5s
+	div .img__mask
+		position: absolute
+		top: 0
+		left: 1.8%
+		right: 1.8%
+		bottom: 0
+		transition: background .5s ease .5s
+	.new-sale
+		display: block
+		color: #fff	
+		font-size: 0	
+	.new-sale:hover .bannerhom-title, .nev-sale:hover img, .new-sale:hover video
+		visibility: visible
+		padding: 0
+		box-sizing: inherit
+		font-size: 14px
+	.new-sale:hover h2
+		font-size: 30px	
+	.video__mask:hover, .img__mask:hover	
+		background: rgba(0, 0, 0, 0.25)
+	.new-sale-new
+		margin-bottom: 10px
+		a:nth-child(3)
+			display: none
+	.new-sale-sale
+		margin-bottom: 10px
+		a:not(:nth-child(2))
+			display: none
 
+.bannerhom-title
+	display: block
+	position: absolute
+	text-align: center
+	top: 40%
+	left: 0
+	right: 0
+	transition: all .6s ease .5s
+	transform: (-50%, -50%)
+	visibility: hidden
+	h2
+		font-family: 'Roboto Condensed', sans-serif
+		text-transform: uppercase
+		font-size: 0
+		transition: font-size .7s ease 0.1s
+	div
+		text-transform: lowercase
+		text-decoration: underline
+		&:hover
+			text-decoration: none	
 
 /*---banner tab---*/
 .bannertab	
-	margin-top: 160px
-	position: relative	
+	position: relative
+	width: 50% !important	
+	margin-top: 40px		
 	.nav-tabs
-		border-bottom: none					
+		text-align: center
+		border-bottom: none
+		margin-bottom: 20px
+		li:not(:first-child)
+			border-left: 1px solid #000				
 		> li	
+			float: none
+			display: inline
 			margin-bottom: 1em
 			margin-right: 1em
-			text-align: center			
+			text-align: center	
 			&::after, &::before 
 				box-sizing: none
 			> a 
-				background-color: #ff66c4 
+				border: none
 				border-radius: 0 
-				color: #fff
-				border: none
+				color: #000	
 				display: table-cell
-				transition: background-color .25s ease
 				transform: none
-				border: none
+				padding: 0 
+				padding-left: 20px
+				text-transform: lowercase
 				font:
-					family: 'Montserrat Alternates', sans-serif
-					size: 1.4em
+					size: 1.2em
+					weight: 600
 				outline: none	
 				&:hover
-					background-color: rgba(255, 102, 196, 0.7)
+					text-decoration: underline
+					background-color: transparent
 	.tab-content
 		.tab-pane
 			> img 
 				height: 100%
 	.nav-tabs > li.active > a
-		background-color: #120e10 
-		color: #fff
-		transition: background-color .25s ease
+		text-decoration: underline
+		background-color: transparent
+		color: #000
 		transform: none
 		border: none
 		&:hover
-			background-color: rgba(18, 14, 16, 0.7)
+			text-decoration: underline
 	.button-tab
 		color: #fff
 		font-weight: 600
 		font-size: 1.5em
 		text-align: center
-		border: 2px solid #fff
-		background-color: rgba(18, 14, 16, .4)
+		text-decoration: underline
 		text-transform: lowercase
 		transition: background-color .25s ease
 		&:hover, &:focus
-			background-color: rgba(18, 14, 16, .1)	
+			text-decoration: none	
 			color: #fff
 		animation-duration: 1s
 		animation-delay: 2.5s	
 
-#tab-new
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)	
-	div:not(:nth-child(1)):not(.slideDown):not(.slideLeft):not(.slideRight):not(.button-new):not(.button-bounceIn)	
-		display: none
-		position: relative
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)						
-	img
-		width: 100%	
-		position: relative
-		height: auto
-		margin-bottom: 0
-	a 
-		color: #120e10 
-		text-decoration: none
-		display: block
-		overflow: hidden		
-		white-space: nowrap
-		width: 100%
-		height: auto
-		outline: none
-		font:
-			weight: 600
-			size: 1.4em	
-		text-transform: uppercase
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)	
-	.slideDown
-		position: absolute
-		top: 30%
-		left: 32.5%
-		right: 50%
-		font:
-			family: 'Roboto Condensed', sans-serif
-			size: 98px
-		color: #fff
-		animation-duration: 1s
-	.slideLeft, .slideRight 
-		position: absolute
-		top: 45%									
-		font:
-			family: 'Roboto Condensed', sans-serif
-			size: 2.05em
-		color: #ff66c4
-		text-transform: lowercase		
-	.slideRight	
-		left: 23.4%
-		animation-duration: 2s
-		animation-delay: .5s
-	.slideLeft
-		right: 23.4%
-		animation-duration: 2s
-		animation-delay: .5s
-	.button-new
-		position: absolute
-		top: 66%
-		left: 30%
-		padding: .4em 1em
-			
-#tab-sale	
-	div:not(:nth-child(2)):not(.slideRight):not(.slideLeft):not(.button-sale):not(.bounceIn)
-		display: none	 
-		position: relative
-		width: 100%
-	div	
-		&:nth-child(2)
-			position: relative			
-			width: 100%					
-	a 
-		color: #120e10 
-		text-decoration: none
-		display: block
-		width: 100%
-		outline: none
-		font:
-			weight: 600
-			size: 1.5em	
-		text-transform: lowercase
-		letter-spacing: .1em
-		.slideRight, .slideLeft
-			font:
-				family: 'Roboto Condensed', sans-serif
-				size: 4.5em
-			text-transform: uppercase
-			-webkit-text-stroke: 1px #ff66c4
-			color: transparent		
-			position: absolute
-			width: 100%
-			animation-duration: 2s
-		.top1
-			top: -3%
-		.top2
-			top: 7%	
-		.top3
-			top: 17%
-		.bottom3
-			top: 84%	
-		.bottom2
-			top: 74%
-		.bottom1
-			top: 64%
-		h4
-			position: absolute
-			display: block
-			text-transform: uppercase
-			top: 39%
-			left: 23%	
-			color: #fff	
-			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1)		
-			font:
-				family: 'Roboto Condensed', sans-serif
-				size: 3.1em
-				weight: 800		
-		.button-sale
-			position: absolute
-			top: 52%		
-			left: 39%
-			padding: 0 40px 4px 40px
-			animation-delay: 1.3s
-		span 
-			color: #ff66c4
-
 #tab-best
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-	div:not(:nth-child(3)):not(.slideDown):not(.bounceIn):not(.button-best):not(.slideUp):not(.flipInY)
+	div:not(:nth-child(1)):not(.slideDown):not(.bounceIn):not(.button-best):not(.slideUp):not(.flipInY)
 		display: none
 		position: relative
 	img
@@ -723,23 +668,22 @@ a.active
 		margin-right: 0
 		margin-left: auto
 	a 
-		color: #120e10 
+		color: #fff
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, .3)
 		text-decoration: none
 		outline: none
 		font:
-			weight: 600
-			size: 1.4em	
+			size: 1em	
 		text-transform: lowercase
 		letter-spacing: .1em
 	.slideDown
 		position: absolute
 		top: 20%
-		left: 24%
-		background-color: #fff
+		left: 28%
 		padding: 0 .2em
 		font:
 			family: 'Roboto Condensed', sans-serif			
-			weight: 800
+			weight: 400
 			size: 3.3em	
 		text-transform: uppercase	
 		animation-duration: .8s
@@ -748,12 +692,11 @@ a.active
 	.buyer
 		position: absolute
 		top: 50%
-		left: 22.5%
-		background-color: #fff
+		left: 24.5%
 		padding: 0 .1em
 		font:
 			family: 'Roboto Condensed', sans-serif
-			weight: 600
+			weight: 400
 			size: 3em	
 		text-transform: uppercase
 		letter-spacing: .04em	
@@ -764,23 +707,23 @@ a.active
 		top: 33.1%
 		left: 43%
 		font-size: 4em
-		color: #fff
-		background-color: #ff66c4
+		color: #f294c8
 		padding: .1em .4em 0 .4em
 		animation-duration: 1.1s
 		animation-delay: 1.5s	
 	.button-best
 		position: absolute
 		top: 78%		
-		left: 33%
+		left: 38%
+		width: 17%
 		right: 50%
-		width: 400px
-		padding-bottom: 4px
+		padding: 2px 4ps 4px 4px
+		color: #fff
 
 #tab-colection
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 	position: relative
-	div:not(:nth-child(4)):not(.bounceIn):not(.slideRight):not(.slideLeft)
+	div:not(:nth-child(2)):not(.bounceIn):not(.slideRight):not(.slideLeft)
 		display: none	 
 	img 
 		width: 100%
@@ -791,12 +734,12 @@ a.active
 		outline: none
 		font: 
 			family: 'Roboto Condensed', sans-serif
-			weight: 900
+			weight: 200
 		text-transform: uppercase
 	.col-top
 		position: absolute
 		top: 10%
-		font-size: 6em	
+		font-size: 4em	
 	.col-top3
 		left: 50%
 		animation-duration: 1s
@@ -804,7 +747,7 @@ a.active
 	.col-top2
 		left: 40% 
 		animation-duration: 1s
-		animation-delay: 1s		
+		animation-delay: 1s	
 	.col-top1
 		left: 35% 
 		animation-duration: 1s
@@ -816,15 +759,15 @@ a.active
 	.col-top5
 		position: absolute
 		top: 30%
-		left: 14%
-		font-size: 5em
+		left: 13%
+		font-size: 4em
 		animation-duration: 2s
 		animation-delay: 2s		
 	.col-top6
 		position: absolute
 		top: 42%
-		left: 8.3%
-		font-size: 4.5em	
+		left: 9%
+		font-size: 3.6em	
 		animation-duration: 2s
 		animation-delay: 3s
 		span 
@@ -834,23 +777,24 @@ a.active
 		position: absolute
 		top: 53%
 		left: 28%
-		font-size: 90px	
+		font-size: 4.7em	
 		animation-duration: 2s
 		animation-delay: 4s							
 	.button-col
 		position: absolute
 		top: 83%
-		left: 28%
+		left: 32%
 		padding: 0 .5em .25em .5em
 		text-transform: lowercase
 		font-family: 'Montserrat Alternates', sans-serif
-		font-size: 2.4em
+		font-size: 1.5em
+		font-weight: 400
 		animation-duration: .5s
 		animation-delay: 6s
 
 #tab-bigsize
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-	div:not(:nth-child(5)):not(.bounceIn):not(.slideRight):not(.slideLeft)
+	div:not(:nth-child(3)):not(.bounceIn):not(.slideRight):not(.slideLeft)
 		display: none	 
 		position: relative
 		width: 100%	
@@ -862,17 +806,18 @@ a.active
 		outline: none
 		font:
 			family: 'Roboto Condensed', sans-serif
-			weight: 600
+			weight: 200
+			size: .8em
 		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3)
 	.slideRight, .slideLeft
 		position: absolute
 		top: 30%
 		font-size: 5.1em
 	.slideRight
-		left: 17%
+		left: 18%
 		animation-duration: 2s
 	.slideLeft
-		right: 17%
+		right: 18%
 		color: #ff66c4
 		animation-duration: 2s	
 	.bounceIn
@@ -884,17 +829,18 @@ a.active
 		animation-delay: 2s
 	.button-col
 		top: 70%
-		left: 28%
+		left: 30%
 		padding: 0 .8em .2em 0.8em
-		font-size: 2.2em
-		font-family: 'Montserrat Alternates', sans-serif	
+		font-size: 2em
+		font-family: 'Montserrat Alternates', sans-serif
+		font-weight: 400	
 		animation-duration: .5s
 		animation-delay: 3s
 
 #tab-blog	
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 	position: relative	
-	div:not(:nth-child(6)):not(.bounceIn):not(.slideRight):not(.slideLeft):not(.flipInY):not(.button)
+	div:not(:nth-child(4)):not(.bounceIn):not(.slideRight):not(.slideLeft):not(.flipInY):not(.button)
 		display: none
 	.img-news
 		position: absolute
@@ -912,12 +858,11 @@ a.active
 		color: #120e10 
 		text-decoration: none
 		display: block
-		width: 
 		outline: none		
 	.flipInY
 		font:
 			family: 'Roboto Condensed', sans-serif
-			weight: 800
+			weight: 400
 			size: 1.8em
 		position: absolute
 	.news
@@ -927,16 +872,16 @@ a.active
 		animation-delay: 2s
 	.text-news
 		position: absolute
-		width: 15%
+		width: 18%
 		top: 15%
 		left: 5%
 		animation-duration: 1s
 		animation-delay: 3s
 	.button-news
 		position: absolute
-		top: 23%
-		left: 10%
-		font-size: 1.3em
+		top: 28%
+		left: 13%
+		font-size: 1em
 		font-weight: 600
 		animation-duration: 1s
 		animation-delay: 4s
@@ -950,16 +895,16 @@ a.active
 		animation-delay: 5s
 	.text-article
 		position: absolute
-		width: 15%
+		width: 18%
 		top: 45%
 		left: 5%	
 		animation-duration: 1s
 		animation-delay: 6s
 	.button-article
 		position: absolute
-		top: 53%
-		left: 10%
-		font-size: 1.3em
+		top: 57%
+		left: 13%
+		font-size: 1em
 		font-weight: 600
 		animation-duration: 1s
 		animation-delay: 7s
@@ -973,16 +918,16 @@ a.active
 		animation-delay: 8s
 	.text-advice
 		position: absolute
-		width: 15%
+		width: 18%
 		top: 75%
 		left: 5%
 		animation-duration: 1s
 		animation-delay: 9s	
 	.button-advice
 		position: absolute
-		top: 83%
-		left: 10%
-		font-size: 1.3em
+		top: 86%
+		left: 13%
+		font-size: 1em
 		font-weight: 600
 		animation-duration: 1s
 		animation-delay: 10s
@@ -992,17 +937,38 @@ a.active
 	.button-blog
 		position: absolute
 		top: 81%
-		left: 38%
+		left: 39%
 		color: #120e10
 		background-color: rgba(255, 255, 255, .7)
 		border: 2px solid #120e10
 		padding: .01em 1.5em .02em 1.5em
-		font-size: 1.4em
+		font-size: 1.1em
 		font-family: 'Montserrat Alternates', sans-serif	
 		animation-duration: .5s
 		animation-delay: 11s
 		&:hover
 			background-color: rgba(255, 255, 255, .5)
+/*---------Collection---------*/
+.bannerhomcol
+	width: 100%
+	display: flex
+	margin-top: 40px
+	img
+		padding: 10px
+	.img__mask
+		position: absolute
+		top: 2% !important
+		left: -5%
+		right: 0
+		bottom: 2.3% !important
+	a:hover img__mask
+		background: rgba(0, 0, 0, 0.25)
+	.ban-collection
+		position: relative
+	.bannerhom-title
+		position: absolute	
+
+
 /*---------delivery---------*/
 .deliver
 	width: 65em
@@ -1085,7 +1051,7 @@ a.active
 			position: relative					
 		.hover-img
 			width: 100%
-			height: 120px
+			height: 140px
 			position: absolute
 			bottom: 1.3%		
 	.options
@@ -1212,14 +1178,16 @@ a.active
 /*---------витрина на главной---------*/	
 .latesthom
 	display: block
-	top: 120px
+	top: 90px
 	h3
 		display: block
 		text-align: center
+		margin-top: -10px
+		text-transform: uppercase
 		font:
 			family: 'Roboto Condensed', sans-serif
-			weight: 800
-			size: 40px
+			weight: 400
+			size: 2em
 	.latesthom-button 
 		display: block
 		text-align: center
@@ -1251,7 +1219,7 @@ a.active
 		display: none				
 /*---------Отзывы на главной---------*/
 .review-main
-	margin-top: 190px
+	margin-top: 0
 	position: relative
 	.item, .pm-review-thumb
 		border: none
@@ -1445,6 +1413,8 @@ a.active
 		text-transform: lowercase
 		letter-spacing: 1px
 		line-height: 1
+	a 
+		color: #ff66c4	
 
 .newsletter_module
 	margin-top: 50px
@@ -1518,7 +1488,8 @@ a.active
 	z-index: 1000
 	color: #ffffff
 	background-color: #ff66c4
-	font-size: 20px
+	font-size: 14px
+	letter-spacing: 1px
 	font-weight: 500
 	text-transform: lowercase
 	height: auto
@@ -1537,7 +1508,7 @@ a.active
 	.fa 
 		background: darken(#ff66c4, 5%)
 		font-size: 20px
-		padding: 10px	13px
+		padding: 6px	9px
 		margin-left: 15px
 		transform: rotateY(-180deg)
 		
@@ -1583,10 +1554,10 @@ a.active
 		left: 5%
 		width: 90% 	
 		top: 32%	
-	.button-salepopup, .button-newspopup
+	.button-salepopup, .button-newspopup, .button-newspopup-see
 		position: absolute
 		top: 70%
-		left: 33.5%
+		left: 31.5%
 		a 
 			color: #ffffff
 			background-color: rgba(0, 0, 0, 1)
@@ -1603,7 +1574,17 @@ a.active
 		top: 45%
 		a
 			padding: 8%
-
+	.button-newspopup-see
+		top: 85%
+		left: 24%
+		a
+			padding: 5px 10px
+			background-color: rgba(242, 148, 200, 1)
+			border-color: rgba(242, 148, 200, 1)
+			transition: background-color border-color .25s
+			&:hover, &:focus
+				background-color: rgba(242, 148, 200, .8)
+				border-color: rgba(242, 148, 200, 1)
 .button-sale-popup
 	bottom: 25%
 	transform: rotate(0)
@@ -1612,10 +1593,10 @@ a.active
 	right: 1%		
 	.fa
 		margin: 0
-		padding: 5px 6px
+		padding: 6px 6px 5px 6px 
 		svg
 			fill: #ffffff
-			width: 28px
+			width: 22px
 /*---------Footer---------*/	
 .main-footer
 	margin-top: 50px
@@ -1912,6 +1893,15 @@ a.active
 			font-family: 'Montserrat Alternates', sans-serif
 
 #product-category
+	h1 
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 600
+			size: 26px
+		text-transform: lowercase
+		letter-spacing: 1.1px
+		text-align: center	
+		margin-top: 60px
 	/*---------Баннер вверху---------*/		
 	.swiper-viewport
 		margin: 0
@@ -1973,7 +1963,7 @@ a.active
 		margin-left: 80px
 		margin-right: -15px
 	.menu-side
-		margin-top: 93px
+		margin-top: 20px
 	.menu-side-item
 		font-weight: 400
 		font-size: 12px
@@ -2015,21 +2005,19 @@ a.active
 		padding-bottom: 2px
 		color: #fff !important
 	#content
-		h1 
-			font:
-				family: 'Roboto Condensed', sans-serif
-				weight: 600
-				size: 26px
-			text-transform: lowercase
-			letter-spacing: 1.1px
+
 		padding-right: 15px
 		padding-left: 15px
+
 		hr 
-			display: none
+			width: 100%
+			height: 1px
 		p 
 			margin-bottom: 40px	
 		.review-main
-			margin-top: 0			
+			margin-top: -20px
+		.newsletter-mi
+			margin-top: -20px			
 		#list-view, #grid-view, #compare-total, .input-limit, #input-limit
 			display: none	
 		.input-group-addon
@@ -2051,9 +2039,6 @@ a.active
 		.input-group-sm > .form-control, .input-group-sm
 			position: relative
  /* сортировка */
-.container-sort	
-	.sub-sort
-		margin-top: 30px
 	label 
 		font-size: 12px !important
 		display: inline-flex 
@@ -2114,80 +2099,79 @@ a.active
 	background-position: center center
 	background-size: 50% 50%
 
-/* баннер в категории */	
+/* баннер в категории */		
 .banner-pro 
+	position: relative
 	text-align: center
-	color: #fff
-	font-size: 1em
+	height: 500px
+	font-size: 1.1em
 	letter-spacing: .7px
-	font-weight: 600
-	section 
+	font-weight: 400	 	
 	.banner-pro-section
-		position: relative
-		height: 36.3em
-		background: #f294c8
-		padding: 3em
-		padding-top: 0.01em
-		width: 97%
+		display: block
+		position: absolute
+		background-color: #fff
+		box-shadow: 0 6px 12px rgba(0,0,0,.175)
+		width: 95%
+		padding: 10%
+		padding-bottom: 0
 		border-radius: 2em
-		.shipping-smile
-			margin-top: 1.9em
-		h2
-			padding-top: 2em
-			font-size: 1em
-		h3
-			font:
-				family: 'Roboto Condensed', sans-serif
-				size: 1.1em	
-				weight: 600
-			text-transform: uppercase
-		.sale-info
-			padding-top: .5em
-			p 
-				font-family: 'Roboto Condensed', sans-seri	
-			span	
-				color: #e1ff38	
-			a 
-				font-size: .9em
-				display: block
-				margin-top: -30px
-				text-transform: lowercase
-				text-decoration: underline !important
-				color: #ffffff
-				&:hover
-					text-decoration: none !important
-		.deliver-info
-			padding-top: 1.5em
-
-			h3
-				span 
-					color: #e1ff38
-			p 
-				font-size: .8em	
-		aside 
-			font-family: 'Roboto Condensed', sans-seri	
-			a 
+		box-sizing: border-box
+		top: 50%
+		left: 50%
+		transform: translate(-50%,-50%)
+		img 
+			width: 120px
+		h2 	
+			font-family: 'Roboto Condensed', sans-serif		
+			span 
+				color: #ff66c4
+				font-weight: 600
+		p
+			span
+				font-weight: 600
 				font-size: 1.2em
-				color: #e1ff38	
+		a 
+			display: block
+			margin-top: -10%
+			margin-bottom: 15%
+			color: #000000
+			text-decoration: underline !important
+			font-size: .8em
+			&:hover
+				text-decoration: none !important
+		p:last-child	
+			font-size: 0.7em				
+
 
 /*---------Панель открытия/закрытия в фильтрах---------*/
-.out-pan
-	width: 150px
-	position: relative	
-	height: 20px
-	bottom: -30px
-	span
-		position: absolute
-		font-weight: 600
-		text-transform: lowercase
-		letter-spacing: 1px
+.container-sort
+	margin-top: -10px
+	.out-pan
+		position: relative
+		width: 190px
+		span
+			right: 1em
+			font-weight: 600
+			text-transform: lowercase
+			letter-spacing: 1px
+		.clos-sort:before,
+		.clos-sort:after
+			position: absolute
+			right: 2em
+			top: .1em
+		.collapsed:before,
+		.collapsed:after
+			right: 2em
+			top: .1em
+	.sub-sort
+		margin-top: 20px 		
 .clos-sort
 	color: inherit
 	font-size: 20px
 	font-weight: 600
 	&:hover, &:focus
-		color: inherit	
-		
+		color: inherit
 .collapsed:before,
 .collapsed:after
 	display: block
@@ -2259,8 +2243,6 @@ a.active
 		background-color: #ff66c4
 		border-color: #ff66c4
 		border-radius: 0
-	.popover
-		margin-left: -120px
 .ocfilter-mobile-handle
 	transform: rotate(-90deg)
 	.btn
@@ -2295,7 +2277,7 @@ a.active
 		width: 60%
 		margin-top: 20%
 
-/*---------Pagination---------*/		
+/*---------Пагинация---------*/		
 [data-bal="bal-results"]
 	display: none
 .pagination>li>a, .pagination>li>span
@@ -2329,6 +2311,18 @@ a.active
 		&:hover, &:focus
 			background-color: rgba(0, 0, 0, .85)
 			border-color: rgba(0, 0, 0, 1)
+
+/*---------Карточка товара---------*/	
+#product-product	
+	.thumbnails
+		a 
+			border-radius: 0
+			padding: 0
+			border: none
+			img 
+				width: 100%
+				
+
 //
 
 
