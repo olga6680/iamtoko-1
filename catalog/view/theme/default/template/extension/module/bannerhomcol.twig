@@ -1,0 +1,16 @@
+<div id="bannerhomcol{{ module }}" class="bannerhomcol bannerhom">
+  {% for banner in banners %}
+    <div class="ban-collection">          
+      {% if banner.link %}      
+      <a class="new-sale" href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+      <div class="img__mask"></div>
+      {{ banner.description }}
+      </a>
+      {% else %}
+      <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+      <div class="img__mask"></div>
+      {{ banner.description }}
+      {% endif %} 
+                                              
+    </div>{% endfor %} 
+</div>
