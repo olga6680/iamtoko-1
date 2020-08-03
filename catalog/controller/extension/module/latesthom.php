@@ -1,7 +1,6 @@
 <?php
 class ControllerExtensionModuleLatesthom extends Controller {
 	public function index($setting) {
-
 		$this->load->language('extension/module/latesthom');
 
 		$this->load->model('catalog/product');
