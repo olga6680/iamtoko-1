@@ -1,6 +1,7 @@
 <?php
 class ControllerExtensionModuleBannertab extends Controller {
-	public function index($setting) {		
+	public function index($setting) {	
+		static $module = 0;	
 
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
@@ -29,6 +30,8 @@ class ControllerExtensionModuleBannertab extends Controller {
 				);
 			}
 		}
+
+		$data['module'] = $module++;
 
 		return $this->load->view('extension/module/bannertab', $data);
 	}
