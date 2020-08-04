@@ -19,6 +19,7 @@ html
 a 
 	outline: none !important	
 #content
+	letter-spacing: .5px
 	.row
 		margin-right: 0
 		margin-left: 0
@@ -563,6 +564,8 @@ a.active
 		padding: 0
 		box-sizing: inherit
 		font-size: 14px
+	.new-sale:hover .img__mask, .new-sale:hover .video__mask
+		background: rgba(0, 0, 0, 0.25)
 	.new-sale:hover h2
 		font-size: 30px	
 	.video__mask:hover, .img__mask:hover	
@@ -590,7 +593,7 @@ a.active
 		font-family: 'Roboto Condensed', sans-serif
 		text-transform: uppercase
 		font-size: 0
-		transition: font-size .7s ease 0.1s
+		transition: font-size .7s ease 0.008s
 	div
 		text-transform: lowercase
 		text-decoration: underline
@@ -967,14 +970,16 @@ a.active
 		position: relative
 	.bannerhom-title
 		position: absolute	
-
+	h2
+		transition: font-size .7s ease 0.008s
 
 /*---------delivery---------*/
 .deliver
 	width: 65em
-	height: 12em	
+	height: 18em	
 	position: relative
 	margin-top: 0
+	margin-bottom: 40px
 	.row
 		margin-right: -45px !important
 		margin-left: -45px !important
@@ -1176,18 +1181,18 @@ a.active
 			margin-top: 20px
 
 /*---------витрина на главной---------*/	
+h3
+	display: block
+	text-align: center
+	margin-top: -10px
+	text-transform: uppercase
+	font:
+		family: 'Roboto Condensed', sans-serif
+		weight: 400
+		size: 2em		
 .latesthom
 	display: block
 	top: 90px
-	h3
-		display: block
-		text-align: center
-		margin-top: -10px
-		text-transform: uppercase
-		font:
-			family: 'Roboto Condensed', sans-serif
-			weight: 400
-			size: 2em	
 	.latesthom-button 
 		display: block
 		text-align: center
@@ -1219,66 +1224,100 @@ a.active
 	.toclick
 		display: none				
 /*---------Отзывы на главной---------*/
+.container-rewiev
+	text-align: center
+	box-shadow: -1px 41px 41px 17px rgba(0, 0, 0, 0.02)
+	height: auto
+	margin-bottom: 80px
+	.swiper-pager
+	.swiper-button-next, .swiper-button-prev
+		opacity: 1 !important
+		margin-left: 10px
+		&:before, &:after
+			font-size: 12px 		
+			border-radius: 10em
+			width: 20px
+			height: 20px
+			line-height: 0
+			text-align: center
+			outline: none
+			padding: 3px 3px 2px 5px
+			background-color: rgba(255, 255, 255, .8)
+			border: none
+	.swiper-button-next
+		&:before, &:after
+			margin-left: -15px !important
+	.swiper-button-prev
+		&:before, &:after
+			padding: 3px 5px 2px 3px	
+	.btn
+		color: #000000
+		text-decoration: underline
+		text-transform: lowercase
+		&:hover 
+			text-decoration: none
 .review-main
-	margin-top: 0
-	position: relative
+	margin-top: 20px
+	.swiper-slide
+		height: auto
+	.wrap-rewiev
+		display: flex
+		position: relative
+	.title-right-rewiev
+		margin-top: 20%	
 	.item, .pm-review-thumb
 		border: none
-		min-height: 500px
-		background-color: rgba(219, 222, 224, .1)
 		width: 100%
 		margin-left: 0 !important
-	.text-review-main
-		position: relative
-		min-height: 500px
-		h4
-			margin-top: 30%
+	.title-right-rewiev
+		text-align: left
+		color: #383838
+		p 
+			&:first-child
+				font-size: 0.9em
+			&:not(:first-child)
+				font-size: 12px					
+		strong
 			font:
 				family: 'Roboto Condensed', sans-serif
-				weight: 600
-				size: 5em
-	.owl-controls .owl-page	
-		display: block	
-		margin: 6px 0
-	.owl-pagination
-		position: absolute
-		left: -15px
-		top: 0
-	.button-group
-		a
+				size: 16px
+			text-transform: lowercase
+			letter-spacing: .05em
+			color: #383838	
+		.rating
+			margin-top: 5px
+			text-align: left
+			.fa-star + .fa-star-o
+				color: #000 !important
+			.fa-star
+				color: #ff66c4 !important
+			.fa-stack-2x
+				font-size: 1em
+			.fa-stack
+				margin: 0
+				width: 1em
+				text-align: left !important			
+	.pm-review-thumb
+		width: 50%
+		img 
+			margin: 0
+			text-align: left 
 			display: block
-			color: #000
-			border: none
-			border-radius: 0
-			background: transparent
-			position: absolute
-			transform: rotate(-90deg)
-			bottom: 10%
-			right: -12%
-			font-weight: 600
-			padding: 0
-			&:hover, &:focus
-				color: #ff66c4	
-	.owl-controls .owl-buttons .owl-next,
-	.owl-controls .owl-buttons .owl-prev
-		top: 4%
-		.fa
-			font-size: 20px
-			color: #94929e
-	.owl-controls .owl-buttons .owl-prev
-		margin-left: 90%
-		padding: 13px 10px 6px 5px
-		background-color: #fff
-	.owl-controls .owl-buttons .owl-next	
-		margin-right: 0
-		padding: 13px 5px 6px 8px
-		background-color: #fff
-	.owl-carousel .owl-buttons div
-		opacity: 1
+			position: relative
+		h4
+			text-align: left
+			margin-top: 5px
+			font:
+				weight: 600
+				size: .9em
+			a 
+				color: #383838
+
 	.avatar
 		border-radius: 100px
 	.caption
-		margin-top: 60px
+		margin-top: -20px
+		margin-bottom: 30px
 		p 
 			font-size: 13px
 			opacity: .8
@@ -1288,33 +1327,16 @@ a.active
 			border: none
 			border-radius: 0
 			background: transparent
+			text-decoration: none
 			position: absolute
 			font-weight: 600
 			padding: 0
-			font-size: 16px
+			font-size: 1em
+			left: 20px
 			&:hover, &:focus
 				color: #ff66c4 !important	
-		strong
-			font:
-				family: 'Roboto Condensed', sans-serif
-				size: 16px
-			text-transform: lowercase
-			letter-spacing: .05em
-			color: #282829
-	.pm-review-thumb .rating .fa-star + .fa-star-o
-		color: #000 !important
-	.pm-review-thumb .rating .fa-star
-		color: #ff66c4 !important
-	.fa-stack-2x
-		font-size: 1.5em	
-	.product-image
-		margin-top: 30%
-	h4 
-		a 
-			color: #404041
-			font-size: 14px
-			font-weight: 600
-			text-transform: lowercase		
+
+		
 /*---------Скролл вверх---------*/		
 .scrollup
 	display: none
@@ -1397,25 +1419,25 @@ a.active
 /*---------Newsletter Subscribe---------*/	
 .newsletter-mi
 	margin-top: 0
-	line-height: .001
-	hr 
-		display: block !important
-		margin-bottom: 20px
 	h2 
 		font:
 			family: 'Roboto Condensed', sans-serif
-			weight: 600
+			weight: 400
 		letter-spacing: 1.3px	
 		text-transform: lowercase
 		margin-bottom: 30px
 	p	
-		font-weight: 600
-		font-size: 16px
+		font-weight: 400
+		font-size: 14px
 		text-transform: lowercase
 		letter-spacing: 1px
 		line-height: 1
 	a 
-		color: #ff66c4	
+		text-decoration: underline
+		color: #000
+		&:hover
+			color: #ff66c4	
+			text-decoration: none
 
 .newsletter_module
 	margin-top: 50px
@@ -2005,8 +2027,7 @@ a.active
 		padding-top: 2px
 		padding-bottom: 2px
 		color: #fff !important
-	#content
-
+	#content		
 		padding-right: 15px
 		padding-left: 15px
 
@@ -2039,6 +2060,8 @@ a.active
 			box-shadow: none
 		.input-group-sm > .form-control, .input-group-sm
 			position: relative
+
+	
  /* сортировка */
 	label 
 		font-size: 12px !important

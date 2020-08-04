@@ -1,7 +1,7 @@
 <h3>{{ heading_title }}</h3>
 <div class="row">
   {% for p_review in p_reviews %}
-  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+  <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
     <div class="pm-review-thumb">
 	  {% if p_review['product_image'] %}<div class="image"><a href="{{ p_review['product_href'] }}"><img src="{{ p_review['product_image'] }}" alt="{{ p_review['product'] }}" title="{{ p_review['product'] }}" class="img-responsive" /></a></div>{% endif %}
 	  <h4><a href="{{ p_review['product_href'] }}">{{ p_review['product'] }}</a></h4>

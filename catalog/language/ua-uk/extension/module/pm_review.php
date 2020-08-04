@@ -1,10 +1,10 @@
 <?php
 // Heading 
-$_['heading_title'] 	= 'Відгуки про товари';
+$_['heading_title'] 	= 'Відгуки';
 
 // Button
 $_['button_readmore']	= 'Докладніше →';
-$_['button_show_all']	= 'Показати все →';
+$_['button_show_all']	= 'Дивитись всі відгуки';
 
 // Entry
 $_['entry_good']		= 'Переваги';

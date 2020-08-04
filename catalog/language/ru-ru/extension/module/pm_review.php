@@ -3,9 +3,9 @@
 $_['heading_title'] 	= 'Отзывы о товарах';
 
 // Button
-$_['button_readmore']	= 'Подробнее';
-$_['button_show_all']	= 'Показать всё';
+$_['button_show_all']	= 'Смотреть все отзывы';
 
+$_['button_readmore']	= 'Подробнее →';
 // Entry
 $_['entry_good']		= 'Достоинства';
 $_['entry_bad']			= 'Недостатки';
