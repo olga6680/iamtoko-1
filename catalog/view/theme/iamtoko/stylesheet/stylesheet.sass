@@ -133,6 +133,14 @@ header
 	text-transform: lowercase	
 	margin-top: 15px
 	margin-bottom: 60px
+	.phone-xs
+		display: none
+		.social-mi-mobil
+			display: inline-block
+			list-style: none
+			margin-left: -100px
+		.dropdown-menu
+			margin-left: -200%
 	a 
 		color: #120e10
 		text-decoration: none
@@ -144,33 +152,41 @@ header
 		margin-bottom: 20px	
 		&:hover
 			color: #ff66c4 	
-.btn-link
-	margin-top: 15px
-	padding: 5px 10px
-	margin-right: 20px
-	font
-		family: 'Montserrat Alternates', sans-serif	
-		size: 18px
-	color: #120e10
-	&:hover,
-	&:focus
-		color: #ff66c4
-		text-decoration: none
-	img:nth-child(1)	
-		display: none		
-	span
-		color: #120e10
-		font:
-			family: 'Montserrat Alternates', sans-serif	
-			size: 16px
-			weight: 600
-		text-transform: lowercase
-		&:hover,
-		&:focus
-			color: #ff66c4 
-			text-decoration: none
-	.fa 
-		font-size: 12px
+	#form-language
+		.dropdown-menu
+			padding: 10px 0 0 20px
+			min-width: 130px !important
+			li 
+				margin-bottom: 20px
+		.btn-group	
+			.btn-link
+				display: table-cell
+				padding: 0
+				margin-right: 15px
+				font:
+					family: 'Montserrat Alternates', sans-serif	
+					size: 14px
+				color: #120e10
+				text-transform: lowercase
+				&:hover,
+				&:focus
+					color: #ff66c4
+					text-decoration: none
+				img:nth-child(1)	
+					display: none		
+				span
+					color: #120e10
+					font:
+						family: 'Montserrat Alternates', sans-serif	
+						size: 16px
+						weight: 600
+					text-transform: lowercase
+					&:hover,
+					&:focus
+						color: #ff66c4 
+						text-decoration: none
+				.fa 
+					font-size: 12px
 
 .header-phone
 	text-align: right
@@ -540,7 +556,10 @@ a.active
 
 /*---banner hom---*/	
 .bannerhom
-	position: relative	
+	position: relative
+	video 
+		width: 920px
+		height: auto	
 	.video__mask
 		position: absolute
 		top: 0
@@ -975,58 +994,48 @@ a.active
 
 /*---------delivery---------*/
 .deliver
-	width: 65em
-	height: 18em	
-	position: relative
-	margin-top: 0
-	margin-bottom: 40px
-	.row
-		margin-right: -45px !important
-		margin-left: -45px !important
-	h2
-		visibility: hidden		
-	.col-md-4
-		padding-bottom: 1.4em
-		&:nth-child(1)
-			svg 
-				margin-top: -.9em
-				margin-left: -2.6em
-	a 
-		color: #120e10
-		font:
-			weight: 600
-			size: 1em
-		text-decoration: none	
-		outline: none
-		&:hover, &:focus
-			color: #ff66c4			
-	svg
-		margin: 0 20px 0 10px
-		padding: 0
-		float: left
-		width: 6em
-	.icon-hom-text
-		word-wrap: break-word
-		margin-top: 5%
-	.dropdown
-		display: inline
-		a.dropdown-toggle
-			padding: .1em 0
-			display: block
-			&:hover,
-			&:focus,
-			&:active
-				text-decoration: none
-				outline: none
+	display: flex
+	justify-content: center
+	width: 100%
+	height: 200px
+	padding: 0 
+	.dropdown:last-child
+		.dropdown-menu
+			left: -50%
 	.dropdown-menu
 		width: 28em
-		top: 600%
-		border-radius: 0	
+		top: 50%
+		border-radius: 0 
 		border: none
+		left: 0
 		ul 
 			list-style-type: none			
 			> li 
-			 	padding: 20px 20px 10px 0	
+				padding: 20px 20px 10px 0	
+	h2
+		display: none	
+	a 
+		&:hover, &:focus, &:active
+			text-decoration: none		
+	.dropdown-toggle
+		display: flex
+		position: relative
+		margin-left: 10px
+		margin-right: 10px
+		align-content: space-between
+		align-items: center
+		width: 80%
+		.icon-hom-text
+			margin-left: 20px
+			color: #000000
+			text-transform: lowercase
+			font-weight: 600
+			&:hover, &:focus
+				color: #ff66c4
+		svg 
+			display: block
+	
+
 		
 /*---------все продукты---------*/
 
@@ -1193,6 +1202,7 @@ h3
 .latesthom
 	display: block
 	top: 90px
+	margin-bottom: 120px !important
 	.latesthom-button 
 		display: block
 		text-align: center
@@ -1504,7 +1514,7 @@ h3
 	display: none
 	transform: rotate(90deg)
 	transform-origin: right top 0
-	right: 0
+	right: 20px
 	padding: 0
 	padding-left: 20px
 	bottom: 35%
@@ -1623,6 +1633,8 @@ h3
 /*---------Footer---------*/	
 .main-footer
 	margin-top: 50px
+	margin-left: 10px
+	margin-right: 10px
 	.section1-footer
 		background-color: #120e10 
 		height:
@@ -2030,7 +2042,6 @@ h3
 	#content		
 		padding-right: 15px
 		padding-left: 15px
-
 		hr 
 			width: 100%
 			height: 1px
