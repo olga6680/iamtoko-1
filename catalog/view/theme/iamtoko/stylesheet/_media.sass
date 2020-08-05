@@ -13,8 +13,8 @@
 					left: 170px
 		.header-phone
 			display: none
-									
-
+		#content
+			top: -40px							
 		#search
 			margin-left: -15%
 			
@@ -25,14 +25,10 @@
 				margin-left: -25%
 				svg 
 					margin-left: -4%
-		.hed-menu
-			position: absolute			
-			margin-left: 34%
-
+		.hed-menu		
+			margin-left: 0
 		.swiper-viewport
 			margin-top: 0	!important
-		.deliver
-			margin-top: 20px
 		.review-main
 			margin-top: 50px	
 		.main-footer
@@ -50,6 +46,32 @@
 				.social-footer
 					li 
 						margin-top: 13% 
+		.latesthom
+			margin-bottom: 110px !important
+		.deliver
+			height: 150px
+		.review-main
+			margin-top: 0		
+		.bannerhom
+			video 
+				width: 602.5px	
+			.bannerhom-title
+				visibility: visible !important
+				font-size: 14px	
+				font-weight: 600
+			h2 
+				visibility: visible
+				font-size: 30px	
+				font-weight: 800	
+		.bannertab
+			width: 60%	!important
+		#tab-blog
+			.flipInY
+				font-size: 1.3em
+			.text-news, .text-article, .text-advice
+				font-size: 0.8em	!important
+			.button-blog
+				left: 35%
 		#ocfilter
 			position: absolute
 			left: 0		
@@ -83,9 +105,7 @@
 			bottom: 0 
 			right: 0 
 			width: 100%
-
-		 						
-
+				
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 1050px)			
 	html, body
@@ -93,9 +113,12 @@
 			.row
 				margin-right: -15px
 				margin-left: -15px
+		.button-menu
+			top: 0		
 		#search
 			margin-left: -25px !important
-
+			.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
+				margin-left: -3em !important
 		.logo
 			margin-left: 25%	
 			margin-top: -13%
@@ -104,37 +127,18 @@
 				svg
 					width: 2em		
 					margin-left: 0.1%
+		.t-header		
+			display: none
 		#form-language
-			button 
-				margin-top: 10px
-				span 
-					display: inline-block !important
-			.dropdown-menu
-				li 
-					margin-left: 50px
-					
-		#cart
-			button 
-				margin-left: 150%
-				margin-top: -70%
+			.btn-group
+			span 
+				display: inline-block !important
+				padding: 0
+				margin: 0
 		.bannertab
-			margin-top: 90px
+			margin-top: 10px
+			width: 80% !important
 			.nav-tabs
-				> li:last-child
-					display: none	
-		#tab-new
-			.slideLeft, .slideRight 
-				font-size: 1.7em
-		#tab-sale
-			.slideRight, .slideLeft
-				font-size: 3.67em			
-			h4 
-				font-size: 2.9em
-				left: 19%
-			.button-sale
-				font-size: 1.3em	
-				left: 36%
-				top: 54%
 		#tab-best
 			.slideDown
 				top: 24%
@@ -154,21 +158,18 @@
 				left: 25%
 		#tab-bigsize
 			.slideRight, .slideLeft
-				font-size: 4.2em
-		#tab-blog	
-			display: none	
+				font-size: 4em
 
 		.latesthom
 			top: 40px
+			margin-bottom: 50px !important
 
-		.deliver
-			width: 68em
-			height: 10em
-			left: 1.8%	
-			.col-md-4
-				&:last-child
-					.dropdown-menu
-						margin-left: -140px			
+		.review-main
+			margin-top: 0
+			.caption
+				margin-bottom: -60px
+		.container-rewiev
+			margin-bottom: 30px		
 		.main-footer
 			.logo-footer
 				margin-left: 5%
@@ -192,6 +193,17 @@
 			left: -31.5%
 		.ocf-offcanvas
 			left: 99%
+
+		.banner-pro
+			height: 370px	
+		#column-left
+			display: none
+	.row
+		padding-left: 15px !important	
+		padding-right: 15px	!important
+			
+	video 
+		width: 460px	!important			
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
 	html, body
@@ -201,13 +213,8 @@
 				padding-right: 15px
 				padding-left: 15px	
 				.product-thumb
-
-		#menu
-			margin-left: -30px
-			a 
-				font-size: 14px
-			svg
-				width: 25px
+		.header
+			margin-top: 20px
 		.logo
 			margin-top: -30px
 			margin-left: -50px
@@ -221,50 +228,36 @@
 			width: 13em
 			.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
 				margin-left: -1em !important
-
-		.hed-menu
-			margin-left: 25px !important
-		.btn-link
-			margin-left: -40px	!important
 		.menu-right
-			position: relative
-		.phone-xs
-			position: absolute	
-			top: 30%
-			left: 32%
-			.dropdown-menu
-				margin-left: -300%
+			margin-left: -10%
+			width: 43%
+		.hed-menu
+			li 
+				padding-right: 0
+				padding-left: 0	
+			.phone-xs
+				display: inline-block	
+			.btn-link
+				span
+					font-size: 10px	
+		#form-language
+			.btn-group
+				.btn-link
+					span 
+						font-size: 12px !important
 		#cart
-			button 
-				margin-left: 21%
-				margin-top: -20px
 			.btn-danger
 				top: 5px
 
-		.button-menu
-			top: 35px
-
-		.menu
-			top: 0
-
-		.deliver
-			width: 130%
-			display: inline-block
-			left: 3%
-			.col-md-4
-				position: relative			
-				float: left
-				width: 23.5%
-				&:nth-child(1)
-					width: 33%
-					margin-right: -7%
-				.advantage-sending	
-					width: 80%
-			a 
-				font-size: 1em
-				svg
-					margin-left: 0
-
+		.bannerhom	
+			.new-sale-new
+				margin-bottom: 20px
+		.bannerhomcol
+			display: block
+			margin-top: 0	
+			img 
+				width: 100%
+				height: 412px
 		.main-footer			
 			.logo-footer
 				margin-top: 0
@@ -293,57 +286,49 @@
 		.ocf-offcanvas.active
 			left: 81%	
 		.ocf-offcanvas
-			left: 99.5%	
-/**/
-@media only screen and (max-width : 1030px)			
-	html, body
-		#search
-			margin-left: -90%		
-			.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
-				margin-left: -3em
-		#cart
-			.btn-danger
-				top: 5px
-				right: 25px		
+			left: 99.5%		
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 770px)
 	html, body
-		#cart
-			button 
-				margin-left: 145%
-				margin-top: -60px			
+		#cart		
 			.btn-danger
 				top: 30px
+ 	.logo
+ 		margin-top: 
+ 		margin-left: 
+ 		a 
+ 			font-size: 35px
+ 			svg 
+ 				width: 1.6em			 
+ 				margin-left: 10px
 
 		div.alert.alert-success.alert-dismissible
 			width: 65%	
 			left: 15%
-
-		.hed-menu				
-			display: block
-			height: 45px
-			margin-top: 9%
-			span 
-				.lang-link
-					margin-top: 10em
-			svg
-				margin-top: -60%
-		.btn-link
-			margin-top: 15%	 	
-		.menu
+		.menu-right
+			margin-left: -12%
+			width: 45%
+		.button-menu
 			top: 20px
 		.icon-menu
 			width: 2em
 			height: 2em
-
-		.phone-xs
-			top: 5%
-			left: 26%
+		
 		.deliver
-			width: 80%
-			left: 20%
-			margin-bottom: -30px
+			width: 100%
+			height: 130px
+			.dropdown:last-child
+				.dropdown-menu
+					left: -200%
+			.dropdown-toggle	
+				svg 
+					width: 80px
+					height: 80px
+			.dropdown:not(:last-child)	
+				.dropdown-toggle
+					margin-right: 80px	
+
 			.col-md-4
 				margin-right: 40px
 			.icon-hom-text
@@ -358,62 +343,13 @@
  		margin-left: -80%
 
  	.logo
- 		margin-top: -25px
+ 		margin-top: -50px
  		margin-left: 150px
  		a 
  			font-size: 40px
  			svg 
  				width: 1.6em			 
  				margin-left: 10px
-
- 	.hed-menu
- 		margin-top: 0
- 		display: block
- 		background-color: #dbdee0	
- 		width: 740px
- 		left: -20px
-		li 
-			left: 240px
- 		a 
- 			margin-left: 20px
-	 		svg 
-	 			margin-top: 5px 		
-		.phone-xs
-			top: 6%
-			left: 43.5%
-		.btn-link	
-			display: block
-			z-index: 100
-			margin-left: 12px !important
-			top: -10px 
-
- 		.dropdown-menu
- 			margin-left: -90px 			
- 		ul
- 			font-family: 'Montserrat Alternates', sans-serif	
- 			> li 		
-				ul
-					display: inline-block	
-					width: 100%			
-					li
-						float: left
-						margin-right: 40px
-						a
-							svg
-								fill: #120e10
-								margin-left: -140px
-								margin-top: -20px
- 	#cart 
- 		margin-left: 495px
- 		margin-top: 59px
- 		button 
- 			display: block
- 			position: absolute
- 			height: 45px
- 			width: 95px
- 			background-color: #ff66c4	
- 			padding: 2px 0 20px 0
- 			margin-left: -20px !important
  		svg
  			margin-top: 8px
  		.dropdown-menu.pull-right
@@ -427,6 +363,43 @@
 			left: 80%
 		.ocf-offcanvas
 			left: 100%
+		#content
+			top: 20px
+		.menu-right
+			width: 100%		
+			margin-left: 0
+			text-align: justify
+			line-height: 0
+			text-justify: newspaper
+      zoom: 1
+			text-align-last: justify
+			.hed-menu
+				background-color: #dbdee0
+				margin-bottom: 0
+				margin-top: 0
+				li 
+					vertical-align: middle
+					&:nth-child(2)
+						margin-bottom: -1%
+					&:first-child
+						margin-left: 20px	
+					svg 
+						fill: #4a4a4d	
+					.caret
+						color: #4a4a4d	
+				#form-language	
+					.btn-group
+						.btn-link
+							span 
+								font-size: 16px	!important
+								color: #4a4a4d
+							.fa-caret-down
+								color: #4a4a4d	
+			#cart
+				margin-left: 0
+				button
+					margin-top: 0
+					background-color: #ff66c4
 	.modal-content
 		.close
 			left: 70%
@@ -437,28 +410,13 @@
 @media only screen and (max-width : 670px) 			
 	html, body
 		margin-top: -2%
-		#menu
-			margin-top: 10px
 		#search
-			margin-top: 2.5%
+			margin-top: -2%
 		.logo
 			margin-right: -60px
-			margin-top: -20px
-		.hed-menu
-			margin-top: 0
-		#cart
-			button 
-				margin-left: -100px !important
-			.dropdown-menu.pull-right
-	 			right: 120%	
-		 		.btn-danger 
-		 			top: 60px
-		 			left: 90px
-		.phone-xs
-			left: 63.5%			 		
-		.button-menu
-			left: 20px	
-			top: 38px	 		
+			margin-top: -40px
+
+	
 		div.alert.alert-success.alert-dismissible
 			width: 75%
 
@@ -510,76 +468,40 @@
 
 		#search
  			margin-left: -8% !important
- 			margin-top: 5px
 
 		.logo
-			margin-top: -20%
+			margin-top: -30%
 			margin-left: 53%
 
 			a	
 				font-size: 31px
 				svg 
 					margin-left: 10%
-		.phone-xs
-			left: 46%				
-		#cart
-			button
-				margin-left: -18.7em !important
-				margin-top: -3.35em		
- 		.dropdown-menu.pull-right
- 			right: 156%
- 			width: 75%
- 		.btn-danger
- 			top: 35px	!important
- 			left: 220px !important
-		div.alert.alert-success.alert-dismissible
-			width: 100%
-			left: 0
-			height: auto
-			.close
-				top: -25px
-		.button-menu
-			width: 40px
-			height: 35px
-	 	.hed-menu
-	 		margin-top: -20px
-	 		display: block
-	 		background-color: #dbdee0	
-	 		width: 740px
-	 		left: -30px
-			li 
-				left: 240px
-	 		a 
-	 			margin-left: 20px
-		 		svg 
-		 			margin-top: 5px
-					
-			.btn-link	
-				display: block
-				z-index: 100
-				margin-left: 12px !important
-				top: -30px 
 
-		.social-mi
-			margin-left: 140px 
+		.deliver
+			height: 80px
+			margin-top: -10px
+			position: relative
+			.dropdown-menu 
+				font-size: 12px
+				margin-top: 15px
+			.dropdown-toggle	
+				svg 
+					width: 50px
+					height: 50px	
+			.dropdown:last-child	
+				.dropdown-menu
+					margin-left: -190%
+			.advantage-sending	
+				.dropdown-menu
+					margin-left: -100% !important
 
-		.phone-xs
-		 	ul	
-	 			> li 		
-					ul
-						li
-							a
-								svg
-									margin-left: 
+		.bannerhomcol
+			img 
+				width: 100%
+				height: 250px
 		.latesthom
 			margin-bottom: 0
-		.deliver
-			margin-left: -6%
-			margin-top: -30px
-			svg
-				width: 4em
-				&:active
-					fill: #ff66c4
 			.col-md-4
 				.dropdown
 					.dropdown-menu
@@ -644,53 +566,12 @@
 		.logo
 			margin-top: -20%
 			margin-left: 58%	
-
-		.phone-xs
-			left: 41%	 
-
-		.hed-menu
-			margin-top: 0	
-			li 
-				left: 200px
-	 		a 
-	 			margin-left: 10px
-		 		svg 
-		 			margin-top: 5px
-		.btn-link	
-			display: block
-			z-index: 100
-			margin-left: -6px !important
-			top: -9px 
-
-		#cart
-			button
-				margin-left: -20em !important		
-				top: -2px
-			.btn-danger
-				left: 230px !important
-		.deliver 
-			width: 100%	
-			margin-left: -12%
-			svg
-				width: 4em
-				&:active
-					fill: #ff66c4
-			.col-md-4
-				.dropdown
-					.dropdown-menu
-						font-size: 12px
-						margin-left: -45px
-				&:nth-child(2)
-					.dropdown-menu
-						margin-left: -129px
-				&:last-child
-					.dropdown-menu
-						margin-left: -248px	
 		
 		.modal-content
 			.btn
 				margin-left: 22%	!important
-
+		.phone-xs
+			display: none !important
 		.main-footer
 			.registration-footer
 				margin-top: -5%
@@ -714,16 +595,7 @@
 /**/
 @media only screen and (max-width : 360px)
 	html, body
-		#cart
-			.dropdown-toggle
-				margin-left: -21em !important	
-				height: 44px
-				top: 0.5% 
-		.phone-xs
-			left: 43%		
-		.dropdown-menu.pull-right
-			width: 67% !important
-			right: 162% !important
+
 		#search
 			margin-left: -14%	!important	
 
