@@ -22,7 +22,9 @@ $(".flipInY").animated("flipInY");
 $(".slideUp").animated("bounceInUp");
 
 
-$('#content .category-content-thumb .product-layout:nth-child(8)').after($('#product-category .banner-pro'));
+$('#content .category-content-thumb .product-layout:nth-child(12)').after($('#product-category .banner-pro'));
+
+
 
 //Sale popup и Email popup
 $('.button-sale-popup, .button-news-popup').magnificPopup({
@@ -88,7 +90,7 @@ $('.button-sale-popup, .button-news-popup').on('click', function() {
 
 $('.clos-sort, .btn-menu-menu, .btn-contact-menu').click(function() {
   $(this).toggleClass('clos-sort-plus');
-      })
+      })     
 
 //4 фото в категориях
 $('.category-content-thumb > .product-layout > .product-thumb').each(function (e) { 
@@ -100,6 +102,9 @@ $(this).parent().attr({
 
 });  
 });  
+
+$('.swiper-slide > .rewiev-wrapper > .caption > .text-rewiev').css('height', '').equalHeights();
+
 //Купить в один клик
 $('.product-layout > .product-thumb').each(function (e) { 
 
@@ -179,6 +184,10 @@ $('.pp-content #button_send_feedback_header').on('click', function () {
 });
 
 $('.product-thumb h4').css('height', '').equalHeights();
+
+
+
+
 
 });
 

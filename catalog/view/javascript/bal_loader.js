@@ -41,7 +41,7 @@ function button_autopager(callback) {
 	}
 //	if (next_url !== undefined) {
 	if (d_end != d_total) {
-		$('[data-bal="bal-pagination"]').after('<div class="row bal"><div class="col-sm-6"><div class="bal-box-next"><a href="'+next_url+ location.hash+'" rel="next">'+text_show_next.replace(/{show}/gi, e_length_s).replace(/{items}/gi, declension(e_length_s))+'</a><span class="results">'+text_show_all.replace(/{show}/gi, e_length).replace(/{items}/gi, declension(e_length)).replace(/{shows}/gi, e_total_p)+'</span></span></div></div>');
+		$('[data-bal="bal-div"]').before('<div class="row bal" style="margin-bottom: 10px;"><div class="col-sm-6"><div class="bal-box-next"><a href="'+next_url+ location.hash+'" rel="next">'+text_show_next.replace(/{show}/gi, e_length_s).replace(/{items}/gi, declension(e_length_s))+'</a><span class="results">'+text_show_all.replace(/{show}/gi, e_length).replace(/{items}/gi, declension(e_length)).replace(/{shows}/gi, e_total_p)+'</span></span></div></div>');
 	} else {
 		$('[data-bal="bal-pagination"]').show();
 	}
@@ -53,7 +53,7 @@ function button_autopager(callback) {
 		appendTo	: appendTodiv,
 		start			: function(current, next) {
 					$('.element-bal').removeClass("new-element-bal");
-					$('[data-bal="bal-div"]').after('<div class="bal-loading"><img alt="'+text_loading+'" src="image/bal-loading.gif" /><div>'+text_loading+'</div></div>');
+					$('[data-bal="bal-pagination"]').after('<div class="bal-loading"><img alt="'+text_loading+'" src="image/bal-loading.gif" /><div>'+text_loading+'</div></div>');
 					var loadgpEvent = document.createEvent('Event');
 					loadgpEvent.initEvent('balLoadgp', true, true);
 					document.dispatchEvent(loadgpEvent);
