@@ -3,7 +3,7 @@
 	<div class="swiper-viewport">
 		<h3>{{ heading_title }}</h3>
 		{% if show_all %}
-		<a class="btn" href="{{ show_all_url }}">{{ button_show_all }}</a>
+		<a class="btn btn-show-all-rewiev" href="{{ show_all_url }}">{{ button_show_all }}</a>
 		{% endif %}
 		<div id="slideshowreview{{ module }}" class="swiper-container review-main">
 			<div class="swiper-wrapper">
@@ -141,12 +141,17 @@ $('#slideshowreview{{ module }}').swiper({
     // when window width is >= 480px
     480: {
       slidesPerView: 1,
-      spaceBetween: 30
+      spaceBetween: 20
     },
     // when window width is >= 640px
     640: {
-      slidesPerView: 2,
-      spaceBetween: 40
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    // when window width is >= 740px
+    740: {
+      slidesPerView: 1,
+      spaceBetween: 20
     }
   }
 
