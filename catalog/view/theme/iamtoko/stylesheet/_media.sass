@@ -72,11 +72,7 @@
 				font-size: 0.8em	!important
 			.button-blog
 				left: 35%
-		#ocfilter
-			position: absolute
-			left: 0		
-			border: 1px solid #929191	
-			z-index: 10000
+
 		.ocf-offcanvas
 			position: fixed 
 			top: 0 
@@ -89,7 +85,7 @@
 			padding: 0 
 			transition: left 250ms ease 
 		.ocf-offcanvas.active
-			left: 85% 
+			left: 80% 
 		.ocfilter-mobile-handle
 			position: absolute 
 			left: -30%
@@ -105,7 +101,38 @@
 			bottom: 0 
 			right: 0 
 			width: 100%
-				
+		#product-category 
+			#content
+				margin-bottom: -60px
+			.swiper-viewport .swiper-container-category
+				margin-top: 0
+			h1 
+				margin-top: 20px
+				margin-bottom: 40px
+			#ocfilter	
+		.banner-pro
+			height: 330px
+			.banner-pro-section img
+				width: 60px	
+		.pagination	
+			margin-top: 40px	
+
+		.product-layout	
+			> .product-thumb
+				.hover-img
+					height: 110px
+					bottom: 1.8%
+			.option
+				.checkboxing
+					padding: 3px 7px 0 7px
+			.button-group > :nth-child(1)	
+				top: 68%				
+		.product-layout button:nth-child(1)
+			font-size: 14px	
+		.toclick
+			font-size: 12px	
+			width: 90%
+
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 1050px)			
 	html, body
@@ -193,17 +220,48 @@
 			left: -31.5%
 		.ocf-offcanvas
 			left: 99%
-
+		#product-category 
+			.ban-top-cat
+				margin-top: -40px
+			#content
+				width: 100%	
 		.banner-pro
-			height: 370px	
+			font-size: 14px
+			font-size: 1.3vw
+			height: 470px
+			.banner-pro-section img
+				width: 100px
 		#column-left
 			display: none
+
+		.product-layout
+			&:hover .toclick,	&:hover button:nth-child(1), &:hover .hover-img
+				display: none
+			> .product-thumb
+			.options
+				bottom: 0
+				width: 100%
+				bottom: -3%
+				background-color: #f5f4f4
+			.option
+				display: block				
+				left: 0
+				right: 0
+				bottom: 0
+				
+				.checkboxing
+					padding: 0
+					border: none
+					color: #000
+					font-size: 18px
 	.row
 		padding-left: 15px !important	
 		padding-right: 15px	!important
 			
 	video 
-		width: 460px	!important			
+		width: 460px	!important	
+
+			
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
 	html, body
@@ -282,11 +340,23 @@
 					li 
 						margin-top: 5% 
 		.ocfilter-mobile-handle
-			left: -37%
+			left: -42%
 		.ocf-offcanvas.active
 			left: 81%	
 		.ocf-offcanvas
-			left: 99.5%		
+			left: 99.5%	
+		#product-category 
+			.ban-top-cat
+				margin-top: -20px
+			.banner-pro 
+				font-size: 1.7vw
+			.review-main	
+				.caption
+					margin-bottom: -30px	
+				.text-rewiev
+					margin-top: 30px	
+		.pagination
+			margin-top: 60px
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 770px)
@@ -333,7 +403,12 @@
 				margin-right: 40px
 			.icon-hom-text
 				display: none
-		
+
+		.bal-box-next 
+			margin-right: 0	
+			text-align: center !important
+		.pagination	
+			margin-top: 80px		
 /**/
 @media only screen and (max-width : 740px)
  html, body 
@@ -400,6 +475,26 @@
 				button
 					margin-top: 0
 					background-color: #ff66c4
+		#product-category 
+			.ban-top-cat	
+				padding: 15px 0						
+				margin-top: 10px
+			#content
+				margin-top: -60px	
+			.banner-pro
+				height: 700px	
+				font-size: 2vw
+				.banner-pro-section
+					img 
+						width: 120px
+				 a	
+					 margin-top: 15%	
+		
+		.product-layout
+			> .product-thumb
+			.options	
+				bottom: -2%
+
 	.modal-content
 		.close
 			left: 70%
@@ -557,6 +652,21 @@
 			left: 62%
 		.ocf-offcanvas
 			width: 40%
+
+		#product-category 
+			#content
+				margin-top: -40px
+			.banner-pro
+				height: 470px 
+				.banner-pro-section
+					font-size: 3vw
+			.container-rewiev
+				margin-top: 50px	
+				margin-bottom: -40px
+			.review-main	
+				.caption
+					margin-bottom: -30px	
+
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 375px)
 	html, body
@@ -589,9 +699,12 @@
 			left: -41%
 		.ocf-offcanvas.active
 			left: 60.5%
-		.ocf-offcanvas
-			width: 
-			left:								
+
+		.product-layout
+			> .product-thumb
+			.options	
+				bottom: -2.3%			
+
 /**/
 @media only screen and (max-width : 360px)
 	html, body
