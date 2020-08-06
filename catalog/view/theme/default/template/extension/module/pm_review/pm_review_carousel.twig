@@ -1,7 +1,7 @@
 <div class="container review-main">
 	<div class="row">
 		<h3 class="hidden-md hidden-sm hidden-lg">{{ heading_title }}</h3>
-		<div class="col-md-5 col-sm-5 hidden-xs text-review-main">
+		<div class="col-lg-5 col-md-5 col-sm-5 hidden-xs text-review-main">
 			<h4>{{ text_review_main_h4 }}</h4>
 			<p>{{ text_review_main_p }}</p>
 			{% if show_all %}
@@ -10,7 +10,7 @@
 			</div>
 			{% endif %}
 		</div>
-		<div class="col-md-7 col-sm-7 col-xs-12">
+		<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
 			<div class="row pm-review-carousel">
 				<div id="pm-review-carousel{{ module }}" class="owl-carousel">
 					{% for p_review in p_reviews %}
