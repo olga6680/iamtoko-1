@@ -2,8 +2,7 @@
 <div id="product-category" class="container-fluid">
   <row>
     <div class="col-md-12">
-      <h3 class="ban-top-cat hidden-xs" align="center">{{ text_letter_category }}&nbsp;&nbsp;<a href="#newspopup" class="button-news-popup">{{ text_button_letter }}</a></h3>
-      <h3 class="ban-top-cat hidden-lg hidden-md hidden-sm" align="center">{{ text_letter_category_mob }}&nbsp;&nbsp;<a href="#newspopup" class="button-news-popup">{{ text_button_letter }}</a></h3>
+      <h3 class="ban-top-cat" align="center">{{ text_letter_category }}&nbsp;&nbsp;<a href="#newspopup" class="button-news-popup">{{ text_button_letter }}</a></h3>
     </div>
   </row>
   <div class="container">
@@ -137,12 +136,13 @@
         <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
       </div>
       {% endif %}
-      {% if description %}
-      <div class="col-sm-12">{{ description }}</div>
-      {% endif %} 
+
     </div>
    {{ column_right }}</div>
    {{ content_bottom }}
+      {% if description %}
+      <div class="col-sm-12">{{ description }}</div>
+      {% endif %} 
 </div>
 {{ footer }} 
 

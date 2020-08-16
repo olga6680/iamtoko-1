@@ -5,11 +5,14 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-$(document).ready(function(){
-  if (document.location.pathname == '/') {
-     $('.banner-pro').addClass("banner-pro-vis");   
+
+
+$(document).ready(function() {
+  if(window.location.pathname == '/index.php/page') { 
+    $('.banner-pro').addClass(".banner-pro-hid"); 
   }
 });
+
 
 $(function () {  
 
@@ -21,10 +24,7 @@ $(".bounceIn").animated("bounceIn");
 $(".flipInY").animated("flipInY");
 $(".slideUp").animated("bounceInUp");
 
-
-$('#content .category-content-thumb .product-layout:nth-child(12)').after($('#product-category .banner-pro'));
-
-
+$('#content .category-content-thumb .product-layout:nth-child(8)').after($('#product-category .banner-pro'));
 
 //Sale popup и Email popup
 $('.button-sale-popup, .button-news-popup').magnificPopup({
@@ -44,11 +44,11 @@ $('.button-newspopup').on('click', function() {
 
 $('.newsletter_box input[name=\'email\']').bind('keydown', function(e) {
   if (e.keyCode == 13) {
-    $('#button-subscribe').trigger('click');
+    $('#form-newspopup #button-subscribe, #button-subscribe').trigger('click');
   }
 });
 
-$('#button-subscribe').on('click', function () {
+$('#form-newspopup #button-subscribe, #button-subscribe').on('click', function () {
   var success_message = $('#success_message').val()
   $.ajax({
     url: 'index.php?route=product/category/subscribe',
@@ -56,10 +56,10 @@ $('#button-subscribe').on('click', function () {
     dataType: 'json',
     data: 'email=' + encodeURIComponent($('input[id=\'email\']').val()),
     beforeSend: function () {
-      $('#button-subscribe').button('loading');
+      $('#form-newspopup #button-subscribe, #button-subscribe').button('loading');
     },
     complete: function () {
-      $('#button-subscribe').button('reset');
+      $('#form-newspopup #button-subscribe, #button-subscribe').button('reset');
     },
     success: function (json) {
       $('.text-success, .text-danger').remove();
@@ -90,7 +90,15 @@ $('.button-sale-popup, .button-news-popup').on('click', function() {
 
 $('.clos-sort, .btn-menu-menu, .btn-contact-menu').click(function() {
   $(this).toggleClass('clos-sort-plus');
-      })     
+});  
+
+//product video   
+function hide() {
+  $('.video-product').toggleClass('col-md-12 visible');
+};
+
+
+
 
 //4 фото в категориях
 $('.category-content-thumb > .product-layout > .product-thumb').each(function (e) { 
@@ -103,93 +111,31 @@ $(this).parent().attr({
 });  
 });  
 
+
 $('.swiper-slide > .rewiev-wrapper > .caption > .text-rewiev').css('height', '').equalHeights();
 
 //Купить в один клик
 $('.product-layout > .product-thumb').each(function (e) { 
 
-  e +=1;
 
-		var one_click = $('#one_click').val(),
-        name_callback = $('#name_callback').val(),
-        phone_callback = $('#phone_callback').val(),
-        entry_name = $('#entry_name').val(),
-        entry_phone = $('#entry_phone').val(),
-        text_send = $('#text_send').val(),
-        text_loading = $('#text_loading').val(),
-        img_url   = $(this).find('.img-responsive').attr('src'),
-        item_name = $(this).find('h4 a').text(),
-        item_price = $(this).find('.price').text();
-      
+  var $easyzoom = $('.easyzoom').easyZoom();
+  // Setup thumbnails example
+  var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+  
+  $('.thumbnails').on('click', 'a', function(e) {
+    var $this = $(this);
+    e.preventDefault();
+    // Use EasyZoom's `swap` method
+    api1.swap($this.data('standard'), $this.attr('href'));
+  });  
 
-$(this).after('\
-  <div id="modalFeedbackHeader-' + e + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalFeedbackHeaderLabel" aria-hidden="true">\
-    <div class="modal-dialog" role="document">\
-      <div class="modal-content">\
-        <div class="modal-body">\
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
-            <span aria-hidden="true">&times;</span>\
-          </button>\
-          <h3>' + one_click + '</h3>\
-            <div class="pp-img"><img src="' + img_url + '" alt="IamToko" /></div>\
-            <div class="pp-content">\
-              <h4>' + item_name + '</h4>\
-              <p>' + item_price + '</p>\
-              <form class="form-horizontal" id="form-feedback-header">\
-                <div class="form-group">\
-                  <input type="text" name="name" value="' + name_callback + '" placeholder="' + entry_name + '" id="input-name" class="form-control" /> <br>\
-                  <input type="text" name="phone" value="' + phone_callback + '" placeholder="' + entry_phone + '"  id="input-phone" class="form-control" required />\
-                  <input type="hidden" name="product" value="' + item_name + '" id="input-product" class="form-control" />\
-                </div>\
-              </form>\
-              <button type="button" id="button_send_feedback_header" data-loading-text="' + text_loading + '"  class="btn btn-primary">' + text_send + '</button>\
-            </div>\
-        </div>\
-      </div>\
-    </div>\
-  </div>');
-
-$(this).find('.button-group').append('<a class="toclick" id="button_feedback" data-toggle="modal" href=" #modalFeedbackHeader-' + e + '"><i class="fa fa-send-o"></i> <span class="hidden-xs hidden-sm hidden-md"> ' + one_click + '</span></a>');
 });
 
-$('.pp-content #button_send_feedback_header').on('click', function () {
-  $.ajax({
-    url: 'index.php?route=common/header/write',
-    type: 'post',
-    dataType: 'json',
-    data: $(".pp-content #form-feedback-header").serialize(),
-    beforeSend: function () {
-      $('.pp-content #button_send_feedback_header').button('loading');
-    },
-    complete: function () {
-      $('.pp-content #button_send_feedback_header').button('reset');
-    },
-    success: function (json) {
-      $('.alert-success, .alert-danger').remove();
-      if (json['error']) {
-        $('.pp-content #form-feedback-header').after('<div class="alert alert-danger" style="margin:20px 0;"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
-      }
-      if (json['success']) {
-        $('.pp-content #form-feedback-header').after('<div class="alert alert-success" style="margin:20px 0;"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
-        $('input[name=\'name\']').val('');
-        $('input[name=\'phone\']').val('');
-        $('input[name=\'email\']').val('');
-        $('input[name=\'product\']').val('');
-        window.setTimeout(function(){
-          location.reload()
-          },3000);
-      }
-    }
-  });
-});
 
 $('.product-thumb h4').css('height', '').equalHeights();
 
-
-
-
-
 });
+
 
 $(function() {
   // при нажатии на кнопку scrollup
@@ -198,8 +144,8 @@ $(function() {
     $("html, body").animate({
       scrollTop:0
     },1000);
-  })
-})
+  });
+});
 // при прокрутке окна (window)
 $(window).scroll(function() {
   // если пользователь прокрутил страницу более чем на 200px
@@ -223,6 +169,12 @@ document.getElementById('main-close').addEventListener("mousedown", function(){b
 });---*/ 
 
 });
+
+
+
+
+
+
 
 
 

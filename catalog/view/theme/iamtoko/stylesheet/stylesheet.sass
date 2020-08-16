@@ -5,6 +5,7 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik+One&subset=latin,cyrillic)
 
 
+
 body
 	margin: 0
 	padding: 0
@@ -296,6 +297,8 @@ div.alert.alert-success.alert-dismissible
 		font-size: 12px
 		background-color: #ff66c4
 		border: none
+	.img-thumbnail
+		border-radius: 0	
 /*---------menu---------------------*/
 .stick
 	position: relative
@@ -557,14 +560,14 @@ a.active
 .bannerhom
 	position: relative
 	video 
-		width: 920px
+		width: 838px 
 		height: auto	
 	.video__mask
 		position: absolute
 		top: 0
-		left: 1.5%
-		right: 0.2%
-		bottom: 0.5%
+		left: 1.8%
+		right: 0.5%
+		bottom: 0
 		transition: background .5s ease .5s
 	div .img__mask
 		position: absolute
@@ -1036,6 +1039,120 @@ a.active
 	
 
 		
+/*---------Купить в 1 клик попап---------*/
+#popup-quickorder
+	max-width: 570px !important
+	.popup-heading
+		text-align: center !important
+		border-bottom: none !important
+		top: 10px
+		margin-bottom: 10px
+		text-transform: uppercase
+		font:
+			family: 'Roboto Condensed', sans-serif !important
+	.product
+		.image
+			width: 120px !important
+		.pr-name
+			margin-right: 0
+			.quick-cell-content
+				font-size: 12px
+				text-transform: lowercase
+				font-weight: 600
+	.quantity_quickorder
+		.quick-cell-content
+			.popup-quantity
+				.form-control
+					box-shadow: none !important
+				.input-group-btn
+					.btn
+						border-radius: 0
+	.well-sm
+		border-radius: 0
+	.well
+		border: none
+		background-color: #fff
+		box-shadow: 3px 0 23px 9px rgba(0, 0, 0, 0.03)											
+	.special_fast
+		.price-old
+			font-weight: 600
+			color: #777	
+		.price-new
+			font-size: 16px	
+			font-weight: 600
+			color: #464545		
+	.options	
+		.control-label
+			text-transform: lowercase
+			color: #464545
+		.radio-checbox-options 
+			label
+				border-radius: 0 !important	
+				border: 1px solid rgba(119, 119, 119, 0.3) !important
+				background-color: rgba(221, 221, 221, 0) !important
+				transition: background-color border .25s
+				color: #000 !important
+				box-shadow: none !important	
+				&:hover, &:focus, &:active, &:after
+					background-color: rgba(221, 221, 221, .4)	!important
+					border: 1px solid rgba(119, 119, 119, 0.4) !important
+					color: #000 !important
+					box-shadow: none !important
+		.form-group:nth-child(2)
+			label:not(.control-label)
+				background-color: rgba(242, 148, 200, .1)	!important	
+				border: 1px solid rgba(242, 148, 200, .1) !important	
+				transition: background-color border .25s
+				color: #464545
+				text-transform: lowercase
+				&:hover, &:focus
+					background-color: rgba(242, 148, 200, .2)	!important	
+					border: 1px solid rgba(242, 148, 200, .2)	!important
+			input:checked + label
+					background-color: rgba(242, 148, 200, .3)	!important	
+					border: 1px solid rgba(242, 148, 200, .3)	!important	
+	.sections_block_rquaired, .sections_block
+		
+		.form-control
+			font-size: 12px !important
+			box-shadow: none !important
+			width: 255px
+	#fastorder_data	
+		.input-group-addon
+			border-radius: 0 !important
+			display: none
+	.popup-footer
+		background-color: #fff !important
+		border-top: none !important
+	#quickorder_btn
+		margin-bottom: 20px
+		.btn-quickorder-one
+			border-color: transparent
+			border-radius: 0
+			text-transform: lowercase 
+			background-color: #120e10 
+			color: #fff
+			padding: 8px 45px
+			font:
+				weight: 400
+				size: 16px			
+			transition: background-color .25s ease
+			outline: none
+			&:hover, &:active, &:focus
+				background-color: lighten(#120e10, 10%) 
+		input:checked + label
+			background-color: rgba(221, 221, 221, .4)	!important
+			border: 1px solid rgba(119, 119, 119, 0.4) !important				
+	.error_input
+		border-color: #ff66c4 !important
+	input.error_input:placeholder
+		color: #ff66c4 !important
+#modal-addquickorder
+	.alert-success
+		color: #000
+		background-color: #fff
+		border-color: transparent
+				
 /*---------все продукты---------*/
 
 .new-element-bal
@@ -1132,7 +1249,7 @@ a.active
 			&:nth-child(1)
 				position: absolute
 				z-index: 1000
-				top: 75%
+				top: 70%
 				left: 48%
 				transform: translate(-50%, -50%)
 			&:nth-child(2)
@@ -1147,6 +1264,7 @@ a.active
 			background-color: #120e10 
 			color: #fff
 			padding: 8px 45px
+			text-transform: lowercase
 			font:
 				weight: 400
 				size: 16px			
@@ -1162,22 +1280,6 @@ a.active
 			outline: none
 			&:hover, &:active
 				color: #ff66c4									
-.toclick
-	color: #000
-	text-decoration: none
-	display: none
-	position: absolute
-	text-align: center
-	background-color: rgba(255, 255, 255, .3)
-	padding: 5px 20px
-	width: 78%
-	top: 35%
-	left: 48%
-	transform: translate(-50%, -50%)
-	&:focus, &:hover
-		text-decoration: none
-		color: #000
-		background-color: rgba(255, 255, 255, .2)	
 .product-layout
 	.modal-content
 		button:nth-child(1)
@@ -1942,7 +2044,11 @@ h3
 	li
 		a 
 			font-family: 'Montserrat Alternates', sans-serif
-
+			color: #94929e
+			font-size: 12px
+			text-transform: lowercase
+.btn-quick-order	
+	border-radius: 0 !important			
 #product-category
 	h1 
 		font:
@@ -1961,6 +2067,33 @@ h3
 			text-decoration: underline
 			&:hover
 				text-decoration: none
+
+	.product-layout button:nth-child(1).btn-quick-order		
+		color: #000 !important
+		position: absolute
+		text-align: center	
+		background-color: rgba(255, 255, 255, .5)
+		padding: 5px 30px
+		width: 78%
+		top: 35%
+		left: 48%
+		transform: translate(-50%, -50%)
+		transition: background-color .0.25s
+		&:hover, &:focus
+			background-color: rgba(255, 255, 255, .3)
+		.oneclick
+			position: relative	
+		span 
+			text-transform: lowercase !important
+			font-weight: 600	
+			font-size: 14px
+			margin-top: -5px
+		svg 
+			position: absolute
+			width: 20px
+			height: 22px
+			left: 0
+					
 	/*---------Баннер вверху---------*/		
 	.swiper-viewport
 		margin: 0
@@ -2088,7 +2221,6 @@ h3
 			letter-spacing: .7px
 			font-size: 14px
 		.input-group .form-control
-			width: 95%
 			text-transform: lowercase
 			letter-spacing: .3px
 		.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn
@@ -2387,6 +2519,24 @@ h3
 			border: none
 			img 
 				width: 100%
+	h1 
+		margin-top: 60px
+		font:
+			weight: 600
+			size: 20px
+		text-align: center	
+		text-transform: lowercase	
+	.list-unstyled
+		text-align: center
+		margin-top: 30px
+		margin-bottom: 15px
+		h2 
+			font-size: 16px	
+			font-weight: 600
+			color: #464545
+		span 
+			font-weight: 600
+			color: #777					
 	ul
 		margin: 0
 		padding: 0
@@ -2394,16 +2544,167 @@ h3
 		li 
 			margin: 0
 			padding: 0
-	.product-galery
+	#product
+		h3 
+			display: none	
+		.form-group
+			text-align: center
+			position: relative
+			.control-label
+				display: none
+			.checkbox, .radio
+				display: inline-block							
+				margin-right: 5px
+				font:
+					family: 'Tavolga', sans-serif
+					size: 1.1em
+					weight: 800
+				border: 1px solid rgba(119, 119, 119, 0.7)
+				background-color: rgba(221, 221, 221, 0)
+				transition: background-color border .25s
+				&:hover, &:focus
+					background-color: rgba(221, 221, 221, .5)	
+					border: 1px solid rgba(119, 119, 119, 0.7)
+				label
+					padding: 6px 8px
+			input[type=checkbox], input[type=radio]  
+				position: absolute
+				z-index: -1
+				opacity: 0	
+				&:checked + span
+					color: #ff66c4
+			.radio
+				background-color: rgba(242, 148, 200, .3)	
+				border: 1px solid rgba(242, 148, 200, .3)
+				transition: background-color border .25s
+				color: #464545
+				text-transform: lowercase
+				&:hover, &:focus
+					background-color: rgba(242, 148, 200, .4)	
+					border: 1px solid rgba(242, 148, 200, .4)
+				.active-checked
+					background-color: rgba(242, 148, 200, .4)	
+					border: 1px solid rgba(242, 148, 200, .4)						
+			.number-spinner
+				width: 30%	
+				position: absolute
+				left: 50%
+				top: 10%
+				transform: translate(-50%, -50%)			
+				.form-control
+					border: none
+					box-shadow: none
+				.btn 
+					border-radius: 0
+					border: none
+		#button-cart, .btn-quick-order
+			margin-top: 40px
+			border: none
+			background-color: #120e10 
+			color: #fff
+			padding: 15px 45px
+			text-transform: lowercase
+			font:
+				weight: 400
+				size: 16px			
+			transition: background-color .25s ease
+			outline: none
+			&:hover, &:active, &:focus
+				background-color: lighten(#120e10, 10%) 
+		.btn-quick-order
+			margin-top: 20px
+			background-color: rgba(242, 148, 200, 1)
+			transition: background-color .25s ease
+			&:hover, &:focus, &:active
+				background-color: #fd7dc4
+			i 
+				display: none		
+		#button_feedback
+			display: block		
+	.option-thumbnails		
+		padding: 0
+		margin: 0
+	.model-product
+		display: flex	
+		justify-content: space-between
+		.btn
+			border-radius: 0
+			padding: 0
+			margin: 0
+			border: none
+			line-height: 0.01
+			svg 
+				width: 22px
+				height: 15px
+				margin-right: 15px
+		.model-model
+			text-transform: lowercase
+			font-weight: 600	
+			opacity: 0.5
+	hr
+		margin-top: 0 !important
+	.btn-group-lg > .btn, .btn-lg	
+		border-radius: 0
+
+	.video-product
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+	.video-product-hidden
+		display: none
+		position: relative
+	.video-product-visible
+		display: block		
+	.button-video
+		position: absolute
+		bottom: 6%
+		left: 10%
+		border: 0
+		span 
+			margin-left: 2px
+			font-weight: 600
+			color: #777
+		.bg-button-video
+			position: relative
+			background: #777
+			width: 40px
+			height: 40px
+			border-radius: 10em
+			opacity: 0.5
+			.button-button-video
+				position: absolute
+				left: 54%
+				top: 50%
+				transform: translate(-52%, -50%)
+				background: transparent
+				box-sizing: border-box
+				border-color: transparent transparent transparent #fff
+				transition: 100ms all ease
+				cursor: pointer
+				// play state
+				border-style: solid
+				border-width: 7px 0 7px 10px
+			.paused
+				width: 10px
+				height: 10px
+				left: 51.6%
+				border-style: none 
+				border-width: none 
+				border-right: 4px solid #fff
+				border-left: 4px solid #fff
+		
+
 	/*---------Вертикальный слайдер---------*/	
 	#content
 		.slider-img-nav
-			padding: 0
-			padding-right: 15px
-			width: 10%
+			padding: 0	
 		.slider-img
 			padding: 0
+			padding-left: 20px
+			padding-bottom: 
 			margin: 0
+			position: relative
 .slider-img-nav
 	.slider-nav
 		position: relative
@@ -2422,6 +2723,8 @@ h3
 		content: "\f078"
 	[dir='rtl'] .slick-next:before
 	  content: "\f078"
+.draggable
+	min-height: 500px !important		
 .single-slide
 	.slick-prev,
 	.slick-next

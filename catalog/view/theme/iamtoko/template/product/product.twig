@@ -9,7 +9,7 @@
   <div class="row">{{ column_left }}
     {{ content_top }}
     <div id="content">
-      <div class="option-thumbnails col-md-6 col-xs-12">
+      <div class="option-thumbnails col-md-7 col-xs-12">
         {% if thumb or images %}  
         <div class="slider-img-nav col-md-2 hidden-sm hidden-xs">
           <ul class="slider-nav">
@@ -38,12 +38,13 @@
             </li>
             {% endfor %}
             {% endif %}
-          </ul>	
+          </ul>	          
         </div>
         {% endif %}
+        {{ short_description }}
       </div>
 
-      <div class="col-md-6 col-xs-12">
+      <div class="col-md-5 col-xs-12">
 
         <div class="model-product">
           <div class="model-model">{{ text_model }} {{ model }}</div>
@@ -69,7 +70,6 @@
             <h2>{{ price }}</h2>
           </li>
           {% else %}
-          <li><span style="text-decoration: line-through;">{{ price }}</span></li>
           <li>
             <h2>{{ special }}</h2>
           </li>
@@ -81,20 +81,33 @@
           <li>{{ text_points }} {{ points }}</li>
           {% endif %}
           {% if discounts %}
-          <li>
-            <hr>
-          </li>
           {% for discount in discounts %}
-          <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
+          <li>{{ discount.quantity }}{{ discount.price }}{{ text_discount }}</li>
           {% endfor %}
           {% endif %}
+          <li><span style="text-decoration: line-through;">{{ price }}</span></li>
         </ul>
         {% endif %}
       
         <div id="product"> {% if options %}
-          <hr>
           <h3>{{ text_option }}</h3>          
           {% for option in options %}
+
+            {% if option.type == 'checkbox' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" />
+                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}
+                    <span>{{ option_value.name }}</span>
+                    {% if option_value.price %}
+                    ({{ option_value.price_prefix }}{{ option_value.price }})
+                    {% endif %} </label>
+                </div>
+                {% endfor %} </div>
+            </div>
+            {% endif %}
 
             {% if option.type == 'radio' %} {% if (option['option_id'] == (14)) %} 
             <div class="form-group{% if option.required %} required {% endif %}">
@@ -104,7 +117,7 @@
                   <label>
                     <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
                     {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}                  
-                    {{ option_value.name }}
+                    <span>{{ option_value.name }}</spa>
                     {% if option_value.price %}
                     ({{ option_value.price_prefix }}{{ option_value.price }})
                     {% endif %} </label>
@@ -129,22 +142,7 @@
             </select>
           </div>
           {% endif %}
-          {% if option.type == 'checkbox' %}
-          <div class="form-group{% if option.required %} required {% endif %}">
-            <label class="control-label">{{ option.name }}</label>
-            <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" />
-                  {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}
-                  {{ option_value.name }}
-                  {% if option_value.price %}
-                  ({{ option_value.price_prefix }}{{ option_value.price }})
-                  {% endif %} </label>
-              </div>
-              {% endfor %} </div>
-          </div>
-          {% endif %}
+
           {% if option.type == 'text' %}
           <div class="form-group{% if option.required %} required {% endif %}">
             <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
@@ -210,11 +208,12 @@
             <div class="help-block" id="recurring-description"></div>
           </div>
           {% endif %}
-          <div class="form-group">
+          <div class="form-group button-cart-product">
             <label class="control-label" for="input-quantity">{{ entry_qty }}</label>
             <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
             <input type="hidden" name="product_id" value="{{ product_id }}" />
             <br />
+            
             <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block">{{ button_cart }}</button>
           </div>
           {% if minimum > 1 %}
@@ -478,6 +477,12 @@ $('#product input[type="radio"]').click(function(){
 		 });
 	}
 
+
+function hide() {
+  $('.video-product').toggleClass('video-product-hidden video-product-visible');
+  $('.button-button-video').toggleClass('play paused');
+  easyzoom();
+};
 //--></script> 
 
 
@@ -687,6 +692,7 @@ $(document).ready(function() {
 }
 	});
 });
+
 
 //--></script> 
 
