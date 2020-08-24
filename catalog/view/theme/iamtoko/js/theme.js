@@ -123,6 +123,16 @@ $('.product-thumb h4').css('height', '').equalHeights();
 
 $(function() {
   // при нажатии на кнопку scrollup
+  $('#product-product #product .form-group:nth-child(3) .img-thumbnail').click(function() {
+    // переместиться в верхнюю часть страницы
+    $("html, body").animate({
+      scrollTop:0
+    },1000);
+  });
+});
+
+$(function() {
+  // при нажатии на кнопку scrollup
   $('.scrollup').click(function() {
     // переместиться в верхнюю часть страницы
     $("html, body").animate({
