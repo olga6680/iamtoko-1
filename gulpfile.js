@@ -32,12 +32,12 @@ gulp.task('sass', function() {
 
 //sprite SVG
 gulp.task('sprite', function() {
-	return gulp.src('catalog/view/theme/iamtoko/image/icon-*.svg')
+	return gulp.src('image/icon-*.svg')
 	.pipe(svgstore({
 		inlineSvg: true
 		}))
 	.pipe(rename('sprite.svg'))
-	.pipe(gulp.dest('catalog/view/theme/iamtoko/image'));
+	.pipe(gulp.dest('image'));
 	});
 
 

@@ -67,6 +67,23 @@ class ControllerProductProduct extends Controller {
 			}
 		}
 
+
+		$this->load->model('catalog/information');
+		$this->load->language('extension/module/advantage');
+
+    $data['informations'] = array();
+
+    foreach ($this->model_catalog_information->getInformations() as $result) {
+      if ($result['bottom']) {
+        $data['informations'][] = array(
+          'title' => $result['title'],
+          'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id'])
+        );
+      }
+    }
+
+		$data['advantage_sending'] = $this->url->link('information/information', array('information_id'=>6));
+
 		$this->load->model('catalog/manufacturer');
 
 		if (isset($this->request->get['manufacturer_id'])) {
@@ -334,7 +351,7 @@ class ControllerProductProduct extends Controller {
 							'product_option_value_id' => $option_value['product_option_value_id'],
 							'option_value_id'         => $option_value['option_value_id'],
 							'name'                    => $option_value['name'],
-							'image'                   => $this->model_tool_image->resize($option_value['image'], 50, 50),
+							'image'                   => $this->model_tool_image->resize($option_value['image'], 113, 170),
 							'price'                   => $price,
 							'price_prefix'            => $option_value['price_prefix']
 						);

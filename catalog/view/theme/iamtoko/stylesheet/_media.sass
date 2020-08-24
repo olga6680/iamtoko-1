@@ -48,14 +48,12 @@
 						margin-top: 13% 
 		.latesthom
 			margin-bottom: 110px !important
-			.options
-				top: 76%
+			.attributes
+
 			.product-layout 
 				.button-group > :nth-child(1)
 					top: 76%
-			.caption
-				h4 
-					height: 38px !important
+
 		.deliver
 			height: 150px
 		.review-main
@@ -130,14 +128,17 @@
 				.hover-img
 					height: 110px
 					bottom: 1.5%
-			.option
-				.checkboxing
-					padding: 3px 7px 0 7px
 			.button-group > :nth-child(1)	
-				top: 61%
+				top: 67%
+			.button-group > :nth-child(2)	
+				.fa
+					width: 30px
+					height: 30px
+					svg
+						width: 17px	
 			button:nth-child(1).btn-quick-order	
 				width: 90%
-				top: 20% !important
+				top: 30% !important
 				span
 					font-size: 12px	!important
 				svg 
@@ -253,25 +254,20 @@
 		#column-left
 			display: none
 
+
 		.product-layout
 			&:hover .toclick,	&:hover button:nth-child(1), &:hover .hover-img
 				display: none
 			> .product-thumb
-			.options
+			.attributes-size
 				bottom: 0
 				width: 100%
-				bottom: -3%
 				background-color: #f5f4f4
-			.option
-				display: block				
-				left: 0
-				right: 0
-				bottom: 0				
-				.checkboxing
-					padding: 0
-					border: none
+				display: inline-block
+				.attribute
 					color: #000
-					font-size: 18px
+					border: none
+					bottom: 0
 	.row
 		padding-left: 15px !important	
 		padding-right: 15px	!important
@@ -279,6 +275,34 @@
 	video 
 		width: 460px	!important	
 
+	#product-product 
+		.video-product 
+			left: -3%
+			video
+				width: 437px 
+				height: 656px	
+		#product .size-product svg
+			right: 12%
+		#content .product-information .nav-tabs.nav li a
+			font-size: 12px
+		.product-viewed
+			margin-top: -60px	
+		.product-related .slider-related, .product-viewed .slider-viewed 
+			.slick-list .slick-track 
+				> .slick-slide 
+					&:hover button:nth-child(1) 
+						display: none !important
+					.attributes-size 
+						bottom: 0
+						width: 100%
+						background-color: #f5f4f4
+						display: inline-block
+						.attribute
+							color: #000
+							border: none
+							bottom: 0	
+				.image .hover-img
+					display: none
 			
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
@@ -375,13 +399,62 @@
 					margin-top: 30px	
 		.pagination
 			margin-top: 60px
-
+		#product-product 
+			.thumbnails a img
+				width: 60%
+			#product .size-product svg
+				right: 30%	
+			#content .product-information 
+				margin-top: 30px
+				.nav-tabs > li
+					margin-right: 12px
+				.product-attribute 
+					padding-left: 0
+					padding-right: 225px
+				.product-parameters	
+					padding-left: 0
+					padding-right: 0
+				.product-description
+					padding-left: 0
+					padding-right: 0	
+			.video-product 
+				left: 0
+				top: -1px
+				left: 4%
+				video
+					width: 324px 
+					height: 486px	
+			.product-related
+				margin-top: 20px
+			.product-viewed
+				margin-top: -90px	
+			#product .form-group:nth-child(3) 
+				text-align: center
+				.control-label
+					display: block !important	
+		.slick-prev:before,
+		.slick-next:before	
+			font-size: 14px		
+		.slider-for		
+			.slick-prev
+				top: 45%
+				left: 10%
+			[dir='rtl'] .slick-prev
+				top: 45%
+				left: 10%
+			.slick-next
+				bottom: 49%	
+				right: 33%
+			[dir='rtl'] .slick-next
+				bottom: 49%
+				right: 33%			
 /* Small Devices, Tablets */
 @media only screen and (max-width : 770px)
 	html, body
 		#cart		
 			.btn-danger
 				top: 30px
+
  	.logo
  		margin-top: 
  		margin-left: 
@@ -427,6 +500,7 @@
 			text-align: center !important
 		.pagination	
 			margin-top: 80px		
+
 /**/
 @media only screen and (max-width : 740px)
  html, body 
@@ -506,18 +580,37 @@
 					img 
 						width: 120px
 				 a	
-					 margin-top: 15%	
+					 margin-top: 15%
+			.container-rewiev
+				margin-top: 60px		 	
 		
 		.product-layout
 			> .product-thumb
 			.options	
 				bottom: -2%
-
+		#product-product 
+			margin-top: 20px
+			#content .product-information .product-parameters
+				padding-right: 340px
+			.video-product 
+				top: 0	
+		.main-footer
+			margin-top: -80px
+			.section1-footer .social-footer
+				margin-left: -5%
+			.registration-footer
+				margin-left: 24%
+		.slider-for		
+			.slick-pre
+				left: 11.5%
+			[dir='rtl'] .slick-prev
+				left: 11.5%	
 	.modal-content
 		.close
 			left: 70%
 	.btn .btn-link .button-coll-side .button-sale-popup
 		bottom: 0 !important
+
 
 /**/
 @media only screen and (max-width : 670px) 			
@@ -576,7 +669,33 @@
 				.form-control
 					margin-left: 10px
 					margin-right: 10px
-						
+		#product-category
+			.container-rewiev
+				margin-top: 70px	!important
+				h3 
+					font-size: 20px		
+		#product-product #product .dilivery-product .col-md-6.col-sm-6.col-xs-6 img
+			width: 30%
+		#product-product 
+			#product .size-product svg
+				right: 28%
+			#content .product-information 
+				.nav-tabs > li
+					line-height: 2
+				.product-attribute
+					padding-right: 85px
+				.product-parameters
+					padding-right: 220px
+		.slider-for		
+			.slick-prev
+				left: 13%
+			[dir='rtl'] .slick-prev
+				left: 13%
+			.slick-next
+				right: 25.5%
+			[dir='rtl'] .slick-next
+				right: 25.5%					
+
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 420px)
 	html, body 
@@ -638,6 +757,11 @@
 		.review-main
 			.caption
 				margin-top: 0
+			.pm-review-thumb h4
+				width: 100%
+				a 
+					font-size: 10px	
+					max-height: 25px
 			.owl-controls .owl-buttons .owl-prev
 				margin-left: 77%
 		.newsletter-mi
@@ -677,8 +801,12 @@
 			width: 40%
 
 		#product-category 
+			h1 
+				font-size: 20px
 			#content
 				margin-top: -40px
+				.product-layout
+					padding: 0
 			.banner-pro
 				height: 470px 
 				.banner-pro-section
@@ -689,6 +817,90 @@
 			.review-main	
 				.caption
 					margin-bottom: -30px	
+		.product-layout 
+			h4 
+				max-height: 20px !important
+				a 
+					font-size: 10px
+			.attributes-size
+				.attribute
+					font-size: 12px	
+					margin: 0	!important	
+					padding-left: 2px
+					padding-right: 2px
+			.button-group > :nth-child(2) 
+				.fa
+					width: 20px
+					height: 20px 
+					svg
+						width: 12px !important
+		#product-product 
+			.thumbnails 
+				margin-top: 20px
+				a img
+					width: 85%
+			.button-video
+				left: 0	
+			h1 
+				font-size: 16px	
+				margin-top: 20px	
+			#product .size-product svg
+				right: 10%	
+			#content .product-information 
+				.product-attribute
+					padding-right: 0
+					.table tbody > tr > td > strong
+						padding-right: 90px	
+				.product-parameters
+					padding-right: 0	
+			.product-viewed
+				margin-top: -150px
+			.slider-viewed .slick-list .slick-track > .slick-slide h4
+				max-height: 30px !important
+			.video-product 
+				left: 0
+				top: 20px
+				left: -60px
+				video
+					width: 309px 
+					height: 464px	
+			.product-related .slider-related
+				.slick-prev
+					top: 20% 
+				[dir='rtl'] .slick-prev
+					top: 20%		
+				.slick-next
+					top: 19% 
+					right: -53%
+				[dir='rtl'] .slick-next
+					top: 19%	
+					right: -53%		
+			.product-viewed .slider-viewed
+				.slick-prev
+					top: 23% 
+					left: -54%
+				[dir='rtl'] .slick-prev
+					top: 23%	
+					left: -54%	
+				.slick-next
+					top: 22% 
+					right: -51%
+				[dir='rtl'] .slick-next
+					top: 22%	
+					right: -51%	
+		.slider-for		
+			.slick-prev
+				top: 45%
+				left: 0
+			[dir='rtl'] .slick-prev
+				top: 45%
+				left: 0
+			.slick-next
+				bottom: 49%	
+				right: 0
+			[dir='rtl'] .slick-next
+				bottom: 49%
+				right: 0							
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 375px)
@@ -726,14 +938,36 @@
 		.product-layout
 			> .product-thumb
 			.options	
-				bottom: -2.3%			
+				bottom: -2.3%	
+		#product-product 
+			#product .size-product svg
+				right: 6%		
+			.video-product 
+				left: 0
+				top: 20px
+				left: -75px
+				video
+					width: 276px 
+					height: 414px		
+			#content .product-information .product-attribute .table tbody > tr > td > strong
+				padding-right: 65px	
+	
+
 
 /**/
 @media only screen and (max-width : 360px)
 	html, body
 
 		#search
-			margin-left: -14%	!important	
+			margin-left: -14%	!important
+		#product-product
+			.video-product 
+
+				top: 20px
+				left: -60px
+				video
+					width: 263px 
+					height: 395px			
 
 				
 /*==========  Mobile First  ==========*/

@@ -5,15 +5,6 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-
-
-$(document).ready(function() {
-  if(window.location.pathname == '/index.php/page') { 
-    $('.banner-pro').addClass(".banner-pro-hid"); 
-  }
-});
-
-
 $(function () {  
 
 //анимация
@@ -25,6 +16,7 @@ $(".flipInY").animated("flipInY");
 $(".slideUp").animated("bounceInUp");
 
 $('#content .category-content-thumb .product-layout:nth-child(8)').after($('#product-category .banner-pro'));
+
 
 //Sale popup и Email popup
 $('.button-sale-popup, .button-news-popup').magnificPopup({
@@ -92,21 +84,13 @@ $('.clos-sort, .btn-menu-menu, .btn-contact-menu').click(function() {
   $(this).toggleClass('clos-sort-plus');
 });  
 
-//product video   
-function hide() {
-  $('.video-product').toggleClass('col-md-12 visible');
-};
-
-
-
-
 //4 фото в категориях
 $('.category-content-thumb > .product-layout > .product-thumb').each(function (e) { 
 
   e +=1;
 
 $(this).parent().attr({
-  'class' : 'product-layout product-grid col-lg-3 col-md-4 col-sm-6 col-xs-12 data-bal="element-bal"'
+  'class' : 'product-layout product-grid col-lg-3 col-md-4 col-sm-6 col-xs-6 data-bal="element-bal"'
 
 });  
 });  

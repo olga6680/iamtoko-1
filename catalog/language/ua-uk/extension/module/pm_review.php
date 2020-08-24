@@ -4,7 +4,7 @@ $_['heading_title'] 	= 'Відгуки';
 
 // Button
 $_['button_readmore']	= 'Докладніше →';
-$_['button_show_all']	= 'Дивитись всі відгуки';
+$_['button_show_all']	= 'Дивитись всі товари';
 
 // Entry
 $_['entry_good']		= 'Переваги';

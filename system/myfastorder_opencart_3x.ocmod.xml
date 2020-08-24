@@ -114,6 +114,23 @@
 {% endif %}			
 		]]></add>
 	</operation>
+
+	<operation>
+		<search><![CDATA[<div class="button-group">]]></search>
+			<add position="before"><![CDATA[
+			<div class="fastorder">
+				<button class="btn-quick-order btn-lg btn-block" type="button" onclick="fastorder_open({{ product.product_id }});" title="{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}">
+					<div class="oneclick">
+						<svg class="icon" viewBox="0 0 25 25" width="25" height="25">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-shoppingbag"></use>
+						</svg>                        
+						<span>{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}</span>
+					</div>			
+				</button>
+			</div>
+			]]>		
+		</add>
+	</operation>
 	</file>
    <file path="catalog/model/catalog/product.php">
     <operation>
@@ -181,7 +198,7 @@
 				<button class="btn-quick-order btn-lg btn-block" type="button" onclick="fastorder_open({{ product.product_id }});" title="{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}">
           <div class="oneclick">
             <svg class="icon" viewBox="0 0 25 25" width="25" height="25">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-shoppingbag"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-shoppingbag"></use>
             </svg>                        
             <span>{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}</span>
           </div>			
@@ -247,7 +264,7 @@
 				<button class="btn-quick-order btn-lg btn-block" type="button" onclick="fastorder_open({{ product.product_id }});" title="{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}">
           <div class="oneclick">
             <svg class="icon" viewBox="0 0 25 25" width="25" height="25">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-shoppingbag"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-shoppingbag"></use>
             </svg>                        
             <span>{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}</span>
           </div>		
@@ -280,7 +297,7 @@
 			<div class="fastorder">
           <div class="oneclick">
             <svg class="icon" viewBox="0 0 25 25" width="25" height="25">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-shoppingbag"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-shoppingbag"></use>
             </svg>                        
             <span>{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}</span>
           </div>
@@ -314,7 +331,7 @@
 				<button class="btn-quick-order btn-lg btn-block" type="button" onclick="fastorder_open({{ product.product_id }});" title="{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}">
           <div class="oneclick">
             <svg class="icon" viewBox="0 0 25 25" width="25" height="25">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-shoppingbag"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-shoppingbag"></use>
             </svg>                        
             <span>{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}</span>
           </div>			
@@ -324,7 +341,24 @@
 		]]></add>
 		</operation>
 	</file>
-	<file path="catalog/controller/extension/module/featured.php">
+	<file path="catalog/view/theme/*/template/extension/module/recently_viewed.twig">
+		<operation>
+		<search><![CDATA[<div class="button-group">]]></search>
+			<add position="before"><![CDATA[
+			<div class="fastorder">
+				<button class="btn-quick-order btn-lg btn-block" type="button" onclick="fastorder_open({{ product.product_id }});" title="{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}">
+          <div class="oneclick">
+            <svg class="icon" viewBox="0 0 25 25" width="25" height="25">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-shoppingbag"></use>
+            </svg>                        
+            <span>{{ text_oneclick }}</span>
+          </div>			
+			</button>
+			</div>
+		]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/extension/module/{featured,recently_viewed}.php">
 		<operation>
 			<search><![CDATA[$this->load->language('extension/module/featured');]]></search>
 			<add position="before"><![CDATA[
@@ -347,7 +381,7 @@
 				<button class="btn-quick-order btn-lg btn-block" type="button" onclick="fastorder_open({{ product.product_id }});" title="{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}">
           <div class="oneclick">
             <svg class="icon" viewBox="0 0 25 25" width="25" height="25">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-shoppingbag"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-shoppingbag"></use>
             </svg>                        
             <span>{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}</span>
           </div>		
@@ -380,7 +414,7 @@
 				<button class="btn-quick-order btn-lg btn-block" type="button" onclick="fastorder_open({{ product.product_id }});" title="{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}">
           <div class="oneclick">
             <svg class="icon" viewBox="0 0 25 25" width="25" height="25">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-shoppingbag"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-shoppingbag"></use>
             </svg>                        
             <span>{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}</span>
           </div>		
@@ -413,7 +447,7 @@
 				<button class="btn-quick-order btn-lg btn-block" type="button" onclick="fastorder_open({{ product.product_id }});" title="{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}">
           <div class="oneclick">
             <svg class="icon" viewBox="0 0 25 25" width="25" height="25">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="catalog\view\theme\iamtoko\image\sprite.svg#icon-shoppingbag"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="image\sprite.svg#icon-shoppingbag"></use>
             </svg>                        
             <span>{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}</span>
           </div>	

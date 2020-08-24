@@ -112,7 +112,7 @@
   </div>
   <div id="p-review-form">
     {% if p_review['form']['form'] %}
-    <h2>{{ p_review['text_write'] }}</h2>
+		<a href="#p-review-product" data-toggle="collapse" class="button-p-review-product" aria-expanded="true">{{ p_review['text_write'] }}</a>
     {% else %}
     <div class="buttons clearfix">
       <div class="pull-right">
@@ -120,110 +120,113 @@
       </div>
     </div>
     {% endif %}
-    <form {% if not p_review['form']['form'] %}style="display: none;" {% endif %}class="form-horizontal" enctype="multipart/form-data" method="post">
-      {% if p_review['form']['guest'] %}
-      {% if p_review['form']['field_title'] %}
-      <div class="form-group{% if p_review['form']['field_title'] == 2 %} required{% endif %}">
-        <div class="col-sm-12">
-		  <label class="control-label" for="input-title">{{ p_review['entry_title'] }}</label>
-		  <input type="text" name="title" value="" id="input-title" class="form-control" />
-		</div>
-	  </div>
-      {% endif %}
-	  {% if p_review['form']['field_city'] %}
-	  <div class="form-group{% if p_review['form']['field_city'] == 2 %} required{% endif %}">
-		<div class="col-sm-12">
-		  <label class="control-label" for="input-city">{{ p_review['entry_city'] }}</label>
-		  <input type="text" name="city" value="" id="input-city" class="form-control" />
-		</div>
-	  </div>
-	  {% endif %}
-	  {% if p_review['form']['field_email'] %}
-	  <div class="form-group{% if p_review['form']['field_email'] == 2 %} required{% endif %}">
-		<div class="col-sm-12">
-		  <label class="control-label" for="input-email">{{ p_review['entry_email'] }}</label>
-		  <input type="text" name="email" value="{{ p_review['form']['email'] }}" id="input-email" class="form-control" />
-		</div>
-	  </div>
-	  {% endif %}
-	  {% if p_review['form']['field_name'] %}
-	  <div class="form-group{% if p_review['form']['field_name'] == 2 %} required{% endif %}">
-		<div class="col-sm-12">
-		  <label class="control-label" for="input-name">{{ p_review['entry_name'] }}</label>
-		  <input type="text" name="name" value="{{ p_review['form']['name'] }}" id="input-name" class="form-control" />
-		</div>
-	  </div>
-	  {% endif %}
-	  {% if p_review['form']['field_text'] %}
-	  <div class="form-group{% if p_review['form']['field_text'] == 2 %} required{% endif %}">
-		<div class="col-sm-12">
-		  <label class="control-label" for="input-text">{{ p_review['entry_text'] }}</label>
-		  <textarea name="text" rows="5" id="input-text" class="form-control"></textarea>
-		</div>
-	  </div>
-	  {% endif %}
-	  {% if p_review['form']['field_good'] %}
-	  <div class="form-group{% if p_review['form']['field_good'] == 2 %} required{% endif %}">
-		<div class="col-sm-12">
-		  <label class="control-label" for="input-good">{{ p_review['entry_good'] }}</label>
-		  <textarea name="good" rows="5" id="input-good" class="form-control"></textarea>
-		</div>
-	  </div>
-	  {% endif %}
-	  {% if p_review['form']['field_bad'] %}
-	  <div class="form-group{% if p_review['form']['field_bad'] == 2 %} required{% endif %}">
-		<div class="col-sm-12">
-		  <label class="control-label" for="input-bad">{{ p_review['entry_bad'] }}</label>
-		  <textarea name="bad" rows="5" id="input-bad" class="form-control"></textarea>
-		</div>
-	  </div>
-	  {% endif %}
-	  {% if p_review['form']['field_rating'] %}
-	  <div class="form-group{% if p_review['form']['field_rating'] == 2 %} required{% endif %}">
-		<div class="col-lg-2 col-md-2">
-		  <label class="control-label">{{ p_review['entry_rating'] }}</label>
-		</div>
-		<div class="col-lg-10 col-md-10">
-		  <div class="rating">
-			{% for i in 1..5 %}<span data-rating-value="{{ i }}" onclick="setRating('{{ i }}')" class="fa fa-stack"><i class="fa fa-star-{{ i }} fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endfor %}
-			<input id="input-rating" type="hidden" name="rating" value="0" />		  
+<div id="p-review-product" class="p-review-product collapse" aria-expanded="true">
+	    <form {% if not p_review['form']['form'] %}style="display: none;" {% endif %}class="form-horizontal" enctype="multipart/form-data" method="post">
+	      {% if p_review['form']['guest'] %}
+	      {% if p_review['form']['field_title'] %}
+	      <div class="form-group{% if p_review['form']['field_title'] == 2 %} required{% endif %}">
+	        <div class="col-sm-12">
+			  <label class="control-label" for="input-title">{{ p_review['entry_title'] }}</label>
+			  <input type="text" name="title" value="" id="input-title" class="form-control" />
+			</div>
 		  </div>
-		</div>
-	  </div>
-	  {% endif %}
-	  {% if p_review['form']['field_avatar'] > 1 %}	
-	  <div class="form-group{% if p_review['form']['field_avatar'] == 3 %} required{% endif %}">
-		<div class="col-md-2">
-		  <label class="control-label">{{ p_review['entry_avatar'] }}</label>
-		</div>
-		<div class="col-md-10">
-		  <div><label class="btn btn-primary btn-sm" for="input-avatar"><input id="input-avatar" type="file" name="avatar" style="display:none" accept="image/jpeg,image/png"><i class="fa fa-upload"></i> <span class="hidden-xs hidden-sm hidden-md">{{ p_review['button_upload'] }}</span></label> <button type="button" data-toggle="tooltip" title="{{ p_review['button_clear'] }}" class="btn btn-danger btn-sm" id="button-clear"><i class="fa fa-trash"></i></button> <span class="label label-info" id="label-avatar"></span></div>
-		  <div><small>{{ p_review['form']['max_avatar'] }}</small></div>
-		</div>
-	  </div>
-	  {% endif %}
-	  {% if p_review['form']['field_image'] > 1 %}	
-	  <div class="form-group{% if p_review['form']['field_image'] == 3 %} required{% endif %}">
-		<div class="col-md-2">
-		  <label class="control-label">{{ p_review['entry_image'] }}</label>
-	   </div>
-		<div class="col-md-10">
-		  <div class="image-list"></div>
-		  <div><button type="button" class="btn btn-primary btn-sm" id="button-add-image"><i class="fa fa-plus"></i> {{ p_review['button_add'] }}</button></div>
-		  <div><small>{{ p_review['form']['max_image'] }}</small></div>
-		</div>
-	  </div>
-	  {% endif %}
-	  {{ p_review['form']['captcha'] }}
-	  <div class="buttons clearfix">
-		<div class="pull-right">
-		  <button type="button" id="button-p-review" data-loading-text="{{ p_review['text_loading'] }}" class="btn btn-primary">{{ p_review['button_submit'] }}</button>
-		</div>
-	  </div>
-	  {% else %}
-	  {{ p_review['text_login'] }}
-	  {% endif %}
-    </form>
+	      {% endif %}
+		  {% if p_review['form']['field_city'] %}
+		  <div class="form-group{% if p_review['form']['field_city'] == 2 %} required{% endif %}">
+			<div class="col-sm-12">
+			  <label class="control-label" for="input-city">{{ p_review['entry_city'] }}</label>
+			  <input type="text" name="city" value="" id="input-city" class="form-control" />
+			</div>
+		  </div>
+		  {% endif %}
+		  {% if p_review['form']['field_email'] %}
+		  <div class="form-group{% if p_review['form']['field_email'] == 2 %} required{% endif %}">
+			<div class="col-sm-12">
+			  <label class="control-label" for="input-email">{{ p_review['entry_email'] }}</label>
+			  <input type="text" name="email" value="{{ p_review['form']['email'] }}" id="input-email" class="form-control" />
+			</div>
+		  </div>
+		  {% endif %}
+		  {% if p_review['form']['field_name'] %}
+		  <div class="form-group{% if p_review['form']['field_name'] == 2 %} required{% endif %}">
+			<div class="col-sm-12">
+			  <label class="control-label" for="input-name">{{ p_review['entry_name'] }}</label>
+			  <input type="text" name="name" value="{{ p_review['form']['name'] }}" id="input-name" class="form-control" />
+			</div>
+		  </div>
+		  {% endif %}
+		  {% if p_review['form']['field_text'] %}
+		  <div class="form-group{% if p_review['form']['field_text'] == 2 %} required{% endif %}">
+			<div class="col-sm-12">
+			  <label class="control-label" for="input-text">{{ p_review['entry_text'] }}</label>
+			  <textarea name="text" rows="5" id="input-text" class="form-control"></textarea>
+			</div>
+		  </div>
+		  {% endif %}
+		  {% if p_review['form']['field_good'] %}
+		  <div class="form-group{% if p_review['form']['field_good'] == 2 %} required{% endif %}">
+			<div class="col-sm-12">
+			  <label class="control-label" for="input-good">{{ p_review['entry_good'] }}</label>
+			  <textarea name="good" rows="5" id="input-good" class="form-control"></textarea>
+			</div>
+		  </div>
+		  {% endif %}
+		  {% if p_review['form']['field_bad'] %}
+		  <div class="form-group{% if p_review['form']['field_bad'] == 2 %} required{% endif %}">
+			<div class="col-sm-12">
+			  <label class="control-label" for="input-bad">{{ p_review['entry_bad'] }}</label>
+			  <textarea name="bad" rows="5" id="input-bad" class="form-control"></textarea>
+			</div>
+		  </div>
+		  {% endif %}
+		  {% if p_review['form']['field_rating'] %}
+		  <div class="form-group{% if p_review['form']['field_rating'] == 2 %} required{% endif %}">
+			<div class="col-lg-2 col-md-2">
+			  <label class="control-label">{{ p_review['entry_rating'] }}</label>
+			</div>
+			<div class="col-lg-10 col-md-10">
+			  <div class="rating">
+				{% for i in 1..5 %}<span data-rating-value="{{ i }}" onclick="setRating('{{ i }}')" class="fa fa-stack"><i class="fa fa-star-{{ i }} fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endfor %}
+				<input id="input-rating" type="hidden" name="rating" value="0" />		  
+			  </div>
+			</div>
+		  </div>
+		  {% endif %}
+		  {% if p_review['form']['field_avatar'] > 1 %}	
+		  <div class="form-group{% if p_review['form']['field_avatar'] == 3 %} required{% endif %}">
+			<div class="col-md-2">
+			  <label class="control-label">{{ p_review['entry_avatar'] }}</label>
+			</div>
+			<div class="col-md-10">
+			  <div><label class="btn btn-primary btn-sm" for="input-avatar"><input id="input-avatar" type="file" name="avatar" style="display:none" accept="image/jpeg,image/png"><i class="fa fa-upload"></i> <span class="hidden-xs hidden-sm hidden-md">{{ p_review['button_upload'] }}</span></label> <button type="button" data-toggle="tooltip" title="{{ p_review['button_clear'] }}" class="btn btn-danger btn-sm" id="button-clear"><i class="fa fa-trash"></i></button> <span class="label label-info" id="label-avatar"></span></div>
+			  <div><small>{{ p_review['form']['max_avatar'] }}</small></div>
+			</div>
+			<div class="text-requring"><span>* </span>{{ text_requiring }}</div>
+		  </div>
+		  {% endif %}
+		  {% if p_review['form']['field_image'] > 1 %}	
+		  <div class="form-group{% if p_review['form']['field_image'] == 3 %} required{% endif %}">
+			<div class="col-md-2">
+			  <label class="control-label">{{ p_review['entry_image'] }}</label>
+		   </div>
+			<div class="col-md-10">
+			  <div class="image-list"></div>
+			  <div><button type="button" class="btn btn-primary btn-sm" id="button-add-image"><i class="fa fa-plus"></i> {{ p_review['button_add'] }}</button></div>
+			  <div><small>{{ p_review['form']['max_image'] }}</small></div>
+			</div>
+		  </div>
+		  {% endif %}
+		  {{ p_review['form']['captcha'] }}
+		  <div class="buttons clearfix">
+			<div class="pull-right">
+			  <button type="button" id="button-p-review" data-loading-text="{{ p_review['text_loading'] }}" class="btn btn-primary">{{ p_review['button_submit'] }}</button>
+			</div>
+		  </div>
+		  {% else %}
+		  {{ p_review['text_login'] }}
+		  {% endif %}
+	    </form>
+</div>
   </div>
 </div>
 <script type="text/javascript"><!--

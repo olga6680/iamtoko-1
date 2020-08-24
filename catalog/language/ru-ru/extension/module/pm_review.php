@@ -1,16 +1,13 @@
 <?php
 // Heading 
-$_['heading_title'] 	= 'Отзывы о товарах';
+$_['heading_title'] 	= 'Отзывы';
 
 // Button
 $_['button_show_all']	= 'Смотреть все отзывы';
-
 $_['button_readmore']	= 'Подробнее →';
+
 // Entry
 $_['entry_good']		= 'Достоинства';
 $_['entry_bad']			= 'Недостатки';
 $_['entry_text']   		= 'Отзыв';
 $_['entry_image']   	= 'Фотографии';
-
-$_['text_review_main_h4']			= 'Вот</br>что говорят';
-$_['text_review_main_p']			= 'Наши любимые ♥ покупатели:';

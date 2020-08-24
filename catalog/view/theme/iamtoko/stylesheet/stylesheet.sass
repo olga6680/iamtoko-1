@@ -18,7 +18,34 @@ body
 html
 	overflow-x: hidden
 a 
-	outline: none !important	
+	outline: none !important
+
+div.required .control-label:not(span)::before, .form-group.required::after, .form-group.required::before, .sections_block_rquaired .input-group:before
+	color: red !important
+	content: '*' !important
+.form-group.required, .sections_block_rquaired .input-group
+	position: relative		
+.form-group.required::after
+	position: absolute
+	top: 60px
+.form-group.required::before
+	position: absolute
+.login-form, .register-form
+	position: relative
+	.form-group:before
+		position: absolute
+		content: '*'
+		color: red
+		left: -10px
+.register-form
+	.form-group:before
+		left: 5px	
+.sections_block_rquaired .input-group:before	
+	position: absolute
+	left: -8px
+	top: -2px
+
+
 #content
 	letter-spacing: .5px
 	.row
@@ -339,7 +366,7 @@ div.alert.alert-success.alert-dismissible
 /*-------------- the close button ---------*/
 .close
 	position: fixed
-	background: url('../image/icon-close.svg')
+	background: url('/../../image/icon-close.svg')
 	top: 57px
 
 .close 
@@ -1159,11 +1186,10 @@ a.active
 	.caption
 		h4 
 			height: 28px !important	
-
 .product-layout
 	position: relative	
 	padding: 0
-	&:hover .option 
+	&:hover .attributes-size
 		display: block
 	&:hover .toclick
 		display: block	
@@ -1185,37 +1211,80 @@ a.active
 			height: 140px
 			position: absolute
 			bottom: 1%		
-	.options
+	.attributes-size
 		position: absolute
-		bottom: 14%
-		left: 50%
-		width: 100%
-		transform: translate(-50%, -50%)
-		z-index: 1000																	
-	.option
 		display: none
-		.checkboxing
-			display: inline-block							
+		bottom: 20%
+		left: 50%
+		transform: translate(-50%, 0)
+		width: 100%
+		.attribute
+			display: inline-block
+			border: 2px solid rgba(255, 255, 255, .5)
 			color: rgba(255, 255, 255, .7)
-			border: 2px solid rgba(255, 255, 255, .7)
-			padding: 5px 9px 0 9px
-			margin-right: 5px
-			font:
-				family: 'Tavolga', sans-serif
-				size: 1.1em
-				weight: normal
-		input[type=checkbox] 
-			position: absolute
-			z-index: -1
-			opacity: 0		
+			padding: 5px 7px
+			font-weight: 600
+			font-family: 'Tavolga', sans-serif
+			&:not(:last-child)
+				margin-right: 5px
+	/*---------Цвета в категории---------*/				
+	.attributes-color
+		text-align: left
+		position: absolute
+		top: 40%
+		.attribute
+			display: inline-block
+			width: 10px
+			height: 10px
+		#attribute14
+			background-color: #e25c5c	
+		#attribute23
+			background-color: #eee5b6	
+		#attribute12
+			background-color: #ffffff	
+		#attribute29
+			background-color: #4becf1	
+		#attribute22
+			background-color: #9dc2f1	
+		#attribute16
+			background-color: #f7fa6a	
+		#attribute17
+			background-color: #1d6833	
+		#attribute26
+			background-color: #68501d	
+		#attribute19
+			background-color: #611f0b	
+		#attribute20
+			background-color: #bdfaf0	
+		#attribute30
+			background-color: #f0aa40	
+		#attribute21
+			background-color: #f8aedf	
+		#attribute24
+			background-color: #f8faf0	
+		#attribute18
+			background-color: #e9bec0	
+		#attribute27
+			background-color: #797677	
+		#attribute15
+			background-color: #4430f1	
+		#attribute28
+			background-color: #48630b	
+		#attribute13
+			background-color: #0a0a0a	
+		#attribute25
+			background-color: #3b2a04	
 	.caption
-		position: relative						
+		position: relative							
 		p 
 			display: none
+			margin: 0 !important
+			.price
+				margin: 0
+				padding: 0
 			&.price
 				display: block
 				text-align: left
-				margin-top: -10px
 				font:
 					weight: 600
 					size: 16px
@@ -1230,12 +1299,16 @@ a.active
 			display: none	
 	h4
 		text-align: left
+		margin-top: 0
+		margin-bottom: 20px	
+    overflow: hidden
+		max-height: 28px		
 		a 
 			color: #000
 			display: block
-			height: auto
-			width: 89%
+			height: 110%
 			overflow: hidden
+			width: 98%			
 			text-decoration: none
 			outline: none
 			font:
@@ -1255,7 +1328,20 @@ a.active
 			&:nth-child(2)
 				position: absolute
 				right: 20px
-				top: 86%
+				top: 3%
+				.fa
+					position: relative
+					background-color: rgba(255, 255, 255, 0.5)
+					border-radius: 10em
+					height: 40px
+					width: 40px
+					svg
+						position: absolute
+						top: 50%
+						left: 50%
+						transform: translate(-50%, -50%)
+						width: 22px
+
 	button 
 		&:nth-child(1)
 			display: none	
@@ -1344,11 +1430,9 @@ h3
 		margin-bottom: 40px
 		> *
 			&:nth-child(1)
-				top: 82%	
+				top: 80%	
 			&:nth-child(2)
 				top: 94%
-	.options
-		top: 80%
 	.toclick
 		display: none				
 /*---------Отзывы на главной---------*/
@@ -1357,6 +1441,7 @@ h3
 	box-shadow: -1px 41px 41px 17px rgba(0, 0, 0, 0.02)
 	height: auto
 	margin-bottom: 80px
+	margin-top: 80px
 	.swiper-pager
 	.swiper-button-next, .swiper-button-prev
 		opacity: 1 !important
@@ -1435,11 +1520,17 @@ h3
 		h4
 			text-align: left
 			margin-top: 5px
+			overflow: hidden
+			max-height: 30px
+			width: 80%
 			font:
 				weight: 600
 				size: .9em
 			a 
 				color: #383838
+				display: block
+				overflow: hidden
+				max-height: 30px
 
 	.avatar
 		border-radius: 100px
@@ -2474,6 +2565,8 @@ h3
 /*---------Пагинация---------*/		
 [data-bal="bal-results"]
 	display: none
+.pagination > li
+
 .pagination>li>a, .pagination>li>span
 	color: #000
 	border: none
@@ -2486,6 +2579,10 @@ h3
 .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover	
 	background-color: transparent
 	color: #ff66c4
+.row.bal	
+	height: 30px
+	.col-sm-6.col-xs-12
+		height: 30px
 .bal-div
 	position: relative	
 .bal-box-next
@@ -2520,16 +2617,17 @@ h3
 			img 
 				width: 100%
 	h1 
-		margin-top: 60px
+		margin-top: 50px
 		font:
 			weight: 600
 			size: 20px
 		text-align: center	
 		text-transform: lowercase	
+		height: auto !important
 	.list-unstyled
 		text-align: center
-		margin-top: 30px
-		margin-bottom: 15px
+		margin-top: 20px
+		margin-bottom: 15px		
 		h2 
 			font-size: 16px	
 			font-weight: 600
@@ -2544,10 +2642,15 @@ h3
 		li 
 			margin: 0
 			padding: 0
+	.model-product
+		text-transform: lowercase
+		font-weight: 600
+		color: #464545	
 	#product
 		h3 
 			display: none	
-		.form-group
+		/*--------Размер и цвет---------*/		
+		.form-group:nth-child(2)
 			text-align: center
 			position: relative
 			.control-label
@@ -2555,6 +2658,8 @@ h3
 			.checkbox, .radio
 				display: inline-block							
 				margin-right: 5px
+				input[type=radio]:checked + span
+					color: #f294c8
 				font:
 					family: 'Tavolga', sans-serif
 					size: 1.1em
@@ -2570,35 +2675,100 @@ h3
 			input[type=checkbox], input[type=radio]  
 				position: absolute
 				z-index: -1
-				opacity: 0	
-				&:checked + span
-					color: #ff66c4
+				opacity: 0						
+		.form-group:nth-child(3)
+			margin-left: 22px
 			.radio
-				background-color: rgba(242, 148, 200, .3)	
-				border: 1px solid rgba(242, 148, 200, .3)
-				transition: background-color border .25s
-				color: #464545
-				text-transform: lowercase
-				&:hover, &:focus
-					background-color: rgba(242, 148, 200, .4)	
-					border: 1px solid rgba(242, 148, 200, .4)
-				.active-checked
-					background-color: rgba(242, 148, 200, .4)	
-					border: 1px solid rgba(242, 148, 200, .4)						
-			.number-spinner
-				width: 30%	
+				display: inline-block
+			input[type=radio] 
 				position: absolute
-				left: 50%
-				top: 10%
-				transform: translate(-50%, -50%)			
-				.form-control
-					border: none
-					box-shadow: none
-				.btn 
-					border-radius: 0
-					border: none
+				z-index: -1
+				opacity: 0
+			.control-label
+				display: none
+			span 
+				display: none	
+			.img-thumbnail
+				border-radius: 0
+				border: none
+				padding: 0
+				margin: 0	
+				width: 100px
+				height: auto
+				&:hover, &:focus
+					filter: opacity(75%)
+			input[type=radio]:checked + img
+				filter: opacity(75%)		
+			label
+				margin: 0
+				padding: 0
+		/*--------Таблица размеров---------*/		
+		.size-product
+			text-align: center
+			margin-bottom: 20px
+			position: relative
+			svg 
+				width: 55px
+				height: 45px
+				position: absolute
+				right: 20%
+				top: -10px
+				&:hover, &:focus, &:active
+					fill: #ff66c4
+			.button-sizetable
+				text-decoration: underline
+				text-transform: lowercase
+				color: #464545
+				font-weight: 600
+				&:after, &:before					
+					display: none
+				&:hover, &:focus
+					text-decoration: none
+			.sizetable-product
+				margin-top: 20px
+				table 
+					text-align: center
+					border-collapse: collapse 					
+					td:first-child, tr:first-child
+						background: rgba(221, 221, 221, 0.7)
+						color: #000
+						font-weight: 600
+					td	
+						background: rgba(221, 221, 221, 0.3)
+						border-color: #000
+		/*--------Сброс параметров---------*/
+		.form-group:nth-child(5)	
+			text-align: center	
+			#clear_options
+				text-transform: lowercase	
+				text-decoration: none
+				outline: none
+				border: 1px solid rgba(119, 119, 119, 0.7)
+				background-color: rgba(221, 221, 221, 0.3)
+				padding: 5px 20px
+				color: #464545	
+				font-weight: 600
+				transition: background-color border .25s
+				&:hover, &:focus
+					background-color: rgba(221, 221, 221, .5)	
+					border: 1px solid rgba(119, 119, 119, 0.7)
+		/*--------Колличество---------*/
+		.form-group:nth-child(6)	
+			text-align: center
+			margin-top: 46px
+			position: relative
+			text-transform: lowercase
+			color: #464545
+		#input-quantity
+			width: 20%
+			position: absolute
+			text-align: center
+			top: 13%
+			left: 50%
+			transform: translate(-50%, 0)
+		/*--------Кнопка купить---------*/				
 		#button-cart, .btn-quick-order
-			margin-top: 40px
+			margin-top: 80px
 			border: none
 			background-color: #120e10 
 			color: #fff
@@ -2618,9 +2788,272 @@ h3
 			&:hover, &:focus, &:active
 				background-color: #fd7dc4
 			i 
-				display: none		
-		#button_feedback
-			display: block		
+				display: none	
+		/*--------Доставка оплата---------*/	
+		.dilivery-product
+			top: 10px
+			height: auto
+			.payment-delivery-product
+				text-align: right
+			.col-md-6
+				padding: 0
+				margin-top: 10px	
+				img 
+					width: 40%
+				span 
+					font-size: 8px
+				a 
+					color: #464545
+					text-transform: lowercase
+					font-weight: 600
+					text-decoration: underline
+					&:hover, &::after
+						text-decoration: none
+				.dropdown-menu
+					border-radius: 0
+					border: none
+					padding: 20px 10px
+					font-size: 12px
+					li 
+						list-style: none
+						a 
+							display: block
+							margin-top: 10px
+	/*--------Описание продукта---------*/			
+	#content
+		button.pull-right.btn.btn-primary
+			display: none
+		.product-information
+			margin-top: 80px
+			.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th
+				border-top: none !important		
+				padding: 0
+				padding-bottom: 5px
+				font-size: 12px
+				text-transform: lowercase	
+				font-weight: 600
+				strong, b 
+					color: #464545
+					font-weight: 400	
+			#attribute-8, #attribute-7
+				display: none
+			.nav-tabs
+				margin-bottom: 40px	
+				#tab-review
+					display: none !important	
+				> li	
+					float: none
+					display: inline
+					margin-bottom: 1em
+					margin-right: 40px
+					text-align: center	
+					&::after, &::before 
+						box-sizing: none
+					> a 
+						border: none
+						border-radius: 0 
+						color: #464545
+						display: table-cell
+						transform: none
+						padding: 0 
+						padding-bottom: 1px
+						text-transform: lowercase
+						font:
+							size: 14px
+							weight: 600
+						outline: none	
+						&:hover
+							background-color: transparent
+							border-bottom: 3px solid #f294c8 !important
+			.nav-tabs > li.active > a
+				background-color: transparent
+				border-bottom: 3px solid #f294c8 !important
+				color: #000
+				transform: none
+				border: none
+				&:hover
+			.tab-content .tab-pane table tr td 
+				.attribute-name
+					display: flex
+					a 
+						text-decoration: none
+						outline: none		
+					span:after
+						font-family: FontAwesome
+						color: #000
+						content: "\f059"
+						margin-left: 4px
+			.product-attribute
+				.table tbody > tr > td
+					padding-right: 8px
+					.dropdown-menu
+						border-radius: 0
+						border: none
+						width: 300px
+						font-size: 12px
+						padding: 20px
+						font-weight: 400
+						margin-left: -180px
+			.product-parameters
+				padding-left: 45px
+				padding-right: 45px	
+			.product-description
+				padding-left: 50px	
+				padding-right: 0
+				font-size: 12px	
+			#tabcustom2
+				.tab-size
+					padding: 0 120px
+				table 
+					text-align: center
+					padding: 0 60px 
+					tbody > tr > td	
+						padding: 15px 0	
+			#tab-p-review
+				.input-group-addon	
+					border-radius: 0
+					text-transform: lowercase
+					background-color: transparent
+					border: none
+				.input-group-sm						
+					.form-control
+						position: relative
+						border-radius: 0
+						box-shadow: none 
+						border: none 
+						appearance: none
+						color: #464545
+						font-weight: 600
+						&:hover, &:focus
+							text-decoration: underline
+				#p-review	
+					text-align: center
+					font-size: 12px
+					p 
+						padding-top: 20px	
+						font-weight: 400
+						strong 
+							font-weight: 600
+					.table-striped
+						text-align: left
+						tbody > tr > td	
+							padding: 0 40px
+							blockquote
+								font-size: 12px
+								border-top: 1px solid #ddd
+				#p-review-form
+					text-align: center
+					.button-p-review-product, #button-p-review
+						margin-top: 20px
+						border-radius: 0
+						border: none
+						background-color: #120e10 
+						color: #fff
+						padding: 5px 45px
+						text-transform: lowercase
+						font:
+							weight: 400
+							size: 16px			
+						transition: background-color .25s ease
+						outline: none
+						&:hover, &:active, &:focus
+							background-color: lighten(#120e10, 10%) 
+							text-decoration: none 
+					.form-group
+						&:before, &::after
+							display: none 
+						div 
+							margin-bottom: 20px
+						small 
+							text-transform: lowercase
+						.btn-primary
+							border: none
+							border-radius: 0
+							background-color: #f294c8
+							color: #fff
+							padding: 5px 45px
+							text-transform: lowercase
+							font:
+								weight: 400
+								size: 16px			
+							transition: background-color .25s ease
+							outline: none
+							&:hover, &:active, &:focus
+								background-color: lighten(#f294c8, 10%) 
+								text-decoration: none 		
+						.rating
+							margin-top: 10px 
+							.fa
+								font-size: 1em !important
+						.text-requring 							
+							text-transform: lowercase
+							font-size: 12px	
+							span
+								color: red							
+				.p-review-product
+					margin-top: 40px
+					text-align: left
+					.form-horizontal
+						padding: 0 300px
+					#input-good, #input-bad
+						height: 30px
+		.rating
+			margin-top: 5px
+			text-align: left
+			.fa-star + .fa-star-o
+				color: #000 !important
+			.fa-star
+				color: #ff66c4 !important
+			.fa .fa-stack-2x, .fa .fa-stack
+				font-size: 1em
+			.fa-stack
+				margin: 0
+				width: 1em
+				text-align: left !important		
+	#art_aqa_product_modal_btn
+		border: none !important
+		background-color: #120e10 !important
+		color: #fff
+		padding: 5px 45px
+		text-transform: lowercase
+		font:
+			weight: 400
+			size: 16px			
+		transition: background-color .25s ease
+		outline: none
+		&:hover, &:active, &:focus
+			background-color: lighten(#120e10, 10%) 
+	.art_aqa_product_info	
+		background-color: #f9f9f9
+		.art_aqa_product_question 			
+			.art_question_header
+				span
+					font-size: 12px 
+					color: #464545
+					font-weight: 400
+					font-style: italic
+		.art_question_body
+			font-size: 12px
+		.art_aqa_product_answer .art_question_body
+			padding: 0 16px 3px 16px	
+	.modal-content 
+		h3
+			font-size: 18px	
+		h4 
+			font-size: 12px	
+			text-transform: lowercase
+		#form-art_aqa_product .form-group.required
+			&:before, &::after
+				display: none	
+		.pull-right
+			font-size: 12px
+		#button-art_aqa_product
+			margin-top: 30px
+			text-transform: lowercase
+	.modal-content	
+		margin-top: 10%
+
+	/*--------Фото товара---------*/
 	.option-thumbnails		
 		padding: 0
 		margin: 0
@@ -2633,8 +3066,11 @@ h3
 			margin: 0
 			border: none
 			line-height: 0.01
+			outline: none
+			&:hover, &:focus
+				background-color: transparent
 			svg 
-				width: 22px
+				width: 25px
 				height: 15px
 				margin-right: 15px
 		.model-model
@@ -2651,6 +3087,9 @@ h3
 		width: 100%
 		height: 100%
 		top: 0
+		video 
+			width: 540px
+			height: 810px
 	.video-product-hidden
 		display: none
 		position: relative
@@ -2693,7 +3132,299 @@ h3
 				border-width: none 
 				border-right: 4px solid #fff
 				border-left: 4px solid #fff
-		
+	/*--------Таблица размеров---------*/	
+	.product-related, .product-viewed
+		margin-top: 60px
+		h3 
+			font-size: 20px
+			margin-bottom: 40px
+		.slider-related, .slider-viewed
+			.slick-list 
+				margin-right: -5px
+				margin-left: -5px	
+				.slick-track
+					> .slick-slide
+						margin: 0 5px
+					 > li > .product-thumb	
+						text-align: center
+						position: relative
+						&:hover .attributes-size
+							display: block
+						&:hover .toclick
+							display: block	
+						&:hover button:nth-child(1)
+							display: block	
+						&:hover .hover-img
+							background-color: rgba(0, 0, 0, .3)	
+						&:hover button:nth-child(1).btn-quick-order	
+							display: block
+
+						button:nth-child(1).btn-quick-order		
+							color: #000 !important
+							display: none
+							position: absolute
+							text-align: center	
+							background-color: rgba(255, 255, 255, .5)
+							border: none
+							padding: 5px 30px
+							width: 78%
+							top: 35%
+							left: 48%
+							transform: translate(-50%, -50%)
+							transition: background-color .0.25s
+							&:hover, &:focus
+								background-color: rgba(255, 255, 255, .3)
+							.oneclick
+								position: relative	
+							span 
+								text-transform: lowercase !important
+								font-weight: 600	
+								font-size: 12px
+								margin-top: -5px
+							svg 
+								position: absolute
+								width: 18px
+								height: 20px
+								left: -15px	
+						.image
+							padding: 0 !important
+							margin: 0 !important
+							width: 100%	
+							position: relative
+							.hover-img
+								width: 100%
+								height: 110px
+								position: absolute
+								bottom: 1.5%
+								padding: 0 5px
+						.attributes-size
+							position: absolute
+							display: none
+							bottom: 23%
+							left: 50%
+							transform: translate(-50%, 0)
+							width: 100%
+							.attribute
+								display: inline-block
+								border: 2px solid rgba(255, 255, 255, .5)
+								color: rgba(255, 255, 255, .7)
+								padding: 4px 6px
+								font-weight: 600
+								font-family: 'Tavolga', sans-serif
+								&:not(:last-child)
+									margin-right: 5px	
+						/*---------Цвета в рекомендуемых продукта---------*/					
+						.attributes-color
+							text-align: left
+							position: absolute
+							top: 40%
+							.attribute
+								display: inline-block
+								width: 10px
+								height: 10px
+							#attribute14
+								background-color: #e25c5c	
+							#attribute23
+								background-color: #eee5b6	
+							#attribute12
+								background-color: #ffffff	
+							#attribute29
+								background-color: #4becf1	
+							#attribute22
+								background-color: #9dc2f1	
+							#attribute16
+								background-color: #f7fa6a	
+							#attribute17
+								background-color: #1d6833	
+							#attribute26
+								background-color: #68501d	
+							#attribute19
+								background-color: #611f0b	
+							#attribute20
+								background-color: #bdfaf0	
+							#attribute30
+								background-color: #f0aa40	
+							#attribute21
+								background-color: #f8aedf	
+							#attribute24
+								background-color: #f8faf0	
+							#attribute18
+								background-color: #e9bec0	
+							#attribute27
+								background-color: #797677	
+							#attribute15
+								background-color: #4430f1	
+							#attribute28
+								background-color: #48630b	
+							#attribute13
+								background-color: #0a0a0a	
+							#attribute25
+								background-color: #3b2a04	
+						.caption
+							position: relative							
+							p 
+								display: none
+								margin: 0 !important
+								.price
+									margin: 0
+									padding: 0
+								&.price
+									display: block
+									text-align: left
+									font:
+										weight: 600
+										size: 16px
+										family: 'Roboto Condensed', sans-serif
+								.price-tax
+									display: none	
+								.price-old
+									font-size: 14px
+									font-weight: 400
+									text-decoration: line-through 					
+							.rating
+								display: none	
+						h4
+							text-align: left
+							margin-top: 0
+							margin-bottom: 20px	
+							overflow: hidden
+							max-height: 28px		
+							a 
+								color: #000
+								display: block
+								height: 110%
+								overflow: hidden
+								width: 98%			
+								text-decoration: none
+								outline: none
+								font:
+									weight: 500
+									size: 12px																																	
+						.button-group	
+							margin-bottom: 
+							> *
+								&:nth-child(3)
+									display: none
+								&:nth-child(1)	
+									display: none	
+									position: absolute
+									top: 68%
+									left: 50%
+									transform: translate(-50%, 0)
+									text-align: center
+									border: none
+									background-color: #120e10 
+									color: #fff
+									padding: 6px 40px
+									text-transform: lowercase
+									font:
+										weight: 400
+										size: 12px			
+									transition: background-color .25s ease
+									outline: none
+									&:hover, &:active, &:focus
+										background-color: lighten(#120e10, 10%) 
+									.fa			
+										display: none
+								&:nth-child(2)
+									position: absolute
+									right: 0
+									top: 3%
+									border: none
+									background-color: transparent
+									.fa
+										position: relative
+										background-color: rgba(255, 255, 255, 0.5)
+										border-radius: 10em
+										height: 30px
+										width: 30px
+										svg
+											position: absolute
+											top: 50%
+											left: 50%
+											transform: translate(-50%, -50%)
+											width: 17px	
+			/* Arrows */
+			.slick-prev:before, .slick-next:before 
+				font-family: FontAwesome
+				font-size: 14px !important
+			.slick-prev, .slick-next	
+				opacity: .5
+			.slick-prev
+				top: 30%
+				left: -53%
+			[dir='rtl'] .slick-prev
+				top: 30%
+				left: -53%
+			.slick-next
+				top: 29%
+				right: -52%
+			[dir='rtl'] .slick-next
+				top: 29%
+				right: -52%
+			.slick-prev:before
+				content: "\f053" 
+			[dir='rtl'] .slick-prev:before
+				content: "\f053"
+			.slick-next:before
+				content: "\f054"
+			[dir='rtl'] .slick-next:before
+	  		content: "\f054"
+			.slick-prev,
+			.slick-next
+				font-size: 0
+				line-height: 0
+				position: absolute 
+				display: block
+				width: 100%
+				height: 35px
+				margin-top: 
+				padding: 0
+				cursor: pointer
+				color: transparent
+				border: none
+				outline: none
+				background: transparent
+
+			.slick-prev:hover,
+			.slick-prev:focus,
+			.slick-next:hover,
+			.slick-next:focus
+				color:transparent
+				outline: none
+				background: transparent
+
+			.slick-prev:hover:before,
+			.slick-next:hover:before,
+			.slick-prev:active:before,
+			.slick-next:active:before
+				opacity: .7
+
+			.slick-prev.slick-disabled:before,
+			.slick-next.slick-disabled:before
+				opacity: .25
+
+
+			.slick-prev:before,
+			.slick-next:before
+				font-family: FontAwesome
+				font-size: 20px
+				font-stretch: ultra-expanded !important
+				line-height: 1
+				opacity: .5
+				color: #000
+				-webkit-font-smoothing: antialiased
+				-moz-osx-font-smoothing: grayscale
+
+	.product-viewed
+		margin-top: 0
+		.slider-viewed .slick-list .slick-track > .slick-slide
+			margin: 0
+			.button-group 
+				> :nth-child(1)
+					top: 66%
+				> :nth-child(2)
+					right: 8px
 
 	/*---------Вертикальный слайдер---------*/	
 	#content
@@ -2725,7 +3456,7 @@ h3
 	  content: "\f078"
 .draggable
 	min-height: 500px !important		
-.single-slide
+.slider-for
 	.slick-prev,
 	.slick-next
 		z-index: 1000
@@ -2739,11 +3470,11 @@ h3
 		top: 45%
 		left: 0
 	.slick-next
-		bottom: 50%	
-		right: 0
+		bottom: 51%	
+		right: 5px
 	[dir='rtl'] .slick-next
-		bottom: 50%
-		right: 0
+		bottom: 51%
+		right: 5px
 	.slick-prev:before
 		content: "\f053" 
 	[dir='rtl'] .slick-prev:before

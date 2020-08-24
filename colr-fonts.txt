@@ -51,3 +51,24 @@ Tel7418574 tokostyle19@gmail.com
 -------------------
 C047B-1349E-0B56C-A48DD-3D222
 Ключ к Заказу в один клик
+
+------------------------
+Видео в карточке товара
+
+<div class="video-product col-md-12 video-product-hidden">
+  <div class="col-md-2 hidden-xs"></div>
+    <div class="col-md-10 col-xs-12">
+      <video autoplay="" loop="true" muted="" playsline="" tabindex="-1" preload="" poster="../video/resize_image-854-1280big25465-_3_.jpg" data-loader="av" aria-label="Video Player" width="540" height="810">
+        <source src="../video/zhenskij-letnij-kostyum-iamtoko-2402-10_2.mp4" type="video/mp4">
+      </video>
+    </div>
+</div>
+
+
+<div class="button-video" id="button-video" type="button" onclick="hide()">
+  <div class="bg-button-video">
+    <div class="button-button-video play"></div>
+  </div>
+  <span>video</span>
+</div>
+--------------------------
