@@ -4,3 +4,5 @@ package-lock.json
 *.gif
 *.png
 *.jpg
+*.mp4
+*.webm
