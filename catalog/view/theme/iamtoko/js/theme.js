@@ -29,7 +29,7 @@ $('.button-salepopup').on('click', function() {
   $.magnificPopup.close();
 });
 
-$('.button-newspopup').on('click', function() {
+$('.button-newspopup, .button-text-home-center').on('click', function() {
   $('.sale-popup, .news-popup').fadeOut();
   $('.form-news-popup').fadeIn();
 });
