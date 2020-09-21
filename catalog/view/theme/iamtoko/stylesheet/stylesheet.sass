@@ -44,8 +44,12 @@ div.required .control-label:not(span)::before, .form-group.required::after, .for
 	position: absolute
 	left: -8px
 	top: -2px
-
-
+.visually-hidden 
+  position: absolute
+  clip: rect(0 0 0 0)
+  width: 1px
+  height: 1px
+  margin: -1px
 #content
 	letter-spacing: .5px
 	.row
@@ -53,6 +57,7 @@ div.required .control-label:not(span)::before, .form-group.required::after, .for
 		margin-left: 0
 /*----------header------------*/
 header
+	position: relative
 	.dropdown
 		display: inline-block
 		.login-name
@@ -132,6 +137,7 @@ header
 	transform: rotate(-5deg)
 	margin-left: 70px
 	width: 190px
+	position: relative
 	a
 		font:
 			//family: 'Montserrat Alternates', sans-serif
@@ -284,16 +290,27 @@ div.alert.alert-success.alert-dismissible
 	position: absolute
 	top: 3%
 	left: 50%	
+	transform: translate(-50%, 0)
 	width: auto
 	border-radius: 0
-	height: 50px
-	border: 1px solid #120e10 !important
+	height: auto
+	box-shadow: 0 6px 12px rgba(0,0,0,.175)
+	border: none
 	color: #120e10
 	background-color: #fff
 	z-index: 100000 
+	.close
+		top: -20px
+		right: -20px		
 	a 
 		color: #ff66c4
 		font-weight: 600
+		display: block
+		max-width: 300px
+		white-space: nowrap
+		box-sizing: border-box
+		overflow: hidden
+		text-overflow: ellipsis
 
 /*---Cart---*/	
 #cart
@@ -574,7 +591,7 @@ a.active
 	border: none !important
 	box-shadow: none !important
 	border-radius: 0	
-	margin-top: -50px !important
+	margin-top: -40px !important
 	margin-bottom: 0
 	width: 100% !important
 	margin-right: 0
@@ -791,7 +808,7 @@ a.active
 	.col-top
 		position: absolute
 		top: 10%
-		font-size: 4em	
+		font-size: 70px	
 	.col-top3
 		left: 50%
 		animation-duration: 1s
@@ -812,24 +829,24 @@ a.active
 		position: absolute
 		top: 30%
 		left: 13%
-		font-size: 4em
+		font-size: 50px
 		animation-duration: 2s
 		animation-delay: 2s		
 	.col-top6
 		position: absolute
 		top: 42%
 		left: 9%
-		font-size: 3.6em	
+		font-size: 43px	
 		animation-duration: 2s
 		animation-delay: 3s
 		span 
 			color: #ff66c4
-			font-size: 1.06em	
+			font-size: 50px
 	.col-top7
 		position: absolute
 		top: 53%
 		left: 28%
-		font-size: 4.7em	
+		font-size: 65px	
 		animation-duration: 2s
 		animation-delay: 4s							
 	.button-col
@@ -859,7 +876,7 @@ a.active
 		font:
 			family: 'Roboto Condensed', sans-serif
 			weight: 200
-			size: .8em
+			size: 10px
 		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3)
 	.slideRight, .slideLeft
 		position: absolute
@@ -915,7 +932,7 @@ a.active
 		font:
 			family: 'Roboto Condensed', sans-serif
 			weight: 400
-			size: 1.8em
+			size: 20px
 		position: absolute
 	.news
 		top: 10%
@@ -929,6 +946,7 @@ a.active
 		left: 5%
 		animation-duration: 1s
 		animation-delay: 3s
+		font-size: 12px
 	.button-news
 		position: absolute
 		top: 28%
@@ -952,6 +970,7 @@ a.active
 		left: 5%	
 		animation-duration: 1s
 		animation-delay: 6s
+		font-size: 12px
 	.button-article
 		position: absolute
 		top: 57%
@@ -975,6 +994,7 @@ a.active
 		left: 5%
 		animation-duration: 1s
 		animation-delay: 9s	
+		font-size: 12px
 	.button-advice
 		position: absolute
 		top: 86%
@@ -1180,6 +1200,7 @@ a.active
 		color: #000
 		background-color: #fff
 		border-color: transparent
+
 				
 /*---------все продукты---------*/
 
@@ -1202,7 +1223,19 @@ a.active
 		margin-right: 10px
 		padding: 0
 		text-align: center
-		margin-bottom: 20px				
+		margin-bottom: 20px	
+		position: relative	
+		.triangle-topleft	
+			position: absolute !important
+			z-index: 1000
+			top: 2%
+			left: 0
+			span 
+				font-size: 12px 
+				font-weight: 600
+				color: red
+				background-color: rgba(255, 255, 255, .5)
+				padding: 5px 10px
 		.image
 			padding: 0 !important
 			margin: 0 !important
@@ -1323,7 +1356,7 @@ a.active
 			&:nth-child(1)
 				position: absolute
 				z-index: 1000
-				top: 70%
+				top: 75%
 				left: 48%
 				transform: translate(-50%, -50%)
 			&:nth-child(2)
@@ -1382,7 +1415,7 @@ a.active
 			margin-top: 20px
 
 /*---------витрина на главной---------*/	
-h3
+h2, h3
 	display: block
 	text-align: center
 	margin-top: -10px
@@ -1441,7 +1474,7 @@ h3
 	text-align: center
 	box-shadow: -1px 41px 41px 17px rgba(0, 0, 0, 0.02)
 	height: auto
-	margin-bottom: 80px
+	margin-bottom: 150px
 	margin-top: 80px
 	.swiper-pager
 	.swiper-button-next, .swiper-button-prev
@@ -1574,6 +1607,325 @@ h3
 	z-index: 10000
 	&:hover
 		background-color: rgba(255, 102, 196, .8)
+/*---------Текст внизу на главной---------*/
+.about-home	
+	h1, h2, h3
+		font:
+			family: 'Roboto Condensed', sans-serif
+			weight: 400
+			size: 2em
+		letter-spacing: 1.3px	
+		text-transform: uppercase		
+		text-align: center	
+	h2, h3
+		font-size: 1.5em
+	ul 
+		li 
+			list-style: none
+			font-size: 12px
+			line-height: 2		
+	p 
+		font-size: 12px	
+	>* img 
+		max-width: 100%
+		max-height: auto	
+	.quote-home
+		blockquote
+			position: relative
+			padding: 40px
+			margin: 80px 150px
+			text-align: center
+			border-left: none
+			font-size: 14px
+			&:before, &:after 
+				font-size: 45px
+				color: #858585
+				position: absolute
+				left: 40px
+				right: 40px
+				line-height: .5
+				background: linear-gradient(to right, #858585 45%, transparent 45%, transparent), linear-gradient(to right, transparent, transparent 55%, #858585 55%)
+				font-family: serif	
+			&:before 
+				content: "\201C"
+				top: 0
+				height: 2px
+			&:after 
+				content: "\201D"
+				bottom: 0
+				height: 2px
+			p 
+				letter-spacing: 1.2px
+				padding: 0 50px
+				font-weight: 400
+				color: #383838
+				font-size: 14px
+		p 
+			text-align: center
+			letter-spacing: 1px
+			font-size: 12px
+			padding: 20px
+
+		.image-home-category
+			margin-top: 80px
+			.col-xs-12
+				
+			p 
+				text-align: left
+			ul 
+				padding: 0 0 0 60px
+				list-style-position: inside
+				column-count: 2
+				list-style-type: decimal
+				li 
+					list-style: none
+					font-size: 12px
+					line-height: 2
+					a
+						color: #000
+						text-decoration: underline
+						&:hover, &:focus
+							text-decoration: none	
+	.button-text-home-center		
+		text-align: center		
+	.button-text-home-t		
+		color: #ffffff
+		background-color: rgba(0, 0, 0, 1)
+		border-color: rgba(0, 0, 0, 1)
+		transition: background-color, border-color .25s ease
+		padding: 5px 25px
+		text-transform: lowercase	
+		text-decoration: none
+		outline: none
+		&:hover, &:focus
+			background-color:	rgba(0, 0, 0, .8)	
+			border-color:	rgba(0, 0, 0, .9)	
+	.new-home		
+		margin-top: 100px	
+		h2 
+			margin-top: 0
+		ul
+			margin-bottom: 20px
+		li 
+			position: relative
+			padding-left: 50px
+			line-height: 4				
+			svg 
+				position: absolute
+				left: 0
+				top: 50%
+				transform: translate(0, -50%)
+		a 
+			color: #000
+			background-color: transparent
+			border: 1px solid rgba(0, 0, 0, .5)
+			transition: background-color, border-color .25s ease
+			padding: 2px 25px
+			text-transform: lowercase	
+			text-decoration: none
+			outline: none
+			&:hover, &:focus
+				background-color:	rgba(0, 0, 0, .1)	
+				border-color:	rgba(0, 0, 0, .1)
+		.new-sale-home-t
+			.register-home-t		
+				margin: 20px 0 20px 45px
+			.footnote
+				font-size: 10px	
+		.img-new-sale-home
+			img 
+				position: relative
+				margin-top: 2%
+			h2 
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				font-family: 'Hitch Hike'
+				font-size: 70px
+				color: #fff
+				transform: rotate(-30deg)		
+				text-shadow: 1px 1px 2px black
+	.aboutus-home
+		margin-top: 80px
+		position: relative
+		h3 
+			margin-bottom: 40px
+			padding: 100px 80px 0 80px
+		p 
+			padding: 40px	
+		.col-md-12 .col-md-3 div
+			margin: 20px 0
+			span 				
+				color: #f294c8
+			span, p	
+				font-weight: 600
+				font-family: 'Roboto Condensed', sans-serif	
+			p 
+				font-weight: 400
+				padding: 0 
+	hr 
+		width: 20%
+		border: 1px solid #858585
+		margin-bottom: 80px
+	.help-home
+		text-align: center
+		margin-top: 40px
+		img 
+			margin-top: 40px
+		.col-md-6
+			text-align: left
+			padding: 20px	80px
+		.help-hom-text
+			margin: 40px 0
+			border-right: 1px solid #000
+		.help-hom-ul	
+			margin: 40px 0
+			ul 
+				li 
+					list-style-type: circle
+	.delivery-home-t
+		.col-md-6
+			margin-top: 60px
+			position: relative		
+			.text-delivery-home-t	
+				padding: 80px 80px
+				.button-text-home-center
+					margin-top: 40px
+	.question-home-t
+		.col-md-6 
+			margin-top: 80px
+			h3 
+				padding: 50px 80px	
+			ul 
+				li 
+					font-family: 'Roboto Condensed', sans-serif	
+					color: #666565
+					position: relative
+					line-height: 3
+					a 
+						font-family: 'Montserrat Alternates', sans-serif
+						color: #000		
+						margin-left: 60px
+						text-decoration: underline
+						&:hover, &:focus
+							text-decoration: none
+					svg 
+						position: absolute
+						left: 0		
+				.chats 
+					a 
+						margin-left: 100px	
+		.ul-question-home-t
+			div 
+				font-size: 12px	
+				a
+					font-size: 13px
+					color: #f294c8
+					font-weight: 600
+					margin-top: -3px	
+	.exchange-home-t
+		.col-md-6 
+			margin-top: 80px
+			margin-bottom: 80px
+			h3 
+				padding-top: 10px
+		.text-exchange-home-t
+			padding: 0 100px
+	.loveling 
+		text-align: center
+	.last-button-text-home-center
+		margin: 80px 0	
+												
+/*---------Текст в категории Женская повседневная одежда---------*/
+
+.all-categories, .all-categories-filter, .all-categories-help
+	font-size: 12px
+	section 
+		width: 100%
+		height: auto
+		float: left
+		margin-bottom: 100px
+.all-categories	
+	margin-top: 100px	
+	.all-categories-text 
+		margin-top: 40px
+		div 
+			padding: 5%
+		h2 
+			margin-top: 50px
+			margin-bottom: 40px
+	.all-categories-category
+		ul li 
+			list-style: none
+			line-height: 2
+			a 
+				color: #000000
+				text-decoration: underline
+				&:hover, &:focus
+					text-decoration: none
+	.all-categories-xl-h
+		padding: 1.3%	
+		a  
+			color: #000
+			text-decoration: underline
+			&:hover, &:focus
+				text-decoration: none	
+.all-categories-filter-h
+	h3 
+		margin-top: 2%
+.all-categories-help
+	margin-top: 100px
+	margin-bottom: 80px
+	width: 100%
+	height: auto
+	float: left
+	.all-categories-help-img
+		text-align: center
+		img 
+			width: 25%	
+			height: auto
+			position: relative
+		div 
+			position: absolute
+			width: 30%
+			left: 50%
+			transform: translate(-50%, 0)
+			span 
+				font-family: 'Roboto Condensed', sans-serif
+				font-weight: 600
+			p 
+				font-size: 10px
+	.all-categories-help-text 
+		padding: 3%
+		h3 
+			margin-bottom: 40px 
+		a 
+			color: #f294c8
+			font-weight: 600
+			display: block
+			margin-top: -1px
+			margin-bottom: 5px
+.last-button-all-categories
+	margin-bottom: 60px
+	a
+		color: #ffffff
+		background-color: rgba(0, 0, 0, 1)
+		border-color: rgba(0, 0, 0, 1)
+		transition: background-color, border-color .25s ease
+		text-transform: lowercase	
+		text-decoration: none
+		outline: none
+		&:hover, &:focus
+			text-decoration: none
+			color: #fff
+			background-color:	rgba(0, 0, 0, .8)	
+			border-color:	rgba(0, 0, 0, .9)	
+
+
+
+			
+
 /*---------Coolback---------*/
 .modal-content
 	background-color: #fff
@@ -1847,7 +2199,7 @@ h3
 	margin-right: 10px
 	.section1-footer
 		background-color: #120e10 
-		height:
+		height: 
 		.social-footer
 			list-style: none
 			display: inline-block
@@ -1947,6 +2299,7 @@ h3
 		svg
 			position: absolute		
 			top: 80% 
+			right: 70%
 			width: 100px 
 	.reserv-footer
 		position: absolute
@@ -2150,7 +2503,7 @@ h3
 		text-transform: lowercase
 		letter-spacing: 1.1px
 		text-align: center	
-		margin-top: 60px
+		margin-top: -60px
 
 	.container-rewiev
 		.caption
@@ -2196,6 +2549,8 @@ h3
 	.swiper-slide > * img	
 		box-sizing: border-box
 		transition: all 1s ease		
+		position: relative
+		border: 0.5px solid rgba(0, 0, 0, .05)
 		&:hover
 			filter: opacity(75%)
 	a 
@@ -2226,10 +2581,80 @@ h3
 		&:before, &:after
 			padding: 3px 5px 2px 3px
 
+	/*---------Женская повседневная одежда---------*/
+	.all-categories-bonus
+		position: absolute
+		top: 50%
+		left: 0
+		transform: translate(0, -50%) 
+		color: #000
+		font-size: 12px
+		text-transform: lowercase
+		letter-spacing: 1.3px		
+		a
+			color: #000
+			font-size: 12px
+		h3 
+			font-size: 18px	
+			font-weight: 
+			letter-spacing: normal
+			margin-top: 20px
+			margin-bottom: 30px
+		ul 
+			list-style-position: inside
+			padding: 0
+			margin: 0
+			li 
+				list-style: none	
+				padding: 0
+				margin: 0
+		.all-categories-bonus-top
+			font-size: 14px	
+			font-family: 'Roboto Condensed', sans-serif
+		.all-categories-bonus-button
+			border: 1px solid rgba(0, 0, 0, 0.7)
+			padding: 5px 15px	
+			transform: background-color border .025s
+			&:hover, &:focus
+				background-color: rgba(0, 0, 0, 0.05)
+				border: 1px solid rgba(0, 0, 0, 0.1)
+		.all-categories-bonus-bottom
+			margin-bottom: 20px	
+	.bonus-product
+		left: 55%
+		h3 
+			text-align: left	
+		ul 
+			li 
+				position: relative
+				padding-left: 20px
+				a 
+					text-decoration: underline
+					&:hover, &:focus
+						text-decoration: none
+				svg
+					width: 15px
+					height: auto
+					position: absolute
+					top: 50%
+					left: 0
+					transform: translate(0, -50%)				
+	.bonus-together
+		left: 50%
+		transform: translate(-50%, -50%)
+		.all-categories-bonus-bottom
+			margin-bottom: 45px		
+	.bonus-exchange
+		left: 7%	
+		h3 
+			text-align: left
+		.all-categories-bonus-bottom
+			margin-bottom: 25px				
 	/*---------Новинки со скидкой---------*/
 	.ban-top-cat
 		display: block
 		margin: 0
+		margin-top: -40px
 		background-color: #f294c8
 		font-size: .9em !important
 		text-transform: lowercase
@@ -2633,6 +3058,9 @@ h3
 			font-size: 16px	
 			font-weight: 600
 			color: #464545
+		h3 
+			font-size: 14px
+			margin-top: 5px	
 		span 
 			font-weight: 600
 			color: #777					
@@ -2647,6 +3075,7 @@ h3
 		text-transform: lowercase
 		font-weight: 600
 		color: #464545	
+		margin-top: -20px
 	#product
 		h3 
 			display: none	
@@ -2769,7 +3198,7 @@ h3
 			transform: translate(-50%, 0)
 		/*--------Кнопка купить---------*/				
 		#button-cart, .btn-quick-order
-			margin-top: 80px
+			margin-top: 75px
 			border: none
 			background-color: #120e10 
 			color: #fff
@@ -3159,6 +3588,17 @@ h3
 							background-color: rgba(0, 0, 0, .3)	
 						&:hover button:nth-child(1).btn-quick-order	
 							display: block
+						.triangle-topleft	
+							position: absolute !important
+							z-index: 1000
+							top: 2%
+							left: 0
+							span 
+								font-size: 12px 
+								font-weight: 600
+								color: red
+								background-color: rgba(255, 255, 255, .5)
+								padding: 5px 10px	
 
 						button:nth-child(1).btn-quick-order		
 							color: #000 !important
@@ -3534,15 +3974,211 @@ h3
 	color: #000
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
-		
-		
+				
 /*---------Zoom---------*/				
 .easyzoom--overlay
 	img 
 		max-width: none !important
+/*----- Личный кабинет------ */		
+#account-login, #account-register, #account-forgotten, #account-wishlist, #account-account, #account-edit, #account-password, #account-address, #account-order, #account-download, #account-recurring, #account-reward, #account-return, #account-transaction, #account-newsletter, #common-success
+	#content
+		h2, h1
+			text-transform: uppercase
+			font:
+				family: 'Roboto Condensed', sans-serif
+				weight: normal
+				size: 28px
+		.well
+			border-radius: 0
+			box-shadow: none
+			border: none
+
+			.form-group
+				.control-label
+					text-transform: lowercase
+				.form-control
+					text-transform: lowercase
+				a 
+					color:#ff66c4 
+					display: block
+					margin-top: 5px
+					text-decoration: underline
+					text-transform: lowercase
+					&:hover, &::after
+						text-decoration: none		
+			.btn-primary
+				border: none
+				background-color: #120e10 
+				border-radius: 0
+				color: #fff
+				padding: 8px 45px
+				text-transform: lowercase
+				font:
+					weight: 400
+					size: 16px			
+				transition: background-color .25s ease
+				outline: none
+				&:hover, &:active, &:focus
+					background-color: lighten(#120e10, 10%) 
+	.list-group-item:first-child, .list-group-item:last-child
+		border-radius: 0
+	.list-group-item	
+		text-transform: lowercase
+	.form-group.required::after, .form-group.required::before
+		display: none	
+#account-register, #account-forgotten, #account-wishlist, #account-account, #account-edit, #account-password, #account-address, #account-order, #account-download, #account-recurring, #account-reward, #account-return, #account-transaction, #account-newsletter, #common-success
+	p 
+		font-size: 14px
+		a  
+			color: #ff66c4 
+			text-decoration: underline
+			&:hover, &:focus
+				text-decoration: none
+	legend
+		text-transform: uppercase	
+		font-family: 'Roboto Condensed', sans-serif	
+		font-size: 18px
+	input 
+		margin-bottom: 20px
+		box-shadow: none
+		.placeholder
+			display: none
+	.buttons
+		a 
+			color: #ff66c4
+			text-decoration: underline
+			&:hover, &:focus
+				text-decoration: none
+		.btn-primary, .btn-default			
+			border: none
+			text-decoration: none
+			background-color: #120e10 
+			border-radius: 0
+			color: #fff
+			padding: 8px 45px
+			text-transform: lowercase
+			font:
+				weight: 400
+				size: 16px			
+			transition: background-color .25s ease
+			outline: none
+			&:hover, &:active, &:focus
+				background-color: lighten(#120e10, 10%) 		
+		.btn-default
+			background-color: #f294c8
+			&:hover, &:active, &:focus
+				background-color: lighten(#f294c8, 5%) 	
+#account-wishlist
+	.table-responsive	
+		.table-bordered
+			font-size: 12px	
+			a 
+				color: #000000
+				text-decoration: underline
+				&:hover, &:focus
+					text-decoration: none
+			.btn-primary, .btn-danger		
+				border: none
+				text-decoration: none
+				background-color: #120e10 
+				border-radius: 0
+				color: #fff
+				padding: 5px 11.5px 0 11.5px
+				text-transform: lowercase
+				font:
+					weight: 400
+					size: 16px			
+				transition: background-color .25s ease
+				outline: none
+				svg 
+					fill: #fff
+					width: 20px
+				&:hover, &:active, &:focus
+					background-color: lighten(#120e10, 10%) 		
+			.btn-danger	
+				background-color: #f294c8
+				padding: 9px 15px
+				&:hover, &:active, &:focus
+					background-color: lighten(#f294c8, 5%) 								
+#account-account
+	.list-unstyled li a
+		color: #000
+		&:hover, &:focus
+			text-decoration: underline
+
+/*----- Личный кабинет------ */
+.category-head
+	.main-underline
+		font-family: 'Roboto Condensed', sans-serif
+		text-transform: uppercase
+		font-size: 25px	
+#quickcheckoutconfirm
+	#login-box #checkout .quickcheckout-heading, #payment-address .quickcheckout-heading, #payment-method .quickcheckout-heading
+		font-size: 14px !important
+		text-transform: lowercase	
+	a .fa-question-circle::before
+		color: #000	!important
+	.quickcheckout-content 
+		label 
+			text-transform: lowercase	
+	.btn-primary
+		border: none
+		text-decoration: none
+		background-color: #120e10 
+		border-radius: 0
+		color: #fff
+		text-transform: lowercase
+		font:
+			weight: 400
+			size: 15.5px			
+		transition: background-color .25s ease
+		outline: none
+		&:hover, &:active, &:focus
+			background-color: lighten(#120e10, 10%) 				
+	#payment-method
+		.quickcheckout-content
+			p, .table
+				display: none
+			strong 
+				text-transform: lowercase
+				font-weight: 400	
+		.quickcheckout-heading
+			display: none	
+	#cart1	
+		.quickcheckout-content .quickcheckout-cart
+			thead > tr > td
+				text-transform: lowercase	
+			td.image img
+				width: 80px	
+			td.name a
+				color: #000000
+				font-size: 12px
+				&:hover, &:focus
+					text-decoration: underline
+			td.quantity
+				.btn-primary	
+					padding: 0 10px	
+					background-color: transparent
+					color: #000000
+					border: 1px solid #ddd
+				.btn-danger	
+					background: #f294c8
+					border: #f294c8
+					border-radius: 0
+					.glyph-icon.icon-cancel:before
+						font-family: FontAwesome
+						content: "\f00d"
+	#totals-wrap
+		.total-wrap:not(:nth-child(1))
+			display: none
+	#terms
+		label a 
+			color: #ff66c4
+			&:hover, &:focus
+				text-decoration: underline		
 
 
-//
+	//
 
 
 @import "media"
